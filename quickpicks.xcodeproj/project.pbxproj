@@ -7,11 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF09F44E20D1BB3A0044D390 /* LayerRadialGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09F44D20D1BB3A0044D390 /* LayerRadialGradient.swift */; };
+		CF09F45020D1BC470044D390 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09F44F20D1BC470044D390 /* Colors.swift */; };
+		CF09F45620D2298F0044D390 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09F45520D2298F0044D390 /* Fonts.swift */; };
+		CF09F45820D22C100044D390 /* LayerEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09F45720D22C100044D390 /* LayerEffects.swift */; };
+		CF09F45920D22E7C0044D390 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = CF09F45420D1ED790044D390 /* Fonts */; };
+		CF09F45D20D2438E0044D390 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF09F45C20D2438E0044D390 /* GoogleService-Info.plist */; };
+		CF5AE43B20D3267600463C70 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5AE43A20D3267600463C70 /* LoginTextField.swift */; };
+		CF697D3620D64BE900EA0F0A /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF697D3520D64BE900EA0F0A /* FirebaseManager.swift */; };
 		CF8C9FBA20D0C57D005F6175 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C9FB920D0C57D005F6175 /* AppDelegate.swift */; };
-		CF8C9FBC20D0C57D005F6175 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C9FBB20D0C57D005F6175 /* ViewController.swift */; };
+		CF8C9FBC20D0C57D005F6175 /* LoginOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C9FBB20D0C57D005F6175 /* LoginOptions.swift */; };
 		CF8C9FBF20D0C57D005F6175 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8C9FBD20D0C57D005F6175 /* Main.storyboard */; };
 		CF8C9FC120D0C57F005F6175 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF8C9FC020D0C57F005F6175 /* Assets.xcassets */; };
 		CF8C9FC420D0C57F005F6175 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8C9FC220D0C57F005F6175 /* LaunchScreen.storyboard */; };
+		CF8C9FEC20D0EAE1005F6175 /* LoginEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C9FEB20D0EAE1005F6175 /* LoginEmail.swift */; };
+		CF8C9FEE20D0EB0B005F6175 /* LoginEmailSignup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C9FED20D0EB0B005F6175 /* LoginEmailSignup.swift */; };
+		DCD31BC2A59B5EC80F0DB2F9 /* Pods_quickpicks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F73F97435B5AAC8698397BF /* Pods_quickpicks.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,15 +43,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04310FFD384E75BAC2209F01 /* Pods-quickpicks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quickpicks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-quickpicks/Pods-quickpicks.debug.xcconfig"; sourceTree = "<group>"; };
+		9F73F97435B5AAC8698397BF /* Pods_quickpicks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quickpicks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C51F224FE823BDD46BA60DE7 /* Pods-quickpicks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quickpicks.release.xcconfig"; path = "Pods/Target Support Files/Pods-quickpicks/Pods-quickpicks.release.xcconfig"; sourceTree = "<group>"; };
+		CF09F44D20D1BB3A0044D390 /* LayerRadialGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerRadialGradient.swift; sourceTree = "<group>"; };
+		CF09F44F20D1BC470044D390 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		CF09F45420D1ED790044D390 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = /Users/zhanpengpan/Desktop/quickpicks/quickpicks/Fonts; sourceTree = "<absolute>"; };
+		CF09F45520D2298F0044D390 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		CF09F45720D22C100044D390 /* LayerEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerEffects.swift; sourceTree = "<group>"; };
+		CF09F45C20D2438E0044D390 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CF5AE43A20D3267600463C70 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		CF697D3520D64BE900EA0F0A /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		CF8C9FB620D0C57D005F6175 /* quickpicks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quickpicks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8C9FB920D0C57D005F6175 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CF8C9FBB20D0C57D005F6175 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CF8C9FBB20D0C57D005F6175 /* LoginOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptions.swift; sourceTree = "<group>"; };
 		CF8C9FBE20D0C57D005F6175 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF8C9FC020D0C57F005F6175 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF8C9FC320D0C57F005F6175 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF8C9FC520D0C57F005F6175 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF8C9FCA20D0C57F005F6175 /* quickpicksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = quickpicksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8C9FD520D0C57F005F6175 /* quickpicksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = quickpicksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF8C9FEB20D0EAE1005F6175 /* LoginEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmail.swift; sourceTree = "<group>"; };
+		CF8C9FED20D0EB0B005F6175 /* LoginEmailSignup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailSignup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCD31BC2A59B5EC80F0DB2F9 /* Pods_quickpicks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,11 +93,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		011819088B2ED0ED30AE7C01 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				04310FFD384E75BAC2209F01 /* Pods-quickpicks.debug.xcconfig */,
+				C51F224FE823BDD46BA60DE7 /* Pods-quickpicks.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9EA5E10EADB8B84C7B8AC25F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9F73F97435B5AAC8698397BF /* Pods_quickpicks.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF09F44C20D1BAA40044D390 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				CF09F44D20D1BB3A0044D390 /* LayerRadialGradient.swift */,
+				CF09F44F20D1BC470044D390 /* Colors.swift */,
+				CF09F45520D2298F0044D390 /* Fonts.swift */,
+				CF09F45720D22C100044D390 /* LayerEffects.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		CF34E4A720D3159100AE2CB9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CF5AE43A20D3267600463C70 /* LoginTextField.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		CF8C9FAD20D0C57D005F6175 = {
 			isa = PBXGroup;
 			children = (
 				CF8C9FB820D0C57D005F6175 /* quickpicks */,
 				CF8C9FB720D0C57D005F6175 /* Products */,
+				011819088B2ED0ED30AE7C01 /* Pods */,
+				9EA5E10EADB8B84C7B8AC25F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,14 +152,53 @@
 		CF8C9FB820D0C57D005F6175 /* quickpicks */ = {
 			isa = PBXGroup;
 			children = (
+				CF8C9FE920D0E9B2005F6175 /* Controller */,
+				CF8C9FE820D0E977005F6175 /* View */,
+				CF8C9FE720D0E96A005F6175 /* Model */,
 				CF8C9FB920D0C57D005F6175 /* AppDelegate.swift */,
-				CF8C9FBB20D0C57D005F6175 /* ViewController.swift */,
 				CF8C9FBD20D0C57D005F6175 /* Main.storyboard */,
 				CF8C9FC020D0C57F005F6175 /* Assets.xcassets */,
 				CF8C9FC220D0C57F005F6175 /* LaunchScreen.storyboard */,
 				CF8C9FC520D0C57F005F6175 /* Info.plist */,
+				CF09F45C20D2438E0044D390 /* GoogleService-Info.plist */,
+				CF09F45420D1ED790044D390 /* Fonts */,
 			);
 			path = quickpicks;
+			sourceTree = "<group>";
+		};
+		CF8C9FE720D0E96A005F6175 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CF8C9FE820D0E977005F6175 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CF34E4A720D3159100AE2CB9 /* Login */,
+				CF09F44C20D1BAA40044D390 /* Utility */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CF8C9FE920D0E9B2005F6175 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CF697D3520D64BE900EA0F0A /* FirebaseManager.swift */,
+				CF8C9FEA20D0EA47005F6175 /* Login */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CF8C9FEA20D0EA47005F6175 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CF8C9FBB20D0C57D005F6175 /* LoginOptions.swift */,
+				CF8C9FEB20D0EAE1005F6175 /* LoginEmail.swift */,
+				CF8C9FED20D0EB0B005F6175 /* LoginEmailSignup.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,9 +208,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF8C9FDE20D0C57F005F6175 /* Build configuration list for PBXNativeTarget "quickpicks" */;
 			buildPhases = (
+				D049B1E040BCA83313301A49 /* [CP] Check Pods Manifest.lock */,
 				CF8C9FB220D0C57D005F6175 /* Sources */,
 				CF8C9FB320D0C57D005F6175 /* Frameworks */,
 				CF8C9FB420D0C57D005F6175 /* Resources */,
+				CBBE7470A45E4476E2A1DE6E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -205,7 +309,9 @@
 			files = (
 				CF8C9FC420D0C57F005F6175 /* LaunchScreen.storyboard in Resources */,
 				CF8C9FC120D0C57F005F6175 /* Assets.xcassets in Resources */,
+				CF09F45D20D2438E0044D390 /* GoogleService-Info.plist in Resources */,
 				CF8C9FBF20D0C57D005F6175 /* Main.storyboard in Resources */,
+				CF09F45920D22E7C0044D390 /* Fonts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,13 +331,88 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CBBE7470A45E4476E2A1DE6E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-quickpicks/Pods-quickpicks-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-quickpicks/Pods-quickpicks-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D049B1E040BCA83313301A49 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-quickpicks-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CF8C9FB220D0C57D005F6175 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF8C9FBC20D0C57D005F6175 /* ViewController.swift in Sources */,
+				CF5AE43B20D3267600463C70 /* LoginTextField.swift in Sources */,
+				CF09F45620D2298F0044D390 /* Fonts.swift in Sources */,
+				CF697D3620D64BE900EA0F0A /* FirebaseManager.swift in Sources */,
+				CF8C9FEE20D0EB0B005F6175 /* LoginEmailSignup.swift in Sources */,
+				CF09F45820D22C100044D390 /* LayerEffects.swift in Sources */,
+				CF09F45020D1BC470044D390 /* Colors.swift in Sources */,
+				CF8C9FBC20D0C57D005F6175 /* LoginOptions.swift in Sources */,
+				CF09F44E20D1BB3A0044D390 /* LayerRadialGradient.swift in Sources */,
 				CF8C9FBA20D0C57D005F6175 /* AppDelegate.swift in Sources */,
+				CF8C9FEC20D0EAE1005F6175 /* LoginEmail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +581,7 @@
 		};
 		CF8C9FDF20D0C57F005F6175 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04310FFD384E75BAC2209F01 /* Pods-quickpicks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -409,7 +591,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = quickpicks.quickpicks;
+				PRODUCT_BUNDLE_IDENTIFIER = QuickPicks.quickpicks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -418,6 +600,7 @@
 		};
 		CF8C9FE020D0C57F005F6175 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C51F224FE823BDD46BA60DE7 /* Pods-quickpicks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -427,7 +610,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = quickpicks.quickpicks;
+				PRODUCT_BUNDLE_IDENTIFIER = QuickPicks.quickpicks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
