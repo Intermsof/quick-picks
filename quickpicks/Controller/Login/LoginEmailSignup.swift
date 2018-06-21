@@ -15,14 +15,25 @@
 
 import UIKit
 
-class LoginEmailSignup: UIViewController {
+class LoginEmailSignup: UIViewController, FirebaseCallable{
     var container : UIView! = nil
     var containerRaised : Bool = false
     
     var headerImage : UIImageView!
     var descriptionImage : UIImageView!
     
-    let signupButtonWidthPercentage : CGFloat = 0.4 //Percentage of full screen width of sign up button
+    var email : LoginTextField!
+    var password : LoginTextField!
+    var passwordRetype : LoginTextField!
+    var username : LoginTextField!
+    
+    var blurEffect : UIVisualEffectView!
+    
+    var signupButton : UIButton!
+    
+    var fbLoginButton : UIButton!
+    
+    static let signupButtonWidthPercentage : CGFloat = 0.4 //Percentage of full screen width of sign up button
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,67 +48,108 @@ class LoginEmailSignup: UIViewController {
         
         LoginOptions.addRadialLayer(view: container)
         
-        let username = LoginTextField.buildLoginTextFieldWith(type: .username, validate: true)
+        username = LoginTextField(fieldType: .username, validate: true)
         
         container.addSubview(username)
         username.topAnchor.constraint(equalTo: descriptionImage.bottomAnchor, constant: LoginEmail.textFieldSeparation).isActive = true
         username.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: LoginEmail.textFieldWidthPercentage).isActive = true
         username.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
  
-        let email = LoginTextField.buildLoginTextFieldWith(type: .email, validate: true)
+        email = LoginTextField(fieldType: .email, validate: true)
         container.addSubview(email)
         email.topAnchor.constraint(equalTo: username.bottomAnchor, constant: LoginEmail.textFieldSeparation).isActive = true
         email.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: LoginEmail.textFieldWidthPercentage).isActive = true
         email.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
         
-        let password = LoginTextField.buildLoginTextFieldWith(type: .password, validate: true)
+        password = LoginTextField(fieldType: .password, validate: true)
         container.addSubview(password)
         password.topAnchor.constraint(equalTo: email.bottomAnchor, constant: LoginEmail.textFieldSeparation).isActive = true
         password.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: LoginEmail.textFieldWidthPercentage).isActive = true
         password.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
         
-        let passwordRetype = LoginTextField.buildLoginTextFieldWith(type: .passwordRetype, validate: true)
+        passwordRetype = LoginTextField(fieldType: .passwordRetype, validate: true)
         container.addSubview(passwordRetype)
         passwordRetype.topAnchor.constraint(equalTo: password.bottomAnchor, constant: LoginEmail.textFieldSeparation).isActive = true
         passwordRetype.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: LoginEmail.textFieldWidthPercentage).isActive = true
         passwordRetype.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
         
+        //IMPORTANT: THIS LINE ALLOWS FOR CHECKING OF PASSWORD MATCHING. SEE LoginTextField.whileEditingValidate FOR USAGE OF THIS FIELD
+        passwordRetype.mainPassword = password
         
-        //GET THE ACTUAL TEXTFIELD FROM WRAPPER. ASSUMES TEXTFIELD IS SUBVIEWS[0]. IF YOU CHANGE THE FACTORY METHOD SUCH THAT THIS IS NO LONGER TRUE, BE SURE TO UPDATE THIS PART
-        let usernameField = username.subviews[0] as! LoginTextField
-        let emailField = email.subviews[0] as! LoginTextField
-        let passwordField = password.subviews[0] as! LoginTextField
-        let passwordRetypeField = passwordRetype.subviews[0] as! LoginTextField
+        username.nextField = email
+        email.nextField = password
+        password.nextField = passwordRetype
         
-        //HERE WE MUST MANUALLY SET THE VALIDATION CLOSURE FOR PASSWORDRETYPE BECAUSE IT NEEDS A REFERENCE TO THE MAIN PASSWORD
-        passwordRetypeField.validation = {(text) in
-            if let text = text {
-                return text == passwordField.text
-            }
-            return false
-        }
-        
-        usernameField.nextField = emailField
-        emailField.nextField = passwordField
-        passwordField.nextField = passwordRetypeField
-        
-        //Create sign up button
-        let signupButton = UIButton()
+        //call method to set up basic look of buttons
+        let buttons = LoginEmailSignup.createButtons(signupString : "sign up", fbString : "sign up with facebook")
+        signupButton = buttons.0
         self.container.addSubview(signupButton)
+        //position buttons
         signupButton.translatesAutoresizingMaskIntoConstraints = false
-        signupButton.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: signupButtonWidthPercentage).isActive = true
-        signupButton.heightAnchor.constraint(equalTo: username.heightAnchor).isActive = true
-        signupButton.topAnchor.constraint(equalTo: passwordRetype.bottomAnchor, constant: LoginEmail.textFieldSeparation * 1.5).isActive = true
-        signupButton.backgroundColor = UIColor.black
+        signupButton.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: LoginEmailSignup.signupButtonWidthPercentage).isActive = true
+        signupButton.heightAnchor.constraint(equalTo: username.heightAnchor, multiplier: 0.8).isActive = true
+        signupButton.topAnchor.constraint(equalTo: passwordRetype.bottomAnchor, constant: LoginEmail.textFieldSeparation ).isActive = true
         signupButton.centerXAnchor.constraint(equalTo: self.container.centerXAnchor).isActive = true
-        signupButton.layer.cornerRadius = 8.0
-        let signupAttributedTitle =  NSAttributedString(string: "sign up", attributes: [NSAttributedStringKey.font : Fonts.CollegeBoyWithSize(size: 22),NSAttributedStringKey.kern : 2.0, NSAttributedStringKey.foregroundColor : UIColor.white])
-        signupButton.setAttributedTitle(signupAttributedTitle, for: .normal)
+        signupButton.addTarget(self, action: #selector(LoginEmailSignup.signupUser), for: .touchUpInside)
+        
+        //position email login button
+        fbLoginButton = buttons.1
+        fbLoginButton.translatesAutoresizingMaskIntoConstraints = false
+        self.container.addSubview(fbLoginButton)
+        fbLoginButton.topAnchor.constraint(equalTo: signupButton.bottomAnchor, constant: LoginEmail.textFieldSeparation * 0.5).isActive = true
+        fbLoginButton.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(LoginEmailSignup.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(LoginEmailSignup.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        blurEffect = LoginEmailSignup.createBlurEffect(container: container)
+        loadingCoin = LoginEmailSignup.createLoadingCoin(container: container)
+        
+        
     }
     
+    static func createBlurEffect(container: UIView) -> UIVisualEffectView {
+        let blurEffect = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        
+        blurEffect.frame = container.frame
+        blurEffect.alpha = 0.0
+        container.addSubview(blurEffect)
+        
+        return blurEffect
+    }
+    
+    static func createLoadingCoin(container : UIView) -> UIImageView{
+        let loadingCoin = UIImageView(image: #imageLiteral(resourceName: "QPCoin"))
+        container.addSubview(loadingCoin)
+        loadingCoin.translatesAutoresizingMaskIntoConstraints = false
+        loadingCoin.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
+        loadingCoin.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
+        loadingCoin.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: 0.2).isActive = true
+        loadingCoin.heightAnchor.constraint(equalTo: container.widthAnchor, multiplier: 0.2).isActive = true
+        loadingCoin.isHidden = true
+        return loadingCoin
+    }
+    
+    static func createButtons(signupString : String, fbString : String)->(UIButton, UIButton){
+        let signupButton = UIButton()
+        signupButton.backgroundColor = UIColor.black
+        signupButton.layer.cornerRadius = 8.0
+        let signupAttributedTitle =  NSAttributedString(string: signupString, attributes: [NSAttributedStringKey.font : Fonts.CollegeBoyWithSize(size: 22),NSAttributedStringKey.kern : 2.0, NSAttributedStringKey.foregroundColor : UIColor.white])
+        signupButton.setAttributedTitle(signupAttributedTitle, for: .normal)
+        
+        
+        //position email login button
+        let fbLoginButton = UIButton()
+        //Set up button looks
+        let fbLoginButtonString = NSAttributedString(string: fbString, attributes: [NSAttributedStringKey.font : Fonts.CollegeBoyWithSize(size: 22), NSAttributedStringKey.foregroundColor : Colors.FBBlue, NSAttributedStringKey.kern : 1.5, NSAttributedStringKey.underlineStyle : 1, NSAttributedStringKey.underlineColor : Colors.FBBlue])
+        fbLoginButton.setAttributedTitle(fbLoginButtonString, for: .normal)
+        
+        LayerEffects.AddShadowToView(fbLoginButton.titleLabel!, withRadius: 2, color: Colors.FBBlue, opacity: 0.3, offset: CGSize.zero)
+        
+        return (signupButton, fbLoginButton)
+    }
+    
+    var loadingCoin : UIImageView!
     @objc func keyboardWillShow(_ sender : NSNotification){
         if(!self.containerRaised){
             containerRaised = true
@@ -125,7 +177,63 @@ class LoginEmailSignup: UIViewController {
             self.descriptionImage.alpha = 1.0
         }.startAnimation()
     }
+    
+    @IBAction func signupUser(){
+        guard !email.hasError() && !username.hasError() && !password.hasError() && !passwordRetype.hasError() else {
+            if(email.hasError()){
+                email.shakeAnimation()
+            }
+            if(password.hasError()){
+                password.shakeAnimation()
+            }
+            if(passwordRetype.hasError()){
+                passwordRetype.shakeAnimation()
+            }
+            if(username.hasError()){
+                username.shakeAnimation()
+            }
+            return
+        }
+        continueRotate = true
+        let animationDuration = 0.3
+        self.loadingCoin.isHidden = false
+        UIView.animate(withDuration: animationDuration) {
+            self.blurEffect.alpha = 0.8
+            self.descriptionImage.alpha = 0
+            self.headerImage.alpha = 0
+            self.username.alpha = 0
+            self.email.alpha = 0
+            self.password.alpha = 0
+            self.passwordRetype.alpha = 0
+            self.signupButton.alpha = 0
+            self.fbLoginButton.alpha = 0
+        }
+        
+        self.rotateCoin()
+        
+        FirebaseManager.shared.createUser(withEmail: email.textField.text!, password: password.textField.text!, username: username.textField.text!, controller: self)
+    }
+    var continueRotate : Bool = true
+    func rotateCoin(){
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.4, delay: 0, options: [.curveLinear, .repeat, .autoreverse], animations: {
+            self.loadingCoin.transform = self.loadingCoin.transform.rotated(by: 3.14 / 2.0)
+        }, completion: {(_) in
+            if(self.continueRotate){
+                self.rotateCoin()
+            }
+        })
+    }
+    
+    func notifyFailure(){
+        print("we just got fucked in notify failure")
+    }
 
+    let toPicksSegueName = "ToPicksFromLoginEmailSignup"
+    func notifySuccess(){
+        self.continueRotate = false
+        self.performSegue(withIdentifier: toPicksSegueName, sender: self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

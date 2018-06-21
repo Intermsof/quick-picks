@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF09F44E20D1BB3A0044D390 /* LayerRadialGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09F44D20D1BB3A0044D390 /* LayerRadialGradient.swift */; };
+		CF09F44E20D1BB3A0044D390 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09F44D20D1BB3A0044D390 /* Gradients.swift */; };
 		CF09F45020D1BC470044D390 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09F44F20D1BC470044D390 /* Colors.swift */; };
 		CF09F45620D2298F0044D390 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09F45520D2298F0044D390 /* Fonts.swift */; };
 		CF09F45820D22C100044D390 /* LayerEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09F45720D22C100044D390 /* LayerEffects.swift */; };
 		CF09F45920D22E7C0044D390 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = CF09F45420D1ED790044D390 /* Fonts */; };
 		CF09F45D20D2438E0044D390 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF09F45C20D2438E0044D390 /* GoogleService-Info.plist */; };
+		CF2A36C120DA360500776D6C /* PicksChooseSport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A36C020DA360500776D6C /* PicksChooseSport.swift */; };
 		CF5AE43B20D3267600463C70 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5AE43A20D3267600463C70 /* LoginTextField.swift */; };
 		CF697D3620D64BE900EA0F0A /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF697D3520D64BE900EA0F0A /* FirebaseManager.swift */; };
+		CF7D967720D79501001C1E74 /* RealtimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7D967620D79501001C1E74 /* RealtimeModel.swift */; };
+		CF7D967920D796BC001C1E74 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7D967820D796BC001C1E74 /* UserModel.swift */; };
 		CF8C9FBA20D0C57D005F6175 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C9FB920D0C57D005F6175 /* AppDelegate.swift */; };
 		CF8C9FBC20D0C57D005F6175 /* LoginOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C9FBB20D0C57D005F6175 /* LoginOptions.swift */; };
 		CF8C9FBF20D0C57D005F6175 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8C9FBD20D0C57D005F6175 /* Main.storyboard */; };
@@ -46,14 +49,17 @@
 		04310FFD384E75BAC2209F01 /* Pods-quickpicks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quickpicks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-quickpicks/Pods-quickpicks.debug.xcconfig"; sourceTree = "<group>"; };
 		9F73F97435B5AAC8698397BF /* Pods_quickpicks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quickpicks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C51F224FE823BDD46BA60DE7 /* Pods-quickpicks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quickpicks.release.xcconfig"; path = "Pods/Target Support Files/Pods-quickpicks/Pods-quickpicks.release.xcconfig"; sourceTree = "<group>"; };
-		CF09F44D20D1BB3A0044D390 /* LayerRadialGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerRadialGradient.swift; sourceTree = "<group>"; };
+		CF09F44D20D1BB3A0044D390 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		CF09F44F20D1BC470044D390 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		CF09F45420D1ED790044D390 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = /Users/zhanpengpan/Desktop/quickpicks/quickpicks/Fonts; sourceTree = "<absolute>"; };
 		CF09F45520D2298F0044D390 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		CF09F45720D22C100044D390 /* LayerEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerEffects.swift; sourceTree = "<group>"; };
 		CF09F45C20D2438E0044D390 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CF2A36C020DA360500776D6C /* PicksChooseSport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicksChooseSport.swift; sourceTree = "<group>"; };
 		CF5AE43A20D3267600463C70 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		CF697D3520D64BE900EA0F0A /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		CF7D967620D79501001C1E74 /* RealtimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeModel.swift; sourceTree = "<group>"; };
+		CF7D967820D796BC001C1E74 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		CF8C9FB620D0C57D005F6175 /* quickpicks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quickpicks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8C9FB920D0C57D005F6175 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF8C9FBB20D0C57D005F6175 /* LoginOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptions.swift; sourceTree = "<group>"; };
@@ -113,12 +119,20 @@
 		CF09F44C20D1BAA40044D390 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				CF09F44D20D1BB3A0044D390 /* LayerRadialGradient.swift */,
+				CF09F44D20D1BB3A0044D390 /* Gradients.swift */,
 				CF09F44F20D1BC470044D390 /* Colors.swift */,
 				CF09F45520D2298F0044D390 /* Fonts.swift */,
 				CF09F45720D22C100044D390 /* LayerEffects.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		CF2A36BD20DA354A00776D6C /* Picks */ = {
+			isa = PBXGroup;
+			children = (
+				CF2A36C020DA360500776D6C /* PicksChooseSport.swift */,
+			);
+			path = Picks;
 			sourceTree = "<group>";
 		};
 		CF34E4A720D3159100AE2CB9 /* Login */ = {
@@ -169,6 +183,8 @@
 		CF8C9FE720D0E96A005F6175 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CF7D967620D79501001C1E74 /* RealtimeModel.swift */,
+				CF7D967820D796BC001C1E74 /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,6 +203,7 @@
 			children = (
 				CF697D3520D64BE900EA0F0A /* FirebaseManager.swift */,
 				CF8C9FEA20D0EA47005F6175 /* Login */,
+				CF2A36BD20DA354A00776D6C /* Picks */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -403,14 +420,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF2A36C120DA360500776D6C /* PicksChooseSport.swift in Sources */,
 				CF5AE43B20D3267600463C70 /* LoginTextField.swift in Sources */,
 				CF09F45620D2298F0044D390 /* Fonts.swift in Sources */,
 				CF697D3620D64BE900EA0F0A /* FirebaseManager.swift in Sources */,
 				CF8C9FEE20D0EB0B005F6175 /* LoginEmailSignup.swift in Sources */,
 				CF09F45820D22C100044D390 /* LayerEffects.swift in Sources */,
+				CF7D967920D796BC001C1E74 /* UserModel.swift in Sources */,
 				CF09F45020D1BC470044D390 /* Colors.swift in Sources */,
+				CF7D967720D79501001C1E74 /* RealtimeModel.swift in Sources */,
 				CF8C9FBC20D0C57D005F6175 /* LoginOptions.swift in Sources */,
-				CF09F44E20D1BB3A0044D390 /* LayerRadialGradient.swift in Sources */,
+				CF09F44E20D1BB3A0044D390 /* Gradients.swift in Sources */,
 				CF8C9FBA20D0C57D005F6175 /* AppDelegate.swift in Sources */,
 				CF8C9FEC20D0EAE1005F6175 /* LoginEmail.swift in Sources */,
 			);
