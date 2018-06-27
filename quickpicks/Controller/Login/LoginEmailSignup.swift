@@ -194,6 +194,12 @@ class LoginEmailSignup: UIViewController, FirebaseCallable{
             }
             return
         }
+        
+        self.email.textField.resignFirstResponder()
+        self.password.textField.resignFirstResponder()
+        self.passwordRetype.textField.resignFirstResponder()
+        self.username.textField.resignFirstResponder()
+        
         continueRotate = true
         let animationDuration = 0.3
         self.loadingCoin.isHidden = false

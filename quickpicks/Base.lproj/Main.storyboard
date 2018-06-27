@@ -65,7 +65,7 @@
             </objects>
             <point key="canvasLocation" x="-598" y="922"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="tNu-HC-Sfn">
             <objects>
                 <viewController id="pvU-Cj-GG4" sceneMemberID="viewController">
@@ -75,13 +75,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ujd-Wg-XWD"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="3jC-VD-wFz"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="QPProfileTB" selectedImage="QPProfileTB" id="3jC-VD-wFz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9qd-mv-Ilp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="156" y="2899"/>
         </scene>
-        <!--Item 2-->
+        <!--Live-->
         <scene sceneID="DSt-96-Zhf">
             <objects>
                 <viewController id="Awy-hc-fdS" sceneMemberID="viewController">
@@ -91,7 +91,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="111-Fz-rDJ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Xvh-Gg-Qgb"/>
+                    <tabBarItem key="tabBarItem" title="Live" image="QPLiveTB" selectedImage="QPLiveTB" id="Xvh-Gg-Qgb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gjZ-5V-QqQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -107,7 +107,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="PpB-ix-zlR"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="iHc-7g-eId"/>
+                    <tabBarItem key="tabBarItem" title="Picks" image="QPPicksTB" selectedImage="QPPicksTB" id="iHc-7g-eId"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4i-eR-1XS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -121,6 +121,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="m6U-Ud-HTR" kind="relationship" relationship="viewControllers" id="EW3-KJ-IeN"/>
@@ -151,7 +152,12 @@
             <point key="canvasLocation" x="916" y="922"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="QPLiveTB" width="25" height="25"/>
+        <image name="QPPicksTB" width="25" height="25"/>
+        <image name="QPProfileTB" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vhp-aR-htm"/>
+        <segue reference="zXL-FY-XOg"/>
     </inferredMetricsTieBreakers>
 </document>

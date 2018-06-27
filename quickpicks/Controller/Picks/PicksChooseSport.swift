@@ -22,14 +22,14 @@ class PicksChooseSport: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-        let gradientLayer = CAGradientLayer()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        //Default navbar does not meet our needs. So create a custom navbar
+        let customNavbar = Navbar(frame: (self.navigationController?.navigationBar.frame)!)
+        //CGRect(x: 0, y: 0, width: self.view.frame.width, height: ()! + 20))
         
-        gradientLayer.frame = (self.navigationController?.navigationBar.bounds)!
+        self.view.addSubview(customNavbar)
         
-        gradientLayer.colors = [UIColor(red: 0.43137255, green: 0.74509804, blue: 0.27058824, alpha:1.0).cgColor, UIColor(red:0.55294118, green: 0.77647059, blue:0.24705882, alpha:1.0).cgColor]
-        
-        self.navigationController?.navigationBar.layer.addSublayer(gradientLayer)
+      //  self.navigationController?.navigationBar.layer.addSublayer(gradientLayer)
         
         
     }
