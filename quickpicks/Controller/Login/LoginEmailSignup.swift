@@ -219,6 +219,7 @@ class LoginEmailSignup: UIViewController, FirebaseCallable{
         
         FirebaseManager.shared.createUser(withEmail: email.textField.text!, password: password.textField.text!, username: username.textField.text!, controller: self)
     }
+    
     var continueRotate : Bool = true
     func rotateCoin(){
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.4, delay: 0, options: [.curveLinear, .repeat, .autoreverse], animations: {

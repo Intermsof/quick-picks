@@ -16,4 +16,8 @@ class Fonts {
     static func OswaldWithSize(size: CGFloat) -> UIFont {
         return UIFont(name: "Oswald", size: size)!
     }
+    
+    static func ScoreboardWithSize(size: CGFloat) -> UIFont {
+        return UIFont(name: "Scoreboard", size:size)!
+    }
 }

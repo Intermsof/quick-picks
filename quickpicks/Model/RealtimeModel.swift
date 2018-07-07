@@ -115,13 +115,18 @@ class RealtimeModel {
         let date : String
         let entries : Int
         let games : [Game]
+        let positionsInfo : [String]
+        let pointsInfo : [Int]
         
-        init(sportName : String, locked : Bool, date : String, entries : Int, games : [Game]){
+        init(sportName : String, locked : Bool, date : String, entries : Int, games : [Game],
+             positionsInfo: [String], pointsInfo: [Int]){
             self.sportName = sportName
             self.locked = locked
             self.date = date
             self.entries = entries
             self.games = games
+            self.pointsInfo = pointsInfo
+            self.positionsInfo = positionsInfo
         }
         
         func printMe(){

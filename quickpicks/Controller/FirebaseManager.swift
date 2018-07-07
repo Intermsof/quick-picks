@@ -72,31 +72,44 @@ class FirebaseManager {
                     controller.notifyFailure()
                 }
                 else{
-                    let userData : [String : Any] = ["email": withEmail,
-                                                     "username" : username,
-                                                     "coins" : 0,
-                                                     "NFL" : ["enteredToday" : false, "todayPicks":[],"picksHistory":[]],
-                                                     "NBA" : ["enteredToday" : false, "todayPicks":[],"picksHistory":[]],
-                                                     "MLB" : ["enteredToday" : false, "todayPicks":[],"picksHistory":[]],
-                                                     "prizeHistory" : [],
-                                                     "monthlyPoints" : 0,
-                                                     "yearlyPoints" : 0,
-                                                     "prevCoins" : 0,
-                                                     "dailyPosition" : -1,
-                                                     "monthlyPosition" : -1,
-                                                     "yearlyPosition" : -1]
-                    
-                    self.db.collection("users").document(user.uid).setData(userData){ error in
-                        if let error = error {
-                            print("error creating user data \(error)")
-                            controller.notifyFailure()
-                        }
-                        else{
-                            self.getSportsDocuments(controller: controller)
-                        }
-                    }
+                    self.setupUserData(user: user, email: withEmail, username: username, controller: controller)
                 }
             })
+        }
+    }
+    
+    func setupUserData(user: User, email: String, username: String, controller: FirebaseCallable){
+        let userData : [String : Any] = ["email": email,
+                                         "username" : username,
+                                         "coins" : 0,
+                                         "NFL" : ["enteredToday" : false,
+                                                  "dailyPosition" : -1,
+                                                  "todayPicks":[Int](repeating: -1, count: 30),
+                                                  "picksHistory":[]],
+                                         "NBA" : ["enteredToday" : false,
+                                                  "dailyPosition" : -1,
+                                                  "todayPicks":[Int](repeating: -1, count: 30),
+                                                  "picksHistory":[]],
+                                         "MLB" : ["enteredToday" : false,
+                                                  "dailyPosition" : -1,
+                                                  "todayPicks":[Int](repeating: -1, count: 30),
+                                                  "picksHistory":[]],
+                                         "prizeHistory" : [],
+                                         "monthlyPoints" : 0,
+                                         "yearlyPoints" : 0,
+                                         "prevCoins" : 0,
+                                         "dailyPosition" : -1,
+                                         "monthlyPosition" : -1,
+                                         "yearlyPosition" : -1]
+        
+        self.db.collection("users").document(user.uid).setData(userData){ error in
+            if let error = error {
+                print("error creating user data \(error)")
+                controller.notifyFailure()
+            }
+            else{
+                self.fetchUser(withID: user.uid, controller: controller)
+            }
         }
     }
     
@@ -121,6 +134,8 @@ class FirebaseManager {
             for document in snapshot.documents {
                 let data = document.data()
                 let entries = data["entries"] as! Int
+                let positionsInfo = data["positionsInfo"] as! [String]
+                let pointsInfo = data["pointsInfo"] as! [Int]
                 let sportId = document.documentID
                 document.reference.collection(self.activeSportsCollectionName)
                     .getDocuments(completion: { (snapshot, error) in
@@ -147,7 +162,9 @@ class FirebaseManager {
                                 , locked: locked
                                 , date: contestDate
                                 , entries: entries
-                                , games: games)
+                                , games: games
+                                , positionsInfo : positionsInfo
+                                , pointsInfo : pointsInfo)
                             
                             RealtimeModel.shared.updateContestInfo(contest)
                         }
@@ -159,6 +176,49 @@ class FirebaseManager {
                 })
             }
             
+        }
+    }
+    
+    func updatePicks(sport: String, controller: FirebaseCallable){
+        switch sport {
+        case "NFL":
+            db.collection(usersCollectionName).document(UserModel.shared.id)
+                .updateData(["NFL.todayPicks" : UserModel.shared.NFLData.todaysPicks,
+                             "NFL.enteredToday" : true]) { err in
+                    if let err = err {
+                        print("error updating picks \(err)")
+                        controller.notifyFailure()
+                    }
+                    else {
+                        controller.notifySuccess()
+                    }
+            }
+        case "NBA":
+            db.collection(usersCollectionName).document(UserModel.shared.id)
+                .updateData(["NBA.todayPicks" : UserModel.shared.NBAData.todaysPicks,
+                             "NBA.enteredToday" : true]) { err in
+                    if let err = err {
+                        print("error updating picks \(err)")
+                        controller.notifyFailure()
+                    }
+                    else {
+                        controller.notifySuccess()
+                    }
+            }
+        case "MLB":
+            db.collection(usersCollectionName).document(UserModel.shared.id)
+                .updateData(["MLB.todayPicks" : UserModel.shared.MLBData.todaysPicks,
+                             "MLB.enteredToday" : true]) { err in
+                    if let err = err {
+                        print("error updating picks \(err)")
+                        controller.notifyFailure()
+                    }
+                    else {
+                        controller.notifySuccess()
+                    }
+            }
+        default:
+            return
         }
     }
     
@@ -185,8 +245,32 @@ class FirebaseManager {
                 controller.notifyFailure()
                 return
             }
-            let data = snapshot.data()
-            print("\(data)")
+            let data = snapshot.data()!
+            
+            UserModel.shared.id = withID
+            UserModel.shared.coins = data["coins"] as! Int
+            UserModel.shared.email = data["email"] as! String
+            UserModel.shared.username = data["username"] as! String
+            UserModel.shared.monthlyPoints = data["monthlyPoints"] as! Int
+            UserModel.shared.monthlyPositions = data["monthlyPosition"] as! Int
+            UserModel.shared.yearlyPoints = data["yearlyPoints"] as! Int
+            UserModel.shared.yearlyPositions = data["yearlyPosition"] as! Int
+            UserModel.shared.prevCoins = data["prevCoins"] as! Int
+            
+            let NFLDict = data["NFL"] as! [String : Any]
+            let NBADict = data["NBA"] as! [String : Any]
+            let MLBDict = data["MLB"] as! [String : Any]
+            UserModel.shared.NFLData.dailyPosition = NFLDict["dailyPosition"] as! Int
+            UserModel.shared.NBAData.dailyPosition = NBADict["dailyPosition"] as! Int
+            UserModel.shared.MLBData.dailyPosition = MLBDict["dailyPosition"] as! Int
+            
+            UserModel.shared.NFLData.enteredToday = NFLDict["enteredToday"] as! Bool
+            UserModel.shared.NBAData.enteredToday = NBADict["enteredToday"] as! Bool
+            UserModel.shared.MLBData.enteredToday = MLBDict["enteredToday"] as! Bool
+            
+            UserModel.shared.NFLData.todaysPicks = NFLDict["todayPicks"] as! [Int]
+            UserModel.shared.NBAData.todaysPicks = NBADict["todayPicks"] as! [Int]
+            UserModel.shared.MLBData.todaysPicks = MLBDict["todayPicks"] as! [Int]
             
             self.getSportsDocuments(controller: controller)
         }

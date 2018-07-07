@@ -12,7 +12,9 @@
 		CF09F45620D2298F0044D390 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09F45520D2298F0044D390 /* Fonts.swift */; };
 		CF09F45820D22C100044D390 /* LayerEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09F45720D22C100044D390 /* LayerEffects.swift */; };
 		CF09F45920D22E7C0044D390 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = CF09F45420D1ED790044D390 /* Fonts */; };
+		CF27117A20EC758C00C08985 /* Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27117920EC758C00C08985 /* Live.swift */; };
 		CF2A36C120DA360500776D6C /* PicksChooseSport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A36C020DA360500776D6C /* PicksChooseSport.swift */; };
+		CF445CE020E82DB200187D42 /* PicksChooseTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF445CDF20E82DB200187D42 /* PicksChooseTeams.swift */; };
 		CF5AE43B20D3267600463C70 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5AE43A20D3267600463C70 /* LoginTextField.swift */; };
 		CF5BAA7320E1FF1800FCD949 /* Navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5BAA7220E1FF1800FCD949 /* Navbar.swift */; };
 		CF697D3620D64BE900EA0F0A /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF697D3520D64BE900EA0F0A /* FirebaseManager.swift */; };
@@ -55,7 +57,9 @@
 		CF09F45420D1ED790044D390 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = /Users/zhanpengpan/Desktop/quickpicks/quickpicks/Fonts; sourceTree = "<absolute>"; };
 		CF09F45520D2298F0044D390 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		CF09F45720D22C100044D390 /* LayerEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerEffects.swift; sourceTree = "<group>"; };
+		CF27117920EC758C00C08985 /* Live.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Live.swift; sourceTree = "<group>"; };
 		CF2A36C020DA360500776D6C /* PicksChooseSport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicksChooseSport.swift; sourceTree = "<group>"; };
+		CF445CDF20E82DB200187D42 /* PicksChooseTeams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicksChooseTeams.swift; sourceTree = "<group>"; };
 		CF5AE43A20D3267600463C70 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		CF5BAA7220E1FF1800FCD949 /* Navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navbar.swift; sourceTree = "<group>"; };
 		CF697D3520D64BE900EA0F0A /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -131,10 +135,19 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		CF27117820EC754F00C08985 /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				CF27117920EC758C00C08985 /* Live.swift */,
+			);
+			path = Live;
+			sourceTree = "<group>";
+		};
 		CF2A36BD20DA354A00776D6C /* Picks */ = {
 			isa = PBXGroup;
 			children = (
 				CF2A36C020DA360500776D6C /* PicksChooseSport.swift */,
+				CF445CDF20E82DB200187D42 /* PicksChooseTeams.swift */,
 			);
 			path = Picks;
 			sourceTree = "<group>";
@@ -209,6 +222,7 @@
 				CF697D3520D64BE900EA0F0A /* FirebaseManager.swift */,
 				CF8C9FEA20D0EA47005F6175 /* Login */,
 				CF2A36BD20DA354A00776D6C /* Picks */,
+				CF27117820EC754F00C08985 /* Live */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -435,8 +449,10 @@
 				CF09F45620D2298F0044D390 /* Fonts.swift in Sources */,
 				CF697D3620D64BE900EA0F0A /* FirebaseManager.swift in Sources */,
 				CF8C9FEE20D0EB0B005F6175 /* LoginEmailSignup.swift in Sources */,
+				CF27117A20EC758C00C08985 /* Live.swift in Sources */,
 				CF09F45820D22C100044D390 /* LayerEffects.swift in Sources */,
 				CF7D967920D796BC001C1E74 /* UserModel.swift in Sources */,
+				CF445CE020E82DB200187D42 /* PicksChooseTeams.swift in Sources */,
 				CF5BAA7320E1FF1800FCD949 /* Navbar.swift in Sources */,
 				CF09F45020D1BC470044D390 /* Colors.swift in Sources */,
 				CF7D967720D79501001C1E74 /* RealtimeModel.swift in Sources */,

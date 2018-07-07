@@ -151,7 +151,7 @@ class LoginEmail: UIViewController, FirebaseCallable {
         let animationCurve : NSNumber = sender.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
         let animationDuration : NSNumber = sender.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
         UIViewPropertyAnimator(duration: animationDuration.doubleValue, curve: UIViewAnimationCurve(rawValue: animationCurve.intValue)!) {
-            self.container.center.y = 0.0
+            self.container.center.y = self.view.center.y
             self.headerImage.alpha = 1.0
             }.startAnimation()
     }

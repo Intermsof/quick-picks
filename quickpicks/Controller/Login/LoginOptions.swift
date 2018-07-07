@@ -19,7 +19,20 @@ import UIKit
 import FacebookLogin
 import FirebaseAuth
 
-class LoginOptions : UIViewController {
+class LoginOptions : UIViewController, FirebaseCallable {
+    
+    var loadingCoin : UIImageView!
+    
+    
+    func notifySuccess() {
+        continueRotate = false
+        self.performSegue(withIdentifier: "ToPicksFromLoginOptions", sender: self)
+    }
+    
+    func notifyFailure() {
+        print("got fucked while logging in")
+    }
+    
     //View related constants
     let buttonWidthPercentage : CGFloat = 0.7143 //Percentage of the screen width to make buttons
     let fbButtonHeightToWidthRatio : CGFloat = 0.18 //Multiply this by the width to get the height
@@ -32,6 +45,8 @@ class LoginOptions : UIViewController {
     let emailLoginButton = UIButton()
     let emailSignupButton = UIButton()
     
+    var blurEffect : UIVisualEffectView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -39,6 +54,8 @@ class LoginOptions : UIViewController {
         let radialGradient = LayerRadialGradient()
         radialGradient.frame = self.view.frame
         self.view.layer.insertSublayer(radialGradient, at: 0)
+        blurEffect = LoginEmailSignup.createBlurEffect(container: self.view)
+        loadingCoin = LoginEmailSignup.createLoadingCoin(container: self.view)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -129,6 +146,18 @@ class LoginOptions : UIViewController {
     //Method for signing user in. See firebase authentication guides for detail
     @IBAction func signUpWithFacebook() {
         let loginManager = LoginManager()
+        
+        continueRotate = true
+        let animationDuration = 0.3
+        self.loadingCoin.isHidden = false
+        UIView.animate(withDuration: animationDuration) {
+            self.blurEffect.alpha = 0.8
+            self.facebookButton.alpha = 0
+            self.emailLoginButton.alpha = 0
+            self.emailSignupButton.alpha = 0
+        }
+        self.rotateCoin()
+        
         loginManager.logIn(readPermissions: [.publicProfile,.email], viewController: self){
             loginResult in
             switch loginResult{
@@ -151,10 +180,26 @@ class LoginOptions : UIViewController {
                     }
                     
                     print("login with userid \(result.user.uid)")
-                    self.performSegue(withIdentifier: "ToPicksFromLoginOptions", sender: self)
+                    
+                    FirebaseManager.shared.setupUserData(user: result.user, email: result.user.email!, username: result.user.displayName!, controller: self)
+                    //TODO: CREATE A PAGE FOR FACEBOOK USERS TO TYPE USER NAME
+                    
+                    //FirebaseManager.shared.fetchUser(withID: result.user.uid, controller: self)
+                    
                 })
             }
         }
+    }
+    
+    var continueRotate : Bool = true
+    func rotateCoin(){
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.4, delay: 0, options: [.curveLinear, .repeat, .autoreverse], animations: {
+            self.loadingCoin.transform = self.loadingCoin.transform.rotated(by: 3.14 / 2.0)
+        }, completion: {(_) in
+            if(self.continueRotate){
+                self.rotateCoin()
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {

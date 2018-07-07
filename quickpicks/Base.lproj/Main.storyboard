@@ -108,10 +108,28 @@
                         <viewLayoutGuide key="safeArea" id="PpB-ix-zlR"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Picks" image="QPPicksTB" selectedImage="QPPicksTB" id="iHc-7g-eId"/>
+                    <connections>
+                        <segue destination="Mfl-n5-kYt" kind="show" identifier="PicksChooseSportToPicksChooseTeams" id="Iu5-Ri-Rlp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4i-eR-1XS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1108" y="1719"/>
+        </scene>
+        <!--Picks Choose Teams-->
+        <scene sceneID="gx2-WO-Fzc">
+            <objects>
+                <viewController id="Mfl-n5-kYt" customClass="PicksChooseTeams" customModule="quickpicks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9UU-hj-YB6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="KNF-uZ-u0M"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x8X-oE-LXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2015" y="1719"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ybp-qb-JJt">

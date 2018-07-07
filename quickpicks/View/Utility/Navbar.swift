@@ -8,12 +8,25 @@
 
 import UIKit
 
+//the so called "leaderboardbutton" is a misnomer. It does various functionalities depending on the NavbarOption passed in.
 class Navbar: UIView {
+    enum NavbarOptions {
+        case displayCoins
+        case displaySport //For the PicksChooseTeams page
+    }
+    //Note about sizing of navbar. We pass the frame of the standard UINavbar into the initializer. Then, we add the safeareaoffset to the height. In addition, we want our navbar to be slightly taller than the standard UINavbar, so we add extraHeight.
     static let safeAreaOffset : CGFloat = 20.0
     static let extraHeight : CGFloat = 10.0
-    override init(frame: CGRect){
+    
+    static let verticalWhiteLineWidth : CGFloat = 1.0
+    let option : NavbarOptions
+    let delegate : NavbarDelegate
+    
+    init(frame: CGRect, string: String, option: NavbarOptions, delegate: NavbarDelegate){
+        self.option = option
         let contentHeight = frame.height
         let navbarFrame = CGRect(x: 0, y: 0, width: frame.width, height: contentHeight + Navbar.safeAreaOffset + Navbar.extraHeight)
+        self.delegate = delegate
         super.init(frame: navbarFrame)
         
         let gradientLayer = CAGradientLayer()
@@ -22,8 +35,8 @@ class Navbar: UIView {
         
         self.layer.addSublayer(gradientLayer)
         
-        let contentInset : CGFloat = 15.0
-        let button = UIImageView(frame: CGRect(x: contentInset , y: Navbar.safeAreaOffset + contentInset / 2.0, width: contentHeight - contentInset, height: contentHeight  - contentInset))
+        let contentInset : CGFloat = 17.0
+        let button = UIImageView(frame: CGRect(x: contentInset, y: Navbar.safeAreaOffset + contentInset / 2.0, width: contentHeight - contentInset, height: contentHeight  - contentInset))
         
         button.image = #imageLiteral(resourceName: "Ladder")
         
@@ -33,11 +46,42 @@ class Navbar: UIView {
         button.isUserInteractionEnabled = true
         self.addSubview(button)
         
+        let verticalWhiteLine = UIView()
+        let whiteLineMargin : CGFloat = 15.0
+        verticalWhiteLine.backgroundColor = UIColor.white
+        verticalWhiteLine.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(verticalWhiteLine)
+        verticalWhiteLine.widthAnchor.constraint(equalToConstant: Navbar.verticalWhiteLineWidth).isActive = true
+        verticalWhiteLine.heightAnchor.constraint(equalTo: button.heightAnchor).isActive = true
+        verticalWhiteLine.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+        //We create the contentInset as the offset from the left
+        verticalWhiteLine.leftAnchor.constraint(equalTo: button.rightAnchor, constant: whiteLineMargin).isActive = true
+        
+        let pageDescriptionLabel = UILabel()
+        pageDescriptionLabel.attributedText = NSAttributedString(string: string, attributes: [NSAttributedStringKey.font : Fonts.CollegeBoyWithSize(size: 30), NSAttributedStringKey.kern : 1.0, NSAttributedStringKey.foregroundColor : UIColor.white])
+        self.addSubview(pageDescriptionLabel)
+        pageDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        pageDescriptionLabel.leftAnchor.constraint(equalTo: verticalWhiteLine.rightAnchor, constant: whiteLineMargin).isActive = true
+        pageDescriptionLabel.centerYAnchor.constraint(equalTo: verticalWhiteLine.centerYAnchor).isActive = true
+        
+        switch option {
+        case .displayCoins:
+            let coinImage = UIImageView()
+            coinImage.translatesAutoresizingMaskIntoConstraints = false
+            self.addSubview(coinImage)
+            coinImage.image = #imageLiteral(resourceName: "Coin")
+            coinImage.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -contentInset).isActive = true
+            coinImage.centerYAnchor.constraint(equalTo: pageDescriptionLabel.centerYAnchor).isActive = true
+            
+        case .displaySport:
+            print("in display sports")
+        }
         
     }
     
     @IBAction func ladderTapped(){
-        print("ladder tapped")
+        print("the fuck?")
+        delegate.leaderboardClicked()
     }
     
     required init?(coder aDecoder: NSCoder) {
