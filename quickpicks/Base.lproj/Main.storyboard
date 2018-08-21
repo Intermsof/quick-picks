@@ -38,8 +38,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ffr-Vl-rvN"/>
                     <connections>
-                        <segue destination="Lzb-Kn-4Ci" kind="show" identifier="ToLoginEmailSignup" id="e5d-2q-sT6"/>
-                        <segue destination="R6W-1b-9W3" kind="show" identifier="ToLoginEmail" id="JrB-Mo-6Xo"/>
+                        <segue destination="Lzb-Kn-4Ci" kind="show" identifier="LoginOptions_LoginEmailSignup" id="e5d-2q-sT6"/>
+                        <segue destination="R6W-1b-9W3" kind="show" identifier="LoginOptions_LoginEmailSignin" id="JrB-Mo-6Xo"/>
                         <segue destination="Mdp-uD-fCJ" kind="show" identifier="ToPicksFromLoginOptions" id="vhp-aR-htm"/>
                     </connections>
                 </viewController>
@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="156" y="117"/>
         </scene>
-        <!--Login Email-->
+        <!--Login Email Signin-->
         <scene sceneID="yhy-IP-geW">
             <objects>
-                <viewController id="R6W-1b-9W3" customClass="LoginEmail" customModule="quickpicks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="R6W-1b-9W3" customClass="LoginEmailSignin" customModule="quickpicks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="axN-6b-p30">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,7 +58,7 @@
                         <viewLayoutGuide key="safeArea" id="oCd-vx-heg"/>
                     </view>
                     <connections>
-                        <segue destination="Mdp-uD-fCJ" kind="show" identifier="ToPicksFromLoginEmail" id="N1E-yv-5fh"/>
+                        <segue destination="Mdp-uD-fCJ" kind="show" identifier="LoginEmailSignin_PicksChooseSports" id="N1E-yv-5fh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hhj-VV-Wue" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -162,7 +162,7 @@
                         <viewLayoutGuide key="safeArea" id="bRz-a3-TkH"/>
                     </view>
                     <connections>
-                        <segue destination="Mdp-uD-fCJ" kind="show" identifier="ToPicksFromLoginEmailSignup" id="zXL-FY-XOg"/>
+                        <segue destination="Mdp-uD-fCJ" kind="show" identifier="LoginEmailSignup_PicksChooseSports" id="zXL-FY-XOg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2az-qX-pZX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -176,6 +176,6 @@
         <image name="QPProfileTB" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zXL-FY-XOg"/>
+        <segue reference="N1E-yv-5fh"/>
     </inferredMetricsTieBreakers>
 </document>

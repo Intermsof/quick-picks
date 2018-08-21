@@ -20,13 +20,14 @@ class Navbar: UIView {
     
     static let verticalWhiteLineWidth : CGFloat = 1.0
     let option : NavbarOptions
-    let delegate : NavbarDelegate
     
-    init(frame: CGRect, string: String, option: NavbarOptions, delegate: NavbarDelegate){
+    //let delegate : NavbarDelegate
+    
+    init(frame: CGRect, string: String, option: NavbarOptions){
         self.option = option
         let contentHeight = frame.height
         let navbarFrame = CGRect(x: 0, y: 0, width: frame.width, height: contentHeight + Navbar.safeAreaOffset + Navbar.extraHeight)
-        self.delegate = delegate
+       // self.delegate = delegate
         super.init(frame: navbarFrame)
         
         let gradientLayer = CAGradientLayer()
@@ -81,7 +82,7 @@ class Navbar: UIView {
     
     @IBAction func ladderTapped(){
         print("the fuck?")
-        delegate.leaderboardClicked()
+       // delegate.leaderboardClicked()
     }
     
     required init?(coder aDecoder: NSCoder) {

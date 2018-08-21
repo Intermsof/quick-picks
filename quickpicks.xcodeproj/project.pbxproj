@@ -10,23 +10,31 @@
 		CF09F44E20D1BB3A0044D390 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09F44D20D1BB3A0044D390 /* Gradients.swift */; };
 		CF09F45020D1BC470044D390 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09F44F20D1BC470044D390 /* Colors.swift */; };
 		CF09F45620D2298F0044D390 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09F45520D2298F0044D390 /* Fonts.swift */; };
-		CF09F45820D22C100044D390 /* LayerEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09F45720D22C100044D390 /* LayerEffects.swift */; };
 		CF09F45920D22E7C0044D390 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = CF09F45420D1ED790044D390 /* Fonts */; };
-		CF27117A20EC758C00C08985 /* Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27117920EC758C00C08985 /* Live.swift */; };
-		CF2A36C120DA360500776D6C /* PicksChooseSport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A36C020DA360500776D6C /* PicksChooseSport.swift */; };
-		CF445CE020E82DB200187D42 /* PicksChooseTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF445CDF20E82DB200187D42 /* PicksChooseTeams.swift */; };
+		CF1132D32123AD29006EF3C9 /* ContestEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1132D22123AD29006EF3C9 /* ContestEntry.swift */; };
+		CF1132D821266FDF006EF3C9 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1132D721266FDF006EF3C9 /* Promise.swift */; };
+		CF1132DA212672F2006EF3C9 /* LoginFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1132D9212672F2006EF3C9 /* LoginFirebase.swift */; };
+		CF1132DD21267459006EF3C9 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1132DC21267459006EF3C9 /* FirebaseConstants.swift */; };
+		CF1132E021291BFF006EF3C9 /* LoginOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1132DF21291BFF006EF3C9 /* LoginOptionsView.swift */; };
+		CF1132E221291C16006EF3C9 /* ViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1132E121291C16006EF3C9 /* ViewContainer.swift */; };
+		CF3917C12129F1740073F572 /* LoginEmailBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917C02129F1740073F572 /* LoginEmailBase.swift */; };
+		CF3917C3212A13B30073F572 /* LoginEmailSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917C2212A13B30073F572 /* LoginEmailSignupView.swift */; };
+		CF3917C5212A54790073F572 /* LoginEmailSigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917C4212A54790073F572 /* LoginEmailSigninView.swift */; };
+		CF3917C8212BA1A00073F572 /* SegueConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917C7212BA1A00073F572 /* SegueConstants.swift */; };
+		CF3917CA212BA2470073F572 /* PicksChooseSport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917C9212BA2460073F572 /* PicksChooseSport.swift */; };
+		CF3917CD212BA4CC0073F572 /* PicksChooseSportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917CC212BA4CC0073F572 /* PicksChooseSportsView.swift */; };
+		CF3917CF212BA6220073F572 /* NavViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917CE212BA6220073F572 /* NavViewContainer.swift */; };
 		CF5AE43B20D3267600463C70 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5AE43A20D3267600463C70 /* LoginTextField.swift */; };
 		CF5BAA7320E1FF1800FCD949 /* Navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5BAA7220E1FF1800FCD949 /* Navbar.swift */; };
-		CF697D3620D64BE900EA0F0A /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF697D3520D64BE900EA0F0A /* FirebaseManager.swift */; };
 		CF715A2620E1E6F400C01317 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF715A2520E1E6F400C01317 /* GoogleService-Info.plist */; };
 		CF7D967720D79501001C1E74 /* RealtimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7D967620D79501001C1E74 /* RealtimeModel.swift */; };
-		CF7D967920D796BC001C1E74 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7D967820D796BC001C1E74 /* UserModel.swift */; };
+		CF7D967920D796BC001C1E74 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7D967820D796BC001C1E74 /* User.swift */; };
 		CF8C9FBA20D0C57D005F6175 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C9FB920D0C57D005F6175 /* AppDelegate.swift */; };
 		CF8C9FBC20D0C57D005F6175 /* LoginOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C9FBB20D0C57D005F6175 /* LoginOptions.swift */; };
 		CF8C9FBF20D0C57D005F6175 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8C9FBD20D0C57D005F6175 /* Main.storyboard */; };
 		CF8C9FC120D0C57F005F6175 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF8C9FC020D0C57F005F6175 /* Assets.xcassets */; };
 		CF8C9FC420D0C57F005F6175 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8C9FC220D0C57F005F6175 /* LaunchScreen.storyboard */; };
-		CF8C9FEC20D0EAE1005F6175 /* LoginEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C9FEB20D0EAE1005F6175 /* LoginEmail.swift */; };
+		CF8C9FEC20D0EAE1005F6175 /* LoginEmailSignin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C9FEB20D0EAE1005F6175 /* LoginEmailSignin.swift */; };
 		CF8C9FEE20D0EB0B005F6175 /* LoginEmailSignup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C9FED20D0EB0B005F6175 /* LoginEmailSignup.swift */; };
 		DCD31BC2A59B5EC80F0DB2F9 /* Pods_quickpicks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F73F97435B5AAC8698397BF /* Pods_quickpicks.framework */; };
 /* End PBXBuildFile section */
@@ -56,17 +64,25 @@
 		CF09F44F20D1BC470044D390 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		CF09F45420D1ED790044D390 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = /Users/zhanpengpan/Desktop/quickpicks/quickpicks/Fonts; sourceTree = "<absolute>"; };
 		CF09F45520D2298F0044D390 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		CF09F45720D22C100044D390 /* LayerEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerEffects.swift; sourceTree = "<group>"; };
-		CF27117920EC758C00C08985 /* Live.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Live.swift; sourceTree = "<group>"; };
-		CF2A36C020DA360500776D6C /* PicksChooseSport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicksChooseSport.swift; sourceTree = "<group>"; };
-		CF445CDF20E82DB200187D42 /* PicksChooseTeams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicksChooseTeams.swift; sourceTree = "<group>"; };
+		CF1132D22123AD29006EF3C9 /* ContestEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestEntry.swift; sourceTree = "<group>"; };
+		CF1132D721266FDF006EF3C9 /* Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
+		CF1132D9212672F2006EF3C9 /* LoginFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFirebase.swift; sourceTree = "<group>"; };
+		CF1132DC21267459006EF3C9 /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
+		CF1132DF21291BFF006EF3C9 /* LoginOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionsView.swift; sourceTree = "<group>"; };
+		CF1132E121291C16006EF3C9 /* ViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewContainer.swift; sourceTree = "<group>"; };
+		CF3917C02129F1740073F572 /* LoginEmailBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailBase.swift; sourceTree = "<group>"; };
+		CF3917C2212A13B30073F572 /* LoginEmailSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailSignupView.swift; sourceTree = "<group>"; };
+		CF3917C4212A54790073F572 /* LoginEmailSigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailSigninView.swift; sourceTree = "<group>"; };
+		CF3917C7212BA1A00073F572 /* SegueConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueConstants.swift; sourceTree = "<group>"; };
+		CF3917C9212BA2460073F572 /* PicksChooseSport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PicksChooseSport.swift; path = quickpicks/Controller/PicksChooseSport.swift; sourceTree = SOURCE_ROOT; };
+		CF3917CC212BA4CC0073F572 /* PicksChooseSportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicksChooseSportsView.swift; sourceTree = "<group>"; };
+		CF3917CE212BA6220073F572 /* NavViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewContainer.swift; sourceTree = "<group>"; };
 		CF5AE43A20D3267600463C70 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		CF5BAA7220E1FF1800FCD949 /* Navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navbar.swift; sourceTree = "<group>"; };
-		CF697D3520D64BE900EA0F0A /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		CF715A2520E1E6F400C01317 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CF715A2720E1FB7300C01317 /* quickpicks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = quickpicks.entitlements; sourceTree = "<group>"; };
 		CF7D967620D79501001C1E74 /* RealtimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeModel.swift; sourceTree = "<group>"; };
-		CF7D967820D796BC001C1E74 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		CF7D967820D796BC001C1E74 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CF8C9FB620D0C57D005F6175 /* quickpicks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quickpicks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8C9FB920D0C57D005F6175 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF8C9FBB20D0C57D005F6175 /* LoginOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptions.swift; sourceTree = "<group>"; };
@@ -76,7 +92,7 @@
 		CF8C9FC520D0C57F005F6175 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF8C9FCA20D0C57F005F6175 /* quickpicksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = quickpicksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8C9FD520D0C57F005F6175 /* quickpicksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = quickpicksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF8C9FEB20D0EAE1005F6175 /* LoginEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmail.swift; sourceTree = "<group>"; };
+		CF8C9FEB20D0EAE1005F6175 /* LoginEmailSignin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailSignin.swift; sourceTree = "<group>"; };
 		CF8C9FED20D0EB0B005F6175 /* LoginEmailSignup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailSignup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,35 +145,72 @@
 				CF09F44D20D1BB3A0044D390 /* Gradients.swift */,
 				CF09F44F20D1BC470044D390 /* Colors.swift */,
 				CF09F45520D2298F0044D390 /* Fonts.swift */,
-				CF09F45720D22C100044D390 /* LayerEffects.swift */,
-				CF5BAA7220E1FF1800FCD949 /* Navbar.swift */,
+				CF1132E121291C16006EF3C9 /* ViewContainer.swift */,
+				CF3917CE212BA6220073F572 /* NavViewContainer.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		CF27117820EC754F00C08985 /* Live */ = {
+		CF1132CF2123ABE1006EF3C9 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				CF27117920EC758C00C08985 /* Live.swift */,
+				CF7D967820D796BC001C1E74 /* User.swift */,
+				CF1132D22123AD29006EF3C9 /* ContestEntry.swift */,
 			);
-			path = Live;
+			path = User;
 			sourceTree = "<group>";
 		};
-		CF2A36BD20DA354A00776D6C /* Picks */ = {
+		CF1132D621266DF9006EF3C9 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				CF2A36C020DA360500776D6C /* PicksChooseSport.swift */,
-				CF445CDF20E82DB200187D42 /* PicksChooseTeams.swift */,
+				CF1132D721266FDF006EF3C9 /* Promise.swift */,
 			);
-			path = Picks;
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CF1132DB21267446006EF3C9 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				CF1132DC21267459006EF3C9 /* FirebaseConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		CF1132DE21291B7F006EF3C9 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CF5AE43A20D3267600463C70 /* LoginTextField.swift */,
+				CF5BAA7220E1FF1800FCD949 /* Navbar.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		CF34E4A720D3159100AE2CB9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				CF5AE43A20D3267600463C70 /* LoginTextField.swift */,
+				CF1132DF21291BFF006EF3C9 /* LoginOptionsView.swift */,
+				CF3917C02129F1740073F572 /* LoginEmailBase.swift */,
+				CF3917C2212A13B30073F572 /* LoginEmailSignupView.swift */,
+				CF3917C4212A54790073F572 /* LoginEmailSigninView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		CF3917C6212B9FEF0073F572 /* Picks */ = {
+			isa = PBXGroup;
+			children = (
+				CF3917C9212BA2460073F572 /* PicksChooseSport.swift */,
+			);
+			name = Picks;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		CF3917CB212BA4B60073F572 /* Picks */ = {
+			isa = PBXGroup;
+			children = (
+				CF3917CC212BA4CC0073F572 /* PicksChooseSportsView.swift */,
+			);
+			path = Picks;
 			sourceTree = "<group>";
 		};
 		CF8C9FAD20D0C57D005F6175 = {
@@ -201,8 +254,10 @@
 		CF8C9FE720D0E96A005F6175 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CF1132DB21267446006EF3C9 /* Constants */,
+				CF1132D621266DF9006EF3C9 /* Protocols */,
+				CF1132CF2123ABE1006EF3C9 /* User */,
 				CF7D967620D79501001C1E74 /* RealtimeModel.swift */,
-				CF7D967820D796BC001C1E74 /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,6 +265,8 @@
 		CF8C9FE820D0E977005F6175 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CF3917CB212BA4B60073F572 /* Picks */,
+				CF1132DE21291B7F006EF3C9 /* Shared */,
 				CF34E4A720D3159100AE2CB9 /* Login */,
 				CF09F44C20D1BAA40044D390 /* Utility */,
 			);
@@ -219,10 +276,9 @@
 		CF8C9FE920D0E9B2005F6175 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CF697D3520D64BE900EA0F0A /* FirebaseManager.swift */,
+				CF3917C6212B9FEF0073F572 /* Picks */,
 				CF8C9FEA20D0EA47005F6175 /* Login */,
-				CF2A36BD20DA354A00776D6C /* Picks */,
-				CF27117820EC754F00C08985 /* Live */,
+				CF3917C7212BA1A00073F572 /* SegueConstants.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -231,8 +287,9 @@
 			isa = PBXGroup;
 			children = (
 				CF8C9FBB20D0C57D005F6175 /* LoginOptions.swift */,
-				CF8C9FEB20D0EAE1005F6175 /* LoginEmail.swift */,
+				CF8C9FEB20D0EAE1005F6175 /* LoginEmailSignin.swift */,
 				CF8C9FED20D0EB0B005F6175 /* LoginEmailSignup.swift */,
+				CF1132D9212672F2006EF3C9 /* LoginFirebase.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -444,22 +501,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF2A36C120DA360500776D6C /* PicksChooseSport.swift in Sources */,
+				CF3917CD212BA4CC0073F572 /* PicksChooseSportsView.swift in Sources */,
+				CF1132DA212672F2006EF3C9 /* LoginFirebase.swift in Sources */,
 				CF5AE43B20D3267600463C70 /* LoginTextField.swift in Sources */,
+				CF3917C3212A13B30073F572 /* LoginEmailSignupView.swift in Sources */,
+				CF1132E021291BFF006EF3C9 /* LoginOptionsView.swift in Sources */,
 				CF09F45620D2298F0044D390 /* Fonts.swift in Sources */,
-				CF697D3620D64BE900EA0F0A /* FirebaseManager.swift in Sources */,
 				CF8C9FEE20D0EB0B005F6175 /* LoginEmailSignup.swift in Sources */,
-				CF27117A20EC758C00C08985 /* Live.swift in Sources */,
-				CF09F45820D22C100044D390 /* LayerEffects.swift in Sources */,
-				CF7D967920D796BC001C1E74 /* UserModel.swift in Sources */,
-				CF445CE020E82DB200187D42 /* PicksChooseTeams.swift in Sources */,
+				CF1132D821266FDF006EF3C9 /* Promise.swift in Sources */,
+				CF7D967920D796BC001C1E74 /* User.swift in Sources */,
+				CF1132D32123AD29006EF3C9 /* ContestEntry.swift in Sources */,
 				CF5BAA7320E1FF1800FCD949 /* Navbar.swift in Sources */,
 				CF09F45020D1BC470044D390 /* Colors.swift in Sources */,
 				CF7D967720D79501001C1E74 /* RealtimeModel.swift in Sources */,
 				CF8C9FBC20D0C57D005F6175 /* LoginOptions.swift in Sources */,
+				CF3917C5212A54790073F572 /* LoginEmailSigninView.swift in Sources */,
+				CF1132E221291C16006EF3C9 /* ViewContainer.swift in Sources */,
 				CF09F44E20D1BB3A0044D390 /* Gradients.swift in Sources */,
+				CF3917C8212BA1A00073F572 /* SegueConstants.swift in Sources */,
 				CF8C9FBA20D0C57D005F6175 /* AppDelegate.swift in Sources */,
-				CF8C9FEC20D0EAE1005F6175 /* LoginEmail.swift in Sources */,
+				CF3917CA212BA2470073F572 /* PicksChooseSport.swift in Sources */,
+				CF3917C12129F1740073F572 /* LoginEmailBase.swift in Sources */,
+				CF1132DD21267459006EF3C9 /* FirebaseConstants.swift in Sources */,
+				CF3917CF212BA6220073F572 /* NavViewContainer.swift in Sources */,
+				CF8C9FEC20D0EAE1005F6175 /* LoginEmailSignin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
