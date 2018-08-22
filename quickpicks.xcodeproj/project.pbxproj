@@ -21,9 +21,9 @@
 		CF3917C3212A13B30073F572 /* LoginEmailSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917C2212A13B30073F572 /* LoginEmailSignupView.swift */; };
 		CF3917C5212A54790073F572 /* LoginEmailSigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917C4212A54790073F572 /* LoginEmailSigninView.swift */; };
 		CF3917C8212BA1A00073F572 /* SegueConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917C7212BA1A00073F572 /* SegueConstants.swift */; };
-		CF3917CA212BA2470073F572 /* PicksChooseSport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917C9212BA2460073F572 /* PicksChooseSport.swift */; };
 		CF3917CD212BA4CC0073F572 /* PicksChooseSportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917CC212BA4CC0073F572 /* PicksChooseSportsView.swift */; };
 		CF3917CF212BA6220073F572 /* NavViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917CE212BA6220073F572 /* NavViewContainer.swift */; };
+		CF3917D2212BD3710073F572 /* PicksChooseSport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917D1212BD3710073F572 /* PicksChooseSport.swift */; };
 		CF5AE43B20D3267600463C70 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5AE43A20D3267600463C70 /* LoginTextField.swift */; };
 		CF5BAA7320E1FF1800FCD949 /* Navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5BAA7220E1FF1800FCD949 /* Navbar.swift */; };
 		CF715A2620E1E6F400C01317 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF715A2520E1E6F400C01317 /* GoogleService-Info.plist */; };
@@ -74,9 +74,9 @@
 		CF3917C2212A13B30073F572 /* LoginEmailSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailSignupView.swift; sourceTree = "<group>"; };
 		CF3917C4212A54790073F572 /* LoginEmailSigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailSigninView.swift; sourceTree = "<group>"; };
 		CF3917C7212BA1A00073F572 /* SegueConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueConstants.swift; sourceTree = "<group>"; };
-		CF3917C9212BA2460073F572 /* PicksChooseSport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PicksChooseSport.swift; path = quickpicks/Controller/PicksChooseSport.swift; sourceTree = SOURCE_ROOT; };
 		CF3917CC212BA4CC0073F572 /* PicksChooseSportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicksChooseSportsView.swift; sourceTree = "<group>"; };
 		CF3917CE212BA6220073F572 /* NavViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewContainer.swift; sourceTree = "<group>"; };
+		CF3917D1212BD3710073F572 /* PicksChooseSport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicksChooseSport.swift; sourceTree = "<group>"; };
 		CF5AE43A20D3267600463C70 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		CF5BAA7220E1FF1800FCD949 /* Navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navbar.swift; sourceTree = "<group>"; };
 		CF715A2520E1E6F400C01317 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -196,19 +196,18 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		CF3917C6212B9FEF0073F572 /* Picks */ = {
-			isa = PBXGroup;
-			children = (
-				CF3917C9212BA2460073F572 /* PicksChooseSport.swift */,
-			);
-			name = Picks;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		CF3917CB212BA4B60073F572 /* Picks */ = {
 			isa = PBXGroup;
 			children = (
 				CF3917CC212BA4CC0073F572 /* PicksChooseSportsView.swift */,
+			);
+			path = Picks;
+			sourceTree = "<group>";
+		};
+		CF3917D0212BD3550073F572 /* Picks */ = {
+			isa = PBXGroup;
+			children = (
+				CF3917D1212BD3710073F572 /* PicksChooseSport.swift */,
 			);
 			path = Picks;
 			sourceTree = "<group>";
@@ -276,7 +275,7 @@
 		CF8C9FE920D0E9B2005F6175 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CF3917C6212B9FEF0073F572 /* Picks */,
+				CF3917D0212BD3550073F572 /* Picks */,
 				CF8C9FEA20D0EA47005F6175 /* Login */,
 				CF3917C7212BA1A00073F572 /* SegueConstants.swift */,
 			);
@@ -513,6 +512,7 @@
 				CF1132D32123AD29006EF3C9 /* ContestEntry.swift in Sources */,
 				CF5BAA7320E1FF1800FCD949 /* Navbar.swift in Sources */,
 				CF09F45020D1BC470044D390 /* Colors.swift in Sources */,
+				CF3917D2212BD3710073F572 /* PicksChooseSport.swift in Sources */,
 				CF7D967720D79501001C1E74 /* RealtimeModel.swift in Sources */,
 				CF8C9FBC20D0C57D005F6175 /* LoginOptions.swift in Sources */,
 				CF3917C5212A54790073F572 /* LoginEmailSigninView.swift in Sources */,
@@ -520,7 +520,6 @@
 				CF09F44E20D1BB3A0044D390 /* Gradients.swift in Sources */,
 				CF3917C8212BA1A00073F572 /* SegueConstants.swift in Sources */,
 				CF8C9FBA20D0C57D005F6175 /* AppDelegate.swift in Sources */,
-				CF3917CA212BA2470073F572 /* PicksChooseSport.swift in Sources */,
 				CF3917C12129F1740073F572 /* LoginEmailBase.swift in Sources */,
 				CF1132DD21267459006EF3C9 /* FirebaseConstants.swift in Sources */,
 				CF3917CF212BA6220073F572 /* NavViewContainer.swift in Sources */,
