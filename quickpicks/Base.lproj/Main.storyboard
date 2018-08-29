@@ -68,7 +68,7 @@
         <!--Profile-->
         <scene sceneID="tNu-HC-Sfn">
             <objects>
-                <viewController id="pvU-Cj-GG4" sceneMemberID="viewController">
+                <viewController id="pvU-Cj-GG4" customClass="Profile" customModule="quickpicks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yof-9c-V5t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,10 +76,28 @@
                         <viewLayoutGuide key="safeArea" id="ujd-Wg-XWD"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="QPProfileTB" selectedImage="QPProfileTB" id="3jC-VD-wFz"/>
+                    <connections>
+                        <segue destination="WQZ-5D-XwD" kind="presentation" identifier="mySegueID" id="joJ-rQ-5K5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9qd-mv-Ilp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="156" y="2899"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="nBK-hK-ed5">
+            <objects>
+                <viewController id="WQZ-5D-XwD" customClass="Settings" customModule="quickpicks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NGP-ql-vIE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="keu-PK-T5E"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z5M-m5-m8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160" y="3574"/>
         </scene>
         <!--Live-->
         <scene sceneID="DSt-96-Zhf">
