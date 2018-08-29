@@ -9,14 +9,16 @@
 import Foundation
 import UIKit
 
-class NavViewContainer : ViewContainer {
-    let NAVBAR_HEIGHT : CGFloat = 60
+class NavViewContainer : ViewContainer{
+    let NAVBAR_HEIGHT : CGFloat = 70
     let SAFE_AREA_HEIGHT : CGFloat = 20
-    let navBar : UIView = UIView()
+    let navbar : UIView = UIView()
+    let navBarDelegate : NavBarDelegate
     
-    override init(){
+    init(navBarDelegate : NavBarDelegate){
+        self.navBarDelegate = navBarDelegate
         super.init()
-        include(navBar)
+        include(navbar)
         setupNavbar()
     }
     
@@ -27,37 +29,71 @@ class NavViewContainer : ViewContainer {
     //Assumes that the controller always has a navigationController
     override func addTo(_ controller: UIViewController) {
         super.addTo(controller)
+        setupGradientLayer()
+    }
+    
+    //Call in addTo function
+    func setupGradientLayer(){
+        self.layoutIfNeeded()
+        
+        let gradientLayer = CAGradientLayer()
+        
+        gradientLayer.frame = navbar.frame
+        print("the fuck \(gradientLayer.frame.width), \(gradientLayer.frame.height), (\(gradientLayer.frame.origin.x), \(gradientLayer.frame.origin.y) )")
+        print(navbar.frame.width, navbar
+            .frame.height)
+        gradientLayer.colors = [Colors.QPGreenLight.cgColor, Colors.QPGreenDark.cgColor]
+        navbar.layer.insertSublayer(gradientLayer, at: 0)
+            //.layer.addSublayer(gradientLayer)
+    }
+    
+    func getLeftButtonWrapper(){
         
     }
     
-    //Not used for now
-    func finishSetupNavbar(){
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = navBar.frame
-        gradientLayer.colors = [Colors.QPGreenDark.cgColor, Colors.QPGreenLight.cgColor]
-        navBar.layer.addSublayer(gradientLayer)
+    @objc func leftButtonTapped(){
+        self.navBarDelegate.leftButtonTapped()
     }
     
     func setupNavbar(){
-        bindTop(navBar, target: self, 0)
-        bindWidth(navBar, target: self, 1.0)
-        navBar.heightAnchor.constraint(equalToConstant: NAVBAR_HEIGHT).isActive = true
-        
-        navBar.backgroundColor = Colors.QPGreenLight
+        bindTop(navbar, target: self, 0)
+        bindWidth(navbar, target: self, 1.0)
+        navbar.heightAnchor.constraint(equalToConstant: NAVBAR_HEIGHT).isActive = true
         
         let buttonHeight = NAVBAR_HEIGHT - SAFE_AREA_HEIGHT
+        let leftPadding : CGFloat = 10
+        let imageHeight : CGFloat = 30
+        let topPadding : CGFloat = (buttonHeight - imageHeight) / 2.0
+        
         //A wrapper for the left button that is larger than its child image view. This allows for easier clicking
         let leftButtonWrapper = UIView(frame: CGRect(x: 0, y: SAFE_AREA_HEIGHT, width: buttonHeight, height: buttonHeight))
-        leftButtonWrapper.backgroundColor = UIColor.red
-    
-        print("finished setting up")
+        let leftButtonImage = UIImageView(frame: CGRect(x: leftPadding, y: topPadding, width: imageHeight,height: imageHeight))
+        leftButtonImage.image = navBarDelegate.getLeftButtonImage()
+        leftButtonWrapper.addSubview(leftButtonImage)
+        
+        /*------------Set up tap recognizer to add to leftButtonWrapper-------------*/
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(NavViewContainer.leftButtonTapped))
+        tapRecognizer.numberOfTapsRequired = 1
+        leftButtonWrapper.addGestureRecognizer(tapRecognizer)
+        leftButtonWrapper.isUserInteractionEnabled = true
+        navbar.addSubview(leftButtonWrapper)
+        
+        /*---- Set up pargeDescriptionLabel and position it using constraints ------*/
+        let pageDescriptionLabel = UILabel()
+        pageDescriptionLabel.attributedText = NSAttributedString(string: navBarDelegate.getNavbarTitle(), attributes: [NSAttributedStringKey.font : Fonts.CollegeBoyWithSize(size: 25), NSAttributedStringKey.kern : 1.0, NSAttributedStringKey.foregroundColor : UIColor.white])
+        navbar.addSubview(pageDescriptionLabel)
+        pageDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        pageDescriptionLabel.leftAnchor.constraint(equalTo: leftButtonWrapper.rightAnchor, constant: 10).isActive = true
+        pageDescriptionLabel.centerYAnchor.constraint(equalTo: leftButtonWrapper.centerYAnchor).isActive = true
+        
+        
+        
+        //leftButtonWrapper.image = #imageLiteral(resourceName: "Ladder")
+        
+        
     //    button.image = #imageLiteral(resourceName: "Ladder")
         /*
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(Navbar.ladderTapped))
-        tapRecognizer.numberOfTapsRequired = 1
-        button.addGestureRecognizer(tapRecognizer)
-        button.isUserInteractionEnabled = true
-        self.addSubview(button)
+        
         
         let verticalWhiteLine = UIView()
         let whiteLineMargin : CGFloat = 15.0
@@ -70,12 +106,7 @@ class NavViewContainer : ViewContainer {
         //We create the contentInset as the offset from the left
         verticalWhiteLine.leftAnchor.constraint(equalTo: button.rightAnchor, constant: whiteLineMargin).isActive = true
         
-        let pageDescriptionLabel = UILabel()
-        pageDescriptionLabel.attributedText = NSAttributedString(string: string, attributes: [NSAttributedStringKey.font : Fonts.CollegeBoyWithSize(size: 30), NSAttributedStringKey.kern : 1.0, NSAttributedStringKey.foregroundColor : UIColor.white])
-        self.addSubview(pageDescriptionLabel)
-        pageDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        pageDescriptionLabel.leftAnchor.constraint(equalTo: verticalWhiteLine.rightAnchor, constant: whiteLineMargin).isActive = true
-        pageDescriptionLabel.centerYAnchor.constraint(equalTo: verticalWhiteLine.centerYAnchor).isActive = true
+        
         
         switch option {
         case .displayCoins:

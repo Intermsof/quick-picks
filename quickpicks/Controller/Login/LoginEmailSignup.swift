@@ -26,16 +26,9 @@ class LoginEmailSignup: UIViewController, Promise{
     }
     
     
-    var container : LoginEmailSignupView! = nil
+    var viewContainer : LoginEmailSignupView!
     var containerRaised : Bool = false
     
-    var headerImage : UIImageView!
-    var descriptionImage : UIImageView!
-    
-    var email : LoginTextField!
-    var password : LoginTextField!
-    var passwordRetype : LoginTextField!
-    var username : LoginTextField!
     
     var blurEffect : UIVisualEffectView!
     var wrapper : UIView!
@@ -49,8 +42,8 @@ class LoginEmailSignup: UIViewController, Promise{
         print("view did load called")
         super.viewDidLoad()
 
-        container = LoginEmailSignupView()
-        container.addTo(self)
+        viewContainer = LoginEmailSignupView()
+        viewContainer.addTo(self)
         ViewContainer.setupRadialGradient(self.view)
         
         NotificationCenter.default.addObserver(self, selector: #selector(LoginEmailSignup.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -109,8 +102,8 @@ class LoginEmailSignup: UIViewController, Promise{
             UIViewPropertyAnimator(duration: animationDuration.doubleValue, curve: UIViewAnimationCurve(rawValue: animationCurve.intValue)!) {
 
                 self.view.center.y -= endFrame.size.height
-                self.container.headerImage.alpha = 0.0
-                self.container.descriptionImage.alpha = 0.0
+                self.viewContainer.headerImage.alpha = 0.0
+                self.viewContainer.descriptionImage.alpha = 0.0
             }.startAnimation()
         }
         
@@ -122,16 +115,16 @@ class LoginEmailSignup: UIViewController, Promise{
         let animationDuration : NSNumber = sender.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
         UIViewPropertyAnimator(duration: animationDuration.doubleValue, curve: UIViewAnimationCurve(rawValue: animationCurve.intValue)!) {
             self.view.center.y = 0
-            self.container.headerImage.alpha = 1.0
-            self.container.descriptionImage.alpha = 1.0
+            self.viewContainer.headerImage.alpha = 1.0
+            self.viewContainer.descriptionImage.alpha = 1.0
         }.startAnimation()
     }
     
     @IBAction func signupUser(){
         print("sign up user fired")
-        let email = container.emailField.textField.text!
-        let username = container.usernameField.textField.text!
-        let password = container.passwordField.textField.text!
+        let email = viewContainer.emailField.textField.text!
+        let username = viewContainer.usernameField.textField.text!
+        let password = viewContainer.passwordField.textField.text!
         
         LoginFirebase.signupUser(email: email, username: username, password: password , delegate: self)
         

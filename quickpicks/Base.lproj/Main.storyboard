@@ -109,17 +109,17 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Picks" image="QPPicksTB" selectedImage="QPPicksTB" id="iHc-7g-eId"/>
                     <connections>
-                        <segue destination="Mfl-n5-kYt" kind="show" identifier="PicksChooseSportToPicksChooseTeams" id="Iu5-Ri-Rlp"/>
+                        <segue destination="Mfl-n5-kYt" kind="show" identifier="PicksChooseSport_PicksMakeEntry" id="Iu5-Ri-Rlp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4i-eR-1XS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1108" y="1719"/>
         </scene>
-        <!--Picks Choose Teams-->
+        <!--Picks Make Entry-->
         <scene sceneID="gx2-WO-Fzc">
             <objects>
-                <viewController id="Mfl-n5-kYt" customClass="PicksChooseTeams" customModule="quickpicks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Mfl-n5-kYt" customClass="PicksMakeEntry" customModule="quickpicks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9UU-hj-YB6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

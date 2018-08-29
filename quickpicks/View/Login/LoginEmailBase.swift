@@ -32,6 +32,7 @@ class LoginEmailBase : ViewContainer {
         setupDescriptionImage()
     }
     
+    
     func setupHeaderImage(){
         centerHorizontally(headerImage)
         bindTop(headerImage, target: self, PADDING_TOP)

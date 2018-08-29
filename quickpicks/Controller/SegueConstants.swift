@@ -14,4 +14,6 @@ struct SegueConstants {
     static let LOGINOPTIONS_PICKSCHOOSESPORTS = "LoginOptions_PicksChooseSport"
     static let LOGINEMAILSIGNIN_PICKSCHOOSESPORTS = "LoginEmailSignin_PicksChooseSports"
     static let LOGINEMAILSIGNUP_PICKSCHOOSESPORTS = "LoginEmailSignup_PicksChooseSports"
+    
+    static let PICKSCHOOSESPORT_PICKSMAKEENTRY = "PicksChooseSport_PicksMakeEntry"
 }

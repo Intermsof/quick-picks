@@ -33,4 +33,16 @@ struct FirebaseConstants{
         static let FIELD_NFL_POSITION = "NFLPosition"
         static let FIELD_NFL_PICKS = "NFLPicks"
     }
+    
+    struct GAMES {
+        static let FIELD_AWAYTEAMNAME = "awayTeamName"
+        static let FIELD_AWAYTEAMSCORE = "awayTeamScore"
+        static let FIELD_GAMESTARTDATE = "gameStartDate"
+        static let FIELD_GAMESTARTTIME = "gameStartTime"
+        static let FIELD_GAMESTATE = "gameState"
+        static let FIELD_HOMETEAMNAME = "homeTeamName"
+        static let FIELD_HOMETEAMSCORE = "homeTeamScore"
+        static let FIELD_ISFINISHED = "isFinished"
+        static let FIELD_SPREAD = "spread"
+    }
 }

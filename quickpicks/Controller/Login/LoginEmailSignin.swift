@@ -27,9 +27,7 @@ class LoginEmailSignin: UIViewController, Promise {
         
         viewContainer = LoginEmailSigninView()
         viewContainer.addTo(self)
-
         ViewContainer.setupRadialGradient(self.view)
-
         NotificationCenter.default.addObserver(self, selector: #selector(LoginEmailSignin.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(LoginEmailSignin.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }

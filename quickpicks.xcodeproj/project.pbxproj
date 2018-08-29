@@ -24,6 +24,18 @@
 		CF3917CD212BA4CC0073F572 /* PicksChooseSportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917CC212BA4CC0073F572 /* PicksChooseSportsView.swift */; };
 		CF3917CF212BA6220073F572 /* NavViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917CE212BA6220073F572 /* NavViewContainer.swift */; };
 		CF3917D2212BD3710073F572 /* PicksChooseSport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917D1212BD3710073F572 /* PicksChooseSport.swift */; };
+		CF3917D6212EE7680073F572 /* NavBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917D5212EE7680073F572 /* NavBarDelegate.swift */; };
+		CF3917D92130A99D0073F572 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917D82130A99D0073F572 /* Sport.swift */; };
+		CF3917DB2130AB030073F572 /* Contest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917DA2130AB030073F572 /* Contest.swift */; };
+		CF3917DD2130ACC70073F572 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917DC2130ACC70073F572 /* Game.swift */; };
+		CF3917E02130AEE10073F572 /* SportFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917DF2130AEE10073F572 /* SportFirebase.swift */; };
+		CF3917E22131155B0073F572 /* PicksChooseSportViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917E12131155B0073F572 /* PicksChooseSportViewDelegate.swift */; };
+		CF3917E4213116E80073F572 /* PicksMakeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917E3213116E80073F572 /* PicksMakeEntry.swift */; };
+		CF3917E721311FA50073F572 /* ChooseSportRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917E621311FA50073F572 /* ChooseSportRecognizer.swift */; };
+		CF3917E92134F7640073F572 /* PicksMakeEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917E82134F7640073F572 /* PicksMakeEntryView.swift */; };
+		CF3917EB2134FC2E0073F572 /* NavbarTitleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917EA2134FC2E0073F572 /* NavbarTitleConstants.swift */; };
+		CF3917ED213500230073F572 /* NavbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917EC213500230073F572 /* NavbarViewController.swift */; };
+		CF3917EF21350AE60073F572 /* MakeEntryTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917EE21350AE60073F572 /* MakeEntryTableviewCell.swift */; };
 		CF5AE43B20D3267600463C70 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5AE43A20D3267600463C70 /* LoginTextField.swift */; };
 		CF5BAA7320E1FF1800FCD949 /* Navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5BAA7220E1FF1800FCD949 /* Navbar.swift */; };
 		CF715A2620E1E6F400C01317 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF715A2520E1E6F400C01317 /* GoogleService-Info.plist */; };
@@ -77,6 +89,18 @@
 		CF3917CC212BA4CC0073F572 /* PicksChooseSportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicksChooseSportsView.swift; sourceTree = "<group>"; };
 		CF3917CE212BA6220073F572 /* NavViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewContainer.swift; sourceTree = "<group>"; };
 		CF3917D1212BD3710073F572 /* PicksChooseSport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicksChooseSport.swift; sourceTree = "<group>"; };
+		CF3917D5212EE7680073F572 /* NavBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarDelegate.swift; sourceTree = "<group>"; };
+		CF3917D82130A99D0073F572 /* Sport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
+		CF3917DA2130AB030073F572 /* Contest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contest.swift; sourceTree = "<group>"; };
+		CF3917DC2130ACC70073F572 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		CF3917DF2130AEE10073F572 /* SportFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportFirebase.swift; sourceTree = "<group>"; };
+		CF3917E12131155B0073F572 /* PicksChooseSportViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicksChooseSportViewDelegate.swift; sourceTree = "<group>"; };
+		CF3917E3213116E80073F572 /* PicksMakeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicksMakeEntry.swift; sourceTree = "<group>"; };
+		CF3917E621311FA50073F572 /* ChooseSportRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSportRecognizer.swift; sourceTree = "<group>"; };
+		CF3917E82134F7640073F572 /* PicksMakeEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicksMakeEntryView.swift; sourceTree = "<group>"; };
+		CF3917EA2134FC2E0073F572 /* NavbarTitleConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarTitleConstants.swift; sourceTree = "<group>"; };
+		CF3917EC213500230073F572 /* NavbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarViewController.swift; sourceTree = "<group>"; };
+		CF3917EE21350AE60073F572 /* MakeEntryTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeEntryTableviewCell.swift; sourceTree = "<group>"; };
 		CF5AE43A20D3267600463C70 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		CF5BAA7220E1FF1800FCD949 /* Navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navbar.swift; sourceTree = "<group>"; };
 		CF715A2520E1E6F400C01317 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -164,6 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				CF1132D721266FDF006EF3C9 /* Promise.swift */,
+				CF3917D5212EE7680073F572 /* NavBarDelegate.swift */,
+				CF3917E12131155B0073F572 /* PicksChooseSportViewDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -200,6 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				CF3917CC212BA4CC0073F572 /* PicksChooseSportsView.swift */,
+				CF3917E82134F7640073F572 /* PicksMakeEntryView.swift */,
+				CF3917EE21350AE60073F572 /* MakeEntryTableviewCell.swift */,
 			);
 			path = Picks;
 			sourceTree = "<group>";
@@ -208,8 +236,35 @@
 			isa = PBXGroup;
 			children = (
 				CF3917D1212BD3710073F572 /* PicksChooseSport.swift */,
+				CF3917E3213116E80073F572 /* PicksMakeEntry.swift */,
 			);
 			path = Picks;
+			sourceTree = "<group>";
+		};
+		CF3917D72130A9660073F572 /* Contest */ = {
+			isa = PBXGroup;
+			children = (
+				CF3917D82130A99D0073F572 /* Sport.swift */,
+				CF3917DA2130AB030073F572 /* Contest.swift */,
+				CF3917DC2130ACC70073F572 /* Game.swift */,
+			);
+			path = Contest;
+			sourceTree = "<group>";
+		};
+		CF3917DE2130AED40073F572 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CF3917DF2130AEE10073F572 /* SportFirebase.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		CF3917E521311F800073F572 /* CustomTapRecognizers */ = {
+			isa = PBXGroup;
+			children = (
+				CF3917E621311FA50073F572 /* ChooseSportRecognizer.swift */,
+			);
+			path = CustomTapRecognizers;
 			sourceTree = "<group>";
 		};
 		CF8C9FAD20D0C57D005F6175 = {
@@ -253,6 +308,7 @@
 		CF8C9FE720D0E96A005F6175 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CF3917D72130A9660073F572 /* Contest */,
 				CF1132DB21267446006EF3C9 /* Constants */,
 				CF1132D621266DF9006EF3C9 /* Protocols */,
 				CF1132CF2123ABE1006EF3C9 /* User */,
@@ -264,6 +320,7 @@
 		CF8C9FE820D0E977005F6175 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CF3917E521311F800073F572 /* CustomTapRecognizers */,
 				CF3917CB212BA4B60073F572 /* Picks */,
 				CF1132DE21291B7F006EF3C9 /* Shared */,
 				CF34E4A720D3159100AE2CB9 /* Login */,
@@ -275,9 +332,12 @@
 		CF8C9FE920D0E9B2005F6175 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CF3917DE2130AED40073F572 /* Shared */,
 				CF3917D0212BD3550073F572 /* Picks */,
 				CF8C9FEA20D0EA47005F6175 /* Login */,
 				CF3917C7212BA1A00073F572 /* SegueConstants.swift */,
+				CF3917EA2134FC2E0073F572 /* NavbarTitleConstants.swift */,
+				CF3917EC213500230073F572 /* NavbarViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -510,19 +570,31 @@
 				CF1132D821266FDF006EF3C9 /* Promise.swift in Sources */,
 				CF7D967920D796BC001C1E74 /* User.swift in Sources */,
 				CF1132D32123AD29006EF3C9 /* ContestEntry.swift in Sources */,
+				CF3917D6212EE7680073F572 /* NavBarDelegate.swift in Sources */,
+				CF3917DB2130AB030073F572 /* Contest.swift in Sources */,
 				CF5BAA7320E1FF1800FCD949 /* Navbar.swift in Sources */,
+				CF3917E22131155B0073F572 /* PicksChooseSportViewDelegate.swift in Sources */,
 				CF09F45020D1BC470044D390 /* Colors.swift in Sources */,
 				CF3917D2212BD3710073F572 /* PicksChooseSport.swift in Sources */,
+				CF3917DD2130ACC70073F572 /* Game.swift in Sources */,
+				CF3917ED213500230073F572 /* NavbarViewController.swift in Sources */,
+				CF3917E02130AEE10073F572 /* SportFirebase.swift in Sources */,
+				CF3917EB2134FC2E0073F572 /* NavbarTitleConstants.swift in Sources */,
 				CF7D967720D79501001C1E74 /* RealtimeModel.swift in Sources */,
 				CF8C9FBC20D0C57D005F6175 /* LoginOptions.swift in Sources */,
 				CF3917C5212A54790073F572 /* LoginEmailSigninView.swift in Sources */,
 				CF1132E221291C16006EF3C9 /* ViewContainer.swift in Sources */,
+				CF3917D92130A99D0073F572 /* Sport.swift in Sources */,
 				CF09F44E20D1BB3A0044D390 /* Gradients.swift in Sources */,
+				CF3917E4213116E80073F572 /* PicksMakeEntry.swift in Sources */,
 				CF3917C8212BA1A00073F572 /* SegueConstants.swift in Sources */,
 				CF8C9FBA20D0C57D005F6175 /* AppDelegate.swift in Sources */,
+				CF3917E92134F7640073F572 /* PicksMakeEntryView.swift in Sources */,
+				CF3917E721311FA50073F572 /* ChooseSportRecognizer.swift in Sources */,
 				CF3917C12129F1740073F572 /* LoginEmailBase.swift in Sources */,
 				CF1132DD21267459006EF3C9 /* FirebaseConstants.swift in Sources */,
 				CF3917CF212BA6220073F572 /* NavViewContainer.swift in Sources */,
+				CF3917EF21350AE60073F572 /* MakeEntryTableviewCell.swift in Sources */,
 				CF8C9FEC20D0EAE1005F6175 /* LoginEmailSignin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

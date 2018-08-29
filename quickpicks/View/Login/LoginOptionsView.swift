@@ -32,6 +32,7 @@ class LoginOptionsView : ViewContainer {
         setupEmailSignupButton()
         setupEmailLoginButton()
     }
+
     
     func setupEmailLoginButton(){
         placeBelow(source: emailLoginButton, target: emailSignupButton, padding: PADDING)

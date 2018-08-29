@@ -26,23 +26,21 @@ class LoginOptions : UIViewController {
     }
     
     
-    
+    var viewContainer: LoginOptionsView!
     var blurEffect : UIVisualEffectView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let viewContainer = LoginOptionsView()
+        viewContainer = LoginOptionsView()
         viewContainer.addTo(self)
         ViewContainer.setupRadialGradient(self.view)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
     }
-    
-    
     
     private func _setupButtons(){
         
