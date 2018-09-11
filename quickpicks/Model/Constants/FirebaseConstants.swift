@@ -29,9 +29,9 @@ struct FirebaseConstants{
         static let FIELD_USERNAME = "username"
         static let FIELD_COINS = "coins"
         static let FIELD_PREVCOINS = "prevCoins"
-        
         static let FIELD_NFL_POSITION = "NFLPosition"
         static let FIELD_NFL_PICKS = "NFLPicks"
+        static let Field_NOTIFICATIONS = "notifications"
     }
     
     struct GAMES {
@@ -44,5 +44,11 @@ struct FirebaseConstants{
         static let FIELD_HOMETEAMSCORE = "homeTeamScore"
         static let FIELD_ISFINISHED = "isFinished"
         static let FIELD_SPREAD = "spread"
+    }
+     static let COLLECTION_REWARDS = "rewards"
+    struct REWARDS{
+        static let FIELD_PAYPALEMAIL = "paypalEmail"
+        static let FIELD_QPLEMAIL = "qpEmail"
+        static let FIELD_AMOUNT = "amount"
     }
 }

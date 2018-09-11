@@ -14,6 +14,7 @@ import FirebaseAuth
 
 
 class Profile: UIViewController,UITableViewDelegate,UITableViewDataSource{
+
     func notifySuccess() {
         print("Update successfull")
     }
@@ -26,10 +27,10 @@ class Profile: UIViewController,UITableViewDelegate,UITableViewDataSource{
     func leaderboardClicked() {
             print("leaderboard clicked")
     }
+
     
-    
-    let winnings=["INSTANT REWARDS","ORDER HISTORY","FREE TOKENS"]
-    let invite=["INVITE","SHARE","ENTER CODE"]
+    let winnings=["INSTANT REWARDS"]
+    //let invite=["INVITE","SHARE","ENTER CODE"]
     let account=["NOTIFICATIONS","HELP","SETTINGS","LOGOUT"]
     var sectionselected : Int!
     var rowselected : Int!
@@ -44,7 +45,7 @@ class Profile: UIViewController,UITableViewDelegate,UITableViewDataSource{
         {
         destination.settingPassedIn = .instantReward
         }
-    else if sectionselected == 0 && rowselected == 1
+    /*else if sectionselected == 0 && rowselected == 1
         {
          destination.settingPassedIn = .orderHistory
         }
@@ -64,19 +65,20 @@ class Profile: UIViewController,UITableViewDelegate,UITableViewDataSource{
         {
             destination.settingPassedIn = .enterCode
         }
-        else if sectionselected == 2 && rowselected == 0
+ */
+        else if sectionselected == 1 && rowselected == 0
         {
             destination.settingPassedIn = .notiFications
         }
-        else if sectionselected == 2 && rowselected == 1
+        else if sectionselected == 1 && rowselected == 1
         {
             destination.settingPassedIn = .help
         }
-        else if sectionselected == 2 && rowselected == 2
+        else if sectionselected == 1 && rowselected == 2
         {
             destination.settingPassedIn = .settings
         }
-        else if sectionselected == 2 && rowselected == 3
+        else if sectionselected == 1 && rowselected == 3
         {
             destination.settingPassedIn = .logout
         }
@@ -95,12 +97,13 @@ class Profile: UIViewController,UITableViewDelegate,UITableViewDataSource{
         */
         
         //Profile Picture
-        let image:UIImage=UIImage(named: "pro_pic.png")!
+       /*let image:UIImage=UIImage(named: "pro_pic.png")!
         let imageView=UIImageView(image: image)
         self.view.addSubview(imageView)
         imageView.frame = CGRect(x:0,y:0,width:120,height:150)
         imageView.center.x=self.view.center.x
         //imageView.frame.origin.y=customNavbar.frame.height+20
+    */
         
         //Label for Name
         let label_name:UILabel=UILabel(frame: CGRect(x:0,y:0,width:50,height:25))
@@ -108,7 +111,7 @@ class Profile: UIViewController,UITableViewDelegate,UITableViewDataSource{
         label_name.text="NAME"
         self.view.addSubview(label_name)
         label_name.center.x=self.view.center.x
-        label_name.frame.origin.y=imageView.frame.origin.y+160
+         label_name.frame.origin.y=40
         
         //Add space between characters
         let attributedString = NSMutableAttributedString(string: label_name.text!)
@@ -160,7 +163,7 @@ class Profile: UIViewController,UITableViewDelegate,UITableViewDataSource{
         
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -168,16 +171,16 @@ class Profile: UIViewController,UITableViewDelegate,UITableViewDataSource{
         sectionselected=indexPath.section
         rowselected=indexPath.row
         self.performSegue(withIdentifier: "mySegueID", sender: indexPath)
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section{
         case 0:
             return winnings.count
-        case 1:
+       /* case 1:
             return invite.count
-        case 2:
+        */
+        case 1:
             return account.count
         default:
             return 0
@@ -221,10 +224,10 @@ class Profile: UIViewController,UITableViewDelegate,UITableViewDataSource{
         switch section {
         case 0:
             return "WINNINGS"
-        case 1:
+       /* case 1:
             return "SOCIAL"
-            
-        case 2:
+        */
+        case 1:
             return "GENERAL"
             
         default:
@@ -253,9 +256,10 @@ class Profile: UIViewController,UITableViewDelegate,UITableViewDataSource{
         switch indexPath.section{
         case 0:
             cell.textLabel?.text=winnings[indexPath.row]
-        case 1:
+        /*case 1:
             cell.textLabel?.text=invite[indexPath.row]
-        case 2:
+        */
+        case 1:
             cell.textLabel?.text=account[indexPath.row]
         default:
             cell.textLabel?.text="Default"

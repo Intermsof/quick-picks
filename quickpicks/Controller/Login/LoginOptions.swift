@@ -31,6 +31,7 @@ class LoginOptions : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("\(Auth.auth().currentUser)")
         viewContainer = LoginOptionsView()
         viewContainer.addTo(self)
         ViewContainer.setupRadialGradient(self.view)

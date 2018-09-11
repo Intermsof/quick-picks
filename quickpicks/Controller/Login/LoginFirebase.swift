@@ -44,6 +44,8 @@ struct LoginFirebase {
                     delegate.resolve(result: true)
                 }
             }
+        
+        
     }
     
     static func signupUser(email: String, username: String, password: String, delegate : Promise){
@@ -101,7 +103,8 @@ struct LoginFirebase {
                             User.shared.username = data[FirebaseConstants.USERS.FIELD_USERNAME] as! String
                             User.shared.NFLPosition = data[FirebaseConstants.USERS.FIELD_NFL_POSITION] as! Int
                             User.shared.NFLPicks = data[FirebaseConstants.USERS.FIELD_NFL_PICKS] as! String
-                            
+                            User.shared.notifications = data[FirebaseConstants.USERS.Field_NOTIFICATIONS] as! Bool
+                                
                             delegate.resolve(result: true)
                         }
                         else {
@@ -115,5 +118,4 @@ struct LoginFirebase {
         }
     }
 }
-
 

@@ -41,12 +41,6 @@ class Settings:UIViewController,UITableViewDataSource,UITableViewDelegate{
         
         print("Value pressed  \(settingPassedIn.hashValue)")
         
-        //Nav Bar
-       /* RealtimeModel.shared.printMe()
-        self.customNavbar = Navbar(frame: (self.navigationController?.navigationBar.frame)!, string: "Profile", option:.displayCoins, delegate: self)
-        self.view.addSubview(customNavbar)
-         */
-        
        let textlabel:UILabel = UILabel()
         textlabel.frame = CGRect(x:17 ,y:50,width:self.view.frame.width,height:25)
         //textlabel.frame = CGRect(x:17 ,y:customNavbar.frame.height+20,width:self.view.frame.width,height:25)
@@ -93,8 +87,8 @@ class Settings:UIViewController,UITableViewDataSource,UITableViewDelegate{
             text_no.font = UIFont(name : "Oswald" , size:18)
             text_no.textColor = UIColor.white
             self.view.addSubview(text_no)
-    
-    
+            let gesture = UITapGestureRecognizer(target: self, action:  #selector (someAction(sender:)))
+            uiv.addGestureRecognizer(gesture)
     
     
     
@@ -165,6 +159,13 @@ class Settings:UIViewController,UITableViewDataSource,UITableViewDelegate{
         return cell
         
     }
+    @objc func someAction(sender:UITapGestureRecognizer){
+        // do other task
+        let paypal1view :UIView = UIView(frame: CGRect(x: 10, y: 150, width: view.frame.width-20, height: 100))
+        paypal1view.backgroundColor = UIColor.white
+        self.view.addSubview(paypal1view)
+    }
+
     
     
 }

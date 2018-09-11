@@ -13,7 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Fi9-a6-xdw">
             <objects>
-                <navigationController id="MsX-7r-NRO" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" id="MsX-7r-NRO" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qzw-IX-iFD">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -65,10 +65,10 @@
             </objects>
             <point key="canvasLocation" x="-598" y="922"/>
         </scene>
-        <!--Profile-->
+        <!--ProfileController-->
         <scene sceneID="tNu-HC-Sfn">
             <objects>
-                <viewController id="pvU-Cj-GG4" customClass="Profile" customModule="quickpicks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pvU-Cj-GG4" userLabel="ProfileController" customClass="ProfileController" customModule="quickpicks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yof-9c-V5t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,27 +77,45 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="QPProfileTB" selectedImage="QPProfileTB" id="3jC-VD-wFz"/>
                     <connections>
-                        <segue destination="WQZ-5D-XwD" kind="presentation" identifier="mySegueID" id="joJ-rQ-5K5"/>
+                        <segue destination="WQZ-5D-XwD" kind="show" identifier="Profile_to_Settings" id="gfw-Qe-4pp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9qd-mv-Ilp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="156" y="2899"/>
         </scene>
-        <!--Settings-->
+        <!--Settings Controller-->
         <scene sceneID="nBK-hK-ed5">
             <objects>
-                <viewController id="WQZ-5D-XwD" customClass="Settings" customModule="quickpicks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WQZ-5D-XwD" customClass="SettingsController" customModule="quickpicks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NGP-ql-vIE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="keu-PK-T5E"/>
                     </view>
+                    <connections>
+                        <segue destination="ly4-CO-c6C" kind="show" identifier="Setting_To_Help" id="gsX-Fv-45V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z5M-m5-m8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="160" y="3574"/>
+            <point key="canvasLocation" x="156" y="3866"/>
+        </scene>
+        <!--Help Controller-->
+        <scene sceneID="vlV-53-mse">
+            <objects>
+                <viewController id="ly4-CO-c6C" customClass="HelpController" customModule="quickpicks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6hr-Zl-69j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="nlw-Ak-PeT"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Se7-MO-xti" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1532" y="4266.1169415292361"/>
         </scene>
         <!--Live-->
         <scene sceneID="DSt-96-Zhf">
@@ -194,6 +212,6 @@
         <image name="QPProfileTB" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="N1E-yv-5fh"/>
+        <segue reference="vhp-aR-htm"/>
     </inferredMetricsTieBreakers>
 </document>
