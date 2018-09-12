@@ -39,7 +39,16 @@ class PicksChooseSportView : NavViewContainer {
         print("drawing sports")
         var lastView : UIImageView? = nil
         for sport in sports {
-            let imageView = UIImageView(image: UIImage(imageLiteralResourceName: "\(sport.id)Black"))
+            var colorString : String
+            if(sport.id == "NFL" && User.shared.NFLcontestEntry != nil
+                || sport.id == "NBA" && User.shared.NBAcontestEntry != nil
+                || sport.id == "MLB" && User.shared.MLBcontestEntry != nil){
+                colorString = "Green"
+            }
+            else{
+                colorString = "Black"
+            }
+            let imageView = UIImageView(image: UIImage(imageLiteralResourceName: "\(sport.id)\(colorString)"))
             let recognizer = ChooseSportRecognizer(target: self, action: #selector(self.sportButtonTapped(_:)))
             recognizer.sport = sport
             recognizer.isEnabled = true

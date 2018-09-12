@@ -13,11 +13,13 @@ class Contest {
     let date : String
     let gameIDs : [String]
     var games = [String : Game]()
+    var progression : Int
     
-    init(id: String, date: String, gameIDs : [String]){
+    init(id: String, date: String, gameIDs : [String], progression: Int){
         self.id = id
         self.date = date
         self.gameIDs = gameIDs
+        self.progression = progression
     }
     
 

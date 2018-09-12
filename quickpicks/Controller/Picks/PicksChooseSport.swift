@@ -13,7 +13,8 @@ class PicksChooseSport : NavbarViewController, PicksChooseSportViewDelegate {
     var sports : [Sport]?
     
     func sportButtonTapped(sport: Sport) {
-        self.performSegue(withIdentifier: SegueConstants.PICKSCHOOSESPORT_PICKSMAKEENTRY, sender: sport)
+        self.performSegue(withIdentifier: SegueConstants.PICKSCHOOSESPORT_PICKSMAKEENTRY, sender: self)
+        Sport.selectedSport = sport
     }
     
     override func getNavbarTitle() -> String {
@@ -28,21 +29,20 @@ class PicksChooseSport : NavbarViewController, PicksChooseSportViewDelegate {
         viewContainer.addTo(self)
         
         SportFirebase.getActiveSports { (sports) in
-            print(sports)
             if let sports = sports{
                 self.sports = sports
+                self.viewContainer.layoutIfNeeded()
                 self.viewContainer.drawSports(sports)
+                Sport.sports = sports
             }
             
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        print("view did appear")
-        if let sports = self.sports{
+    override func viewWillAppear(_ animated: Bool) {
+        if let sports = sports{
             self.viewContainer.drawSports(sports)
         }
-        
     }
 
 }

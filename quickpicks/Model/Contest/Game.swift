@@ -10,10 +10,11 @@ import Foundation
 
 class Game {
     let id : String
+    let awayTeamName : String
     var awayTeamScore: Int
     let gameStartDate : String
     let gameStartTime : String
-    let gameState : Int
+    var gameState : Int
     let homeTeamName : String
     var homeTeamScore : Int
     var isFinished : Bool
@@ -23,6 +24,7 @@ class Game {
         ,gameStartTime:String,gameState:Int,homeTeamName:String
         ,homeTeamScore:Int,isFinished:Bool,spread:Float){
         self.id = id
+        self.awayTeamName = awayTeamName
         self.awayTeamScore = awayTeamScore
         self.gameStartDate = gameStartDate
         self.gameStartTime = gameStartTime

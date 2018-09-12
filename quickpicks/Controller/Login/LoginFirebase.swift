@@ -86,32 +86,57 @@ struct LoginFirebase {
             }
             
             if let res = res {
-                
-                Firestore.firestore()
-                    .collection(FirebaseConstants.COLLECTION_USERS)
-                    .document(res.user.email!)
-                    .getDocument { (snapshot, error) in
-                        if let error = error {
-                            delegate.reject(error: "\(error)")
-                        }
-                        else if let data = snapshot?.data(){
-                            User.shared.coins = data[FirebaseConstants.USERS.FIELD_COINS] as! Int
-                            User.shared.prevCoins = data[FirebaseConstants.USERS.FIELD_PREVCOINS] as! Int
-                            User.shared.email = data[FirebaseConstants.USERS.FIELD_EMAIL] as! String
-                            User.shared.username = data[FirebaseConstants.USERS.FIELD_USERNAME] as! String
-                            User.shared.NFLPosition = data[FirebaseConstants.USERS.FIELD_NFL_POSITION] as! Int
-                            User.shared.NFLPicks = data[FirebaseConstants.USERS.FIELD_NFL_PICKS] as! String
-                            
-                            delegate.resolve(result: true)
-                        }
-                        else {
-                            delegate.reject(error: "No error object, but no response")
-                        }
-                    }
+                let email = res.user.email!
+                LoginFirebase.fetchUser(email: email, delegate: delegate)
             }
             else {
                 delegate.reject(error: "Error: no error object but no response")
             }
+        }
+    }
+    
+    static func fetchUser(email: String, delegate: Promise){
+        Firestore.firestore()
+            .collection(FirebaseConstants.COLLECTION_USERS)
+            .document(email)
+            .getDocument { (snapshot, error) in
+                if let error = error {
+                    delegate.reject(error: "\(error)")
+                }
+                else if let data = snapshot?.data(){
+                    User.shared.coins = data[FirebaseConstants.USERS.FIELD_COINS] as! Int
+                    User.shared.prevCoins = data[FirebaseConstants.USERS.FIELD_PREVCOINS] as! Int
+                    User.shared.email = data[FirebaseConstants.USERS.FIELD_EMAIL] as! String
+                    User.shared.username = data[FirebaseConstants.USERS.FIELD_USERNAME] as! String
+                    User.shared.NFLPosition = data[FirebaseConstants.USERS.FIELD_NFL_POSITION] as! Int
+                    User.shared.NFLPicks = data[FirebaseConstants.USERS.FIELD_NFL_PICKS] as! String
+                    User.shared.NFLEntered = data["NFLEntered"] as! Bool
+                    //User.shared.NBAPicks = data[FirebaseConstants.USERS.FIELD_NBA_PICKS] as! String
+                    //User.shared.MLBPicks = data[FirebaseConstants.USERS.FIELD_MLB_PICKS] as! String
+                    if(!User.shared.NFLPicks.isEmpty){
+                        Firestore.firestore()
+                            .document("users/\(email)/NFLEntries/\(User.shared.NFLPicks!)")
+                            .getDocument(completion: { (snapshot, error) in
+                                if let error = error {
+                                    print("error trying to get User Entries \(error)")
+                                }
+                                else if let snapshot = snapshot, let data = snapshot.data(), let contest = data["contest"] as? String
+                                    , let date = data["date"] as? String, let lastGameScore = data["lastGameScore"] as? Int
+                                    , let position = data["position"] as? Int, let picks = data["picks"] as? [Int]{
+                                    let id = snapshot.documentID
+                                    User.shared.NFLcontestEntry = ContestEntry(id: id, picks: picks, contest: contest, date: date, position: position, lastGameScore: lastGameScore)
+                                }
+                                else{
+                                    print("no error but no snapshot in getting User Entries")
+                                }
+                            })
+                    }
+                    
+                    delegate.resolve(result: true)
+                }
+                else {
+                    delegate.reject(error: "No error object, but no response")
+                }
         }
     }
 }

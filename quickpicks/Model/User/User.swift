@@ -12,10 +12,23 @@ class User {
     private static var _user : User? = nil
     var email : String!
     var username : String!
+    
     var NFLPosition : Int!
     var NFLPicks : String!
+    var NFLEntered : Bool!
+    var NFLcontestEntry : ContestEntry?
+    
+    var NBAPosition : Int!
+    var NBAPicks : String!
+    var NBAcontestEntry : ContestEntry?
+    
+    var MLBPosition : Int!
+    var MLBPicks : String!
+    var MLBcontestEntry : ContestEntry?
+    
     var coins : Int!
     var prevCoins : Int!
+    
     
     static var shared : User {
         if(_user == nil){

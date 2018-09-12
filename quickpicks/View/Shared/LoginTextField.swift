@@ -26,7 +26,7 @@ class LoginTextField : UIView, UITextFieldDelegate {
         case username
     }
     
-    let textField : _LoginTextField
+    let textField : InsetTextfield
     var whileEdittingErrorLabel : UILabel? = nil
     var completionErrorLabel : UILabel? = nil
 
@@ -81,7 +81,7 @@ class LoginTextField : UIView, UITextFieldDelegate {
     }
     
     init(){
-        textField = _LoginTextField()
+        textField = InsetTextfield()
         //Variables for setting up placeholder and user typed text
         textFont = Fonts.CollegeBoyWithSize(size: 18)
         textColor = UIColor.white
@@ -258,18 +258,5 @@ class LoginTextField : UIView, UITextFieldDelegate {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    class _LoginTextField : UITextField{
-        static let textInsetAmount : CGFloat = 10.0
-        
-        override func textRect(forBounds bounds: CGRect) -> CGRect {
-            return bounds.insetBy(dx: _LoginTextField.textInsetAmount, dy: _LoginTextField.textInsetAmount)
-        }
-        
-        override func editingRect(forBounds bounds: CGRect) -> CGRect {
-            return bounds.insetBy(dx: _LoginTextField.textInsetAmount, dy: _LoginTextField.textInsetAmount)
-        }
-    }
-    
 
 }
