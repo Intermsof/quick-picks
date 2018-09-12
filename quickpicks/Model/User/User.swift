@@ -28,6 +28,7 @@ class User {
     
     var coins : Int!
     var prevCoins : Int!
+    var notifications : Bool!
     
     
     static var shared : User {
@@ -45,6 +46,7 @@ class User {
         self.NFLPicks = ""
         self.coins = 0
         self.prevCoins = 0
+        self.notifications = true
     }
     
     func toFirebaseModel() -> [String : Any]{
@@ -55,6 +57,7 @@ class User {
         result["NFLPicks"] = NFLPicks
         result["coins"] = coins
         result["prevCoins"] = coins
+        result["notifications"] = notifications
         
         return result
     }

@@ -40,6 +40,7 @@ class LoginOptions : UIViewController, Promise {
             viewContainer = LoginOptionsView()
             viewContainer.addTo(self)
         }
+
         ViewContainer.setupRadialGradient(self.view)
     }
     

@@ -16,4 +16,6 @@ struct SegueConstants {
     static let LOGINEMAILSIGNUP_PICKSCHOOSESPORTS = "LoginEmailSignup_PicksChooseSports"
     
     static let PICKSCHOOSESPORT_PICKSMAKEENTRY = "PicksChooseSport_PicksMakeEntry"
+    static let PROFILE_TO_SETTING = "Profile_to_Settings"
+    static let SETTING_TO_HELP = "Setting_To_Help"
 }

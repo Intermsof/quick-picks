@@ -10,7 +10,6 @@
 		CF09F44E20D1BB3A0044D390 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09F44D20D1BB3A0044D390 /* Gradients.swift */; };
 		CF09F45020D1BC470044D390 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09F44F20D1BC470044D390 /* Colors.swift */; };
 		CF09F45620D2298F0044D390 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09F45520D2298F0044D390 /* Fonts.swift */; };
-		CF09F45920D22E7C0044D390 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = CF09F45420D1ED790044D390 /* Fonts */; };
 		CF1132D32123AD29006EF3C9 /* ContestEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1132D22123AD29006EF3C9 /* ContestEntry.swift */; };
 		CF1132D821266FDF006EF3C9 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1132D721266FDF006EF3C9 /* Promise.swift */; };
 		CF1132DA212672F2006EF3C9 /* LoginFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1132D9212672F2006EF3C9 /* LoginFirebase.swift */; };
@@ -49,6 +48,21 @@
 		CF8C9FEC20D0EAE1005F6175 /* LoginEmailSignin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C9FEB20D0EAE1005F6175 /* LoginEmailSignin.swift */; };
 		CF8C9FEE20D0EB0B005F6175 /* LoginEmailSignup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C9FED20D0EB0B005F6175 /* LoginEmailSignup.swift */; };
 		DCD31BC2A59B5EC80F0DB2F9 /* Pods_quickpicks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F73F97435B5AAC8698397BF /* Pods_quickpicks.framework */; };
+		DE39F67F213BDD9D0042455C /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39F67E213BDD9D0042455C /* Reward.swift */; };
+		DE39F685213E15310042455C /* HelpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39F684213E15300042455C /* HelpController.swift */; };
+		DE39F687213E15410042455C /* HelpToView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39F686213E15410042455C /* HelpToView.swift */; };
+		DE39F68A213F1B840042455C /* SettingFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39F689213F1B840042455C /* SettingFirebase.swift */; };
+		DE6276352138917B00106D88 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6276342138917B00106D88 /* ProfileController.swift */; };
+		DE6276372138936B00106D88 /* ProfileToView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6276362138936B00106D88 /* ProfileToView.swift */; };
+		DE62763A213A9FCF00106D88 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE627639213A9FCF00106D88 /* SettingsController.swift */; };
+		DE62763D213AA12100106D88 /* SettingsToView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE62763C213AA12100106D88 /* SettingsToView.swift */; };
+		DE7A40A621362C0300874734 /* College-Boy.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE7A40A021362C0300874734 /* College-Boy.otf */; };
+		DE7A40A721362C0300874734 /* Oswald-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE7A40A121362C0300874734 /* Oswald-Bold.otf */; };
+		DE7A40A821362C0300874734 /* Oswald-Stencil.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE7A40A221362C0300874734 /* Oswald-Stencil.otf */; };
+		DE7A40A921362C0300874734 /* SCOREBOARD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE7A40A321362C0300874734 /* SCOREBOARD.ttf */; };
+		DE7A40AA21362C0300874734 /* Oswald-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE7A40A421362C0300874734 /* Oswald-Light.otf */; };
+		DE7A40AB21362C0300874734 /* Oswald-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE7A40A521362C0300874734 /* Oswald-Regular.otf */; };
+		DE7A40AC21362C0F00874734 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF8C9FC520D0C57F005F6175 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +88,6 @@
 		C51F224FE823BDD46BA60DE7 /* Pods-quickpicks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quickpicks.release.xcconfig"; path = "Pods/Target Support Files/Pods-quickpicks/Pods-quickpicks.release.xcconfig"; sourceTree = "<group>"; };
 		CF09F44D20D1BB3A0044D390 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		CF09F44F20D1BC470044D390 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		CF09F45420D1ED790044D390 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = /Users/zhanpengpan/Desktop/quickpicks/quickpicks/Fonts; sourceTree = "<absolute>"; };
 		CF09F45520D2298F0044D390 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		CF1132D22123AD29006EF3C9 /* ContestEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestEntry.swift; sourceTree = "<group>"; };
 		CF1132D721266FDF006EF3C9 /* Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
@@ -118,6 +131,20 @@
 		CF8C9FD520D0C57F005F6175 /* quickpicksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = quickpicksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8C9FEB20D0EAE1005F6175 /* LoginEmailSignin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailSignin.swift; sourceTree = "<group>"; };
 		CF8C9FED20D0EB0B005F6175 /* LoginEmailSignup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailSignup.swift; sourceTree = "<group>"; };
+		DE39F67E213BDD9D0042455C /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
+		DE39F684213E15300042455C /* HelpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpController.swift; sourceTree = "<group>"; };
+		DE39F686213E15410042455C /* HelpToView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpToView.swift; sourceTree = "<group>"; };
+		DE39F689213F1B840042455C /* SettingFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFirebase.swift; sourceTree = "<group>"; };
+		DE6276342138917B00106D88 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		DE6276362138936B00106D88 /* ProfileToView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileToView.swift; sourceTree = "<group>"; };
+		DE627639213A9FCF00106D88 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		DE62763C213AA12100106D88 /* SettingsToView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToView.swift; sourceTree = "<group>"; };
+		DE7A40A021362C0300874734 /* College-Boy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "College-Boy.otf"; sourceTree = "<group>"; };
+		DE7A40A121362C0300874734 /* Oswald-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Bold.otf"; sourceTree = "<group>"; };
+		DE7A40A221362C0300874734 /* Oswald-Stencil.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Stencil.otf"; sourceTree = "<group>"; };
+		DE7A40A321362C0300874734 /* SCOREBOARD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCOREBOARD.ttf; sourceTree = "<group>"; };
+		DE7A40A421362C0300874734 /* Oswald-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Light.otf"; sourceTree = "<group>"; };
+		DE7A40A521362C0300874734 /* Oswald-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +207,7 @@
 			children = (
 				CF7D967820D796BC001C1E74 /* User.swift */,
 				CF1132D22123AD29006EF3C9 /* ContestEntry.swift */,
+				DE39F67E213BDD9D0042455C /* Reward.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -290,6 +318,7 @@
 		CF8C9FB820D0C57D005F6175 /* quickpicks */ = {
 			isa = PBXGroup;
 			children = (
+				DE7A409F21362C0300874734 /* Fonts */,
 				CF715A2720E1FB7300C01317 /* quickpicks.entitlements */,
 				CF8C9FE920D0E9B2005F6175 /* Controller */,
 				CF8C9FE820D0E977005F6175 /* View */,
@@ -300,7 +329,6 @@
 				CF8C9FC220D0C57F005F6175 /* LaunchScreen.storyboard */,
 				CF8C9FC520D0C57F005F6175 /* Info.plist */,
 				CF715A2520E1E6F400C01317 /* GoogleService-Info.plist */,
-				CF09F45420D1ED790044D390 /* Fonts */,
 			);
 			path = quickpicks;
 			sourceTree = "<group>";
@@ -320,6 +348,8 @@
 		CF8C9FE820D0E977005F6175 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DE62763B213AA0FA00106D88 /* SettingsView */,
+				DE627632213890FA00106D88 /* ProfileView */,
 				CF3917E521311F800073F572 /* CustomTapRecognizers */,
 				CF3917CB212BA4B60073F572 /* Picks */,
 				CF1132DE21291B7F006EF3C9 /* Shared */,
@@ -332,6 +362,8 @@
 		CF8C9FE920D0E9B2005F6175 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DE627638213A9FAA00106D88 /* Settings */,
+				DE6276332138916000106D88 /* Profile */,
 				CF3917DE2130AED40073F572 /* Shared */,
 				CF3917D0212BD3550073F572 /* Picks */,
 				CF8C9FEA20D0EA47005F6175 /* Login */,
@@ -351,6 +383,55 @@
 				CF1132D9212672F2006EF3C9 /* LoginFirebase.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		DE627632213890FA00106D88 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				DE6276362138936B00106D88 /* ProfileToView.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		DE6276332138916000106D88 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				DE6276342138917B00106D88 /* ProfileController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		DE627638213A9FAA00106D88 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DE627639213A9FCF00106D88 /* SettingsController.swift */,
+				DE39F684213E15300042455C /* HelpController.swift */,
+				DE39F689213F1B840042455C /* SettingFirebase.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DE62763B213AA0FA00106D88 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				DE62763C213AA12100106D88 /* SettingsToView.swift */,
+				DE39F686213E15410042455C /* HelpToView.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		DE7A409F21362C0300874734 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DE7A40A021362C0300874734 /* College-Boy.otf */,
+				DE7A40A121362C0300874734 /* Oswald-Bold.otf */,
+				DE7A40A221362C0300874734 /* Oswald-Stencil.otf */,
+				DE7A40A321362C0300874734 /* SCOREBOARD.ttf */,
+				DE7A40A421362C0300874734 /* Oswald-Light.otf */,
+				DE7A40A521362C0300874734 /* Oswald-Regular.otf */,
+			);
+			name = Fonts;
+			path = "../../quick-picks2/quickpicks/Fonts";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -464,11 +545,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE7A40AB21362C0300874734 /* Oswald-Regular.otf in Resources */,
 				CF8C9FC420D0C57F005F6175 /* LaunchScreen.storyboard in Resources */,
 				CF8C9FC120D0C57F005F6175 /* Assets.xcassets in Resources */,
+				DE7A40AA21362C0300874734 /* Oswald-Light.otf in Resources */,
+				DE7A40A721362C0300874734 /* Oswald-Bold.otf in Resources */,
 				CF715A2620E1E6F400C01317 /* GoogleService-Info.plist in Resources */,
 				CF8C9FBF20D0C57D005F6175 /* Main.storyboard in Resources */,
-				CF09F45920D22E7C0044D390 /* Fonts in Resources */,
+				DE7A40A621362C0300874734 /* College-Boy.otf in Resources */,
+				DE7A40AC21362C0F00874734 /* Info.plist in Resources */,
+				DE7A40A921362C0300874734 /* SCOREBOARD.ttf in Resources */,
+				DE7A40A821362C0300874734 /* Oswald-Stencil.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,11 +652,14 @@
 				CF5AE43B20D3267600463C70 /* LoginTextField.swift in Sources */,
 				CF3917C3212A13B30073F572 /* LoginEmailSignupView.swift in Sources */,
 				CF1132E021291BFF006EF3C9 /* LoginOptionsView.swift in Sources */,
+				DE6276372138936B00106D88 /* ProfileToView.swift in Sources */,
 				CF09F45620D2298F0044D390 /* Fonts.swift in Sources */,
 				CF8C9FEE20D0EB0B005F6175 /* LoginEmailSignup.swift in Sources */,
+				DE39F685213E15310042455C /* HelpController.swift in Sources */,
 				CF1132D821266FDF006EF3C9 /* Promise.swift in Sources */,
 				CF7D967920D796BC001C1E74 /* User.swift in Sources */,
 				CF1132D32123AD29006EF3C9 /* ContestEntry.swift in Sources */,
+				DE6276352138917B00106D88 /* ProfileController.swift in Sources */,
 				CF3917D6212EE7680073F572 /* NavBarDelegate.swift in Sources */,
 				CF3917DB2130AB030073F572 /* Contest.swift in Sources */,
 				CF5BAA7320E1FF1800FCD949 /* Navbar.swift in Sources */,
@@ -582,11 +672,16 @@
 				CF3917EB2134FC2E0073F572 /* NavbarTitleConstants.swift in Sources */,
 				CF7D967720D79501001C1E74 /* RealtimeModel.swift in Sources */,
 				CF8C9FBC20D0C57D005F6175 /* LoginOptions.swift in Sources */,
+				DE39F68A213F1B840042455C /* SettingFirebase.swift in Sources */,
+				DE39F67F213BDD9D0042455C /* Reward.swift in Sources */,
+				DE39F687213E15410042455C /* HelpToView.swift in Sources */,
 				CF3917C5212A54790073F572 /* LoginEmailSigninView.swift in Sources */,
 				CF1132E221291C16006EF3C9 /* ViewContainer.swift in Sources */,
+				DE62763A213A9FCF00106D88 /* SettingsController.swift in Sources */,
 				CF3917D92130A99D0073F572 /* Sport.swift in Sources */,
 				CF09F44E20D1BB3A0044D390 /* Gradients.swift in Sources */,
 				CF3917E4213116E80073F572 /* PicksMakeEntry.swift in Sources */,
+				DE62763D213AA12100106D88 /* SettingsToView.swift in Sources */,
 				CF3917C8212BA1A00073F572 /* SegueConstants.swift in Sources */,
 				CF8C9FBA20D0C57D005F6175 /* AppDelegate.swift in Sources */,
 				CF3917E92134F7640073F572 /* PicksMakeEntryView.swift in Sources */,
@@ -770,7 +865,7 @@
 				CODE_SIGN_ENTITLEMENTS = quickpicks/quickpicks.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QPFLT4RDJ4;
+				DEVELOPMENT_TEAM = 4255A8AWDS;
 				INFOPLIST_FILE = quickpicks/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -793,7 +888,7 @@
 				CODE_SIGN_ENTITLEMENTS = quickpicks/quickpicks.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QPFLT4RDJ4;
+				DEVELOPMENT_TEAM = 4255A8AWDS;
 				INFOPLIST_FILE = quickpicks/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

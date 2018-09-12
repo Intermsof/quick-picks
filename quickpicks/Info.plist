@@ -42,12 +42,12 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Fonts/College-Boy.otf</string>
-		<string>Fonts/Oswald-Bold.otf</string>
-		<string>Fonts/Oswald-Light.otf</string>
-		<string>Fonts/Oswald-Regular.otf</string>
-		<string>Fonts/Oswald-Stencil.otf</string>
-		<string>Fonts/SCOREBOARD.ttf</string>
+		<string>College-Boy.otf</string>
+		<string>Oswald-Bold.otf</string>
+		<string>Oswald-Light.otf</string>
+		<string>Oswald-Regular.otf</string>
+		<string>Oswald-Stencil.otf</string>
+		<string>SCOREBOARD.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
