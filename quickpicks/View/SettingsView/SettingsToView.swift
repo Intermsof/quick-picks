@@ -133,6 +133,7 @@ class SettingsToView : NavViewContainer,UITableViewDataSource,UITableViewDelegat
             uiv.addSubview(text_pay)
             text_pay.text = "$5 PAYPAL"
             let attributedString_five1 = NSMutableAttributedString(string: (text_pay.text!))
+            
             attributedString_five1.addAttribute(NSAttributedStringKey.kern, value: 1.5, range: NSMakeRange(0, (text_pay.text!.count)))
             text_pay.attributedText = attributedString_five1
             text_pay.translatesAutoresizingMaskIntoConstraints = false
@@ -198,19 +199,23 @@ class SettingsToView : NavViewContainer,UITableViewDataSource,UITableViewDelegat
             let attributedString_one2 = NSMutableAttributedString(string: (text_cost_one.text!))
             attributedString_one2.addAttribute(NSAttributedStringKey.kern, value: 1.5, range: NSMakeRange(0, (text_cost_one.text!.count)))
             text_cost_one.attributedText = attributedString_one2
-            text_cost_one.frame = CGRect(x:170 ,y:110,width:50,height:16)
+            
+            text_cost_one.frame = CGRect(x:170 ,y:110,width:50,height:16) //?????
+            
             text_cost_one.font = UIFont(name : "Oswald" , size:12)
             text_cost_one.textColor = UIColor.white
             let uicoin_one:UIImageView = UIImageView(image: #imageLiteral(resourceName: "Coin"))
             uiv_one.addSubview(uicoin_one)
-            uicoin_one.frame = CGRect(x:210,y:110,width:15,height:15)
+            uicoin_one.frame = CGRect(x:210,y:110,width:15,height:15) //??????
             let text_no_one:UILabel = UILabel()
             uiv_one.addSubview(text_no_one)
             text_no_one.text = "10,000"
+            
             let attributedString_one3 = NSMutableAttributedString(string: (text_no_one.text!))
             attributedString_one3.addAttribute(NSAttributedStringKey.kern, value: 1.5, range: NSMakeRange(0, (text_no_one.text!.count)))
             text_no_one.attributedText = attributedString_one3
-            text_no_one.frame = CGRect(x:240 ,y:107,width:200,height:20)
+            
+            text_no_one.frame = CGRect(x:240 ,y:107,width:200,height:20) //??????
             text_no_one.font = UIFont(name : "Oswald" , size:18)
             text_no_one.textColor = UIColor.white
             let gesture_one = UITapGestureRecognizer(target: self, action:  #selector (oneDollarAction(sender:)))
@@ -285,6 +290,7 @@ class SettingsToView : NavViewContainer,UITableViewDataSource,UITableViewDelegat
         textlabel.attributedText = attributedString
         
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          print("You clicked \(indexPath.row) in section \(indexPath.section) ")
         if settingPassedIn.hashValue == 2 {
@@ -292,6 +298,7 @@ class SettingsToView : NavViewContainer,UITableViewDataSource,UITableViewDelegat
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = 0
         if settingPassedIn.hashValue == 2 {

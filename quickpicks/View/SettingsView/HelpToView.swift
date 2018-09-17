@@ -39,14 +39,17 @@ class HelpToView :NavViewContainer {
             include(text_question1)
             placeBelow(source: text_question1, target: textlabel, padding: 10.0)
             bindLeft(text_question1, target: self, 15.0)
+            
             text_question1.text = "Q: What is Quick Picks?"
             let text_answer1 = UILabel()
             text_answer1.text = "A: Quick Picks is a sports pick’em app that gives real players the chance to make daily picks on their favorite teams for real rewards. Players can make picks on their favorite basketball, football, and baseball picks daily."
+            
             text_answer1.numberOfLines = 0
             text_answer1.lineBreakMode = .byWordWrapping
             text_answer1.adjustsFontSizeToFitWidth = true
             text_answer1.sizeToFit()
             text_answer1.preferredMaxLayoutWidth = 400
+            
             include(text_answer1)
             bindLeft(text_answer1, target: self, 15.0)
             placeBelow(source: text_answer1, target: text_question1, padding: 5.0)
