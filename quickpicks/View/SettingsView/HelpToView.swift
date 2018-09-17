@@ -12,6 +12,8 @@ import UIKit
 class HelpToView :NavViewContainer {
         var helpController:HelpController
         var helpPassedIn : HelpController.HelpToDisplay
+    let scrollview = UIScrollView()
+    
 
     init(navBarDelegate : NavBarDelegate,helpPassedInValue:HelpController.HelpToDisplay,helpC:HelpController) {
         helpController = helpC
@@ -34,20 +36,29 @@ class HelpToView :NavViewContainer {
           switch helpPassedIn {
           case .faq:
             textlabel.text="FAQ"
+            //ScrollView
+            include(scrollview)
+            bindHeight(scrollview, target: self, 1.0)
+            bindWidth(scrollview, target: self, 1.0)
+            placeBelow(source: scrollview, target: navbar, padding: 0.0)
+            scrollview.translatesAutoresizingMaskIntoConstraints = false
+            
             //QUESTION AND ANSWER 1
             let text_question1 = UILabel()
             include(text_question1)
+            //scrollview.addSubview(text_question1)
             placeBelow(source: text_question1, target: textlabel, padding: 10.0)
             bindLeft(text_question1, target: self, 15.0)
             text_question1.text = "Q: What is Quick Picks?"
             let text_answer1 = UILabel()
             text_answer1.text = "A: Quick Picks is a sports pick’em app that gives real players the chance to make daily picks on their favorite teams for real rewards. Players can make picks on their favorite basketball, football, and baseball picks daily."
-            text_answer1.numberOfLines = 0
+          //  text_answer1.adjustsFontSizeToFitWidth = true
+          //  text_answer1.sizeToFit()
+            text_answer1.preferredMaxLayoutWidth = UIScreen.main.bounds.width-20
             text_answer1.lineBreakMode = .byWordWrapping
-            text_answer1.adjustsFontSizeToFitWidth = true
-            text_answer1.sizeToFit()
-            text_answer1.preferredMaxLayoutWidth = 400
+            text_answer1.numberOfLines = 0
             include(text_answer1)
+           // scrollview.addSubview(text_answer1)
             bindLeft(text_answer1, target: self, 15.0)
             placeBelow(source: text_answer1, target: text_question1, padding: 5.0)
             
@@ -63,7 +74,7 @@ class HelpToView :NavViewContainer {
             text_answer2.lineBreakMode = .byWordWrapping
             text_answer2.adjustsFontSizeToFitWidth = true
             text_answer2.sizeToFit()
-            text_answer2.preferredMaxLayoutWidth = 400
+            text_answer2.preferredMaxLayoutWidth = UIScreen.main.bounds.width-20
             include(text_answer2)
             bindLeft(text_answer2, target: self, 15.0)
             placeBelow(source: text_answer2, target: text_question2, padding: 5.0)
@@ -80,7 +91,7 @@ class HelpToView :NavViewContainer {
             text_answer3.lineBreakMode = .byWordWrapping
             text_answer3.adjustsFontSizeToFitWidth = true
             text_answer3.sizeToFit()
-            text_answer3.preferredMaxLayoutWidth = 400
+            text_answer3.preferredMaxLayoutWidth = UIScreen.main.bounds.width-20
             include(text_answer3)
             bindLeft(text_answer3, target: self, 15.0)
             placeBelow(source: text_answer3, target: text_question3, padding: 5.0)
@@ -97,7 +108,7 @@ class HelpToView :NavViewContainer {
             text_answer4.lineBreakMode = .byWordWrapping
             text_answer4.adjustsFontSizeToFitWidth = true
             text_answer4.sizeToFit()
-            text_answer4.preferredMaxLayoutWidth = 390
+            text_answer4.preferredMaxLayoutWidth = UIScreen.main.bounds.width-20
             include(text_answer4)
             bindLeft(text_answer4, target: self, 15.0)
             placeBelow(source: text_answer4, target: text_question4, padding: 5.0)
@@ -114,7 +125,7 @@ class HelpToView :NavViewContainer {
             text_answer5.lineBreakMode = .byWordWrapping
             text_answer5.adjustsFontSizeToFitWidth = true
             text_answer5.sizeToFit()
-            text_answer5.preferredMaxLayoutWidth = 390
+            text_answer5.preferredMaxLayoutWidth = UIScreen.main.bounds.width-20
             include(text_answer5)
             bindLeft(text_answer5, target: self, 15.0)
             placeBelow(source: text_answer5, target: text_question5, padding: 5.0)

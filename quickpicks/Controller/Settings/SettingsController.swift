@@ -13,6 +13,7 @@ class SettingsController : NavbarViewController{
       var viewContainer: SettingsToView!
     var sectionselected : Int!
     var rowselected : Int!
+    var amount_present = User.shared.coins!
     
     override func getLeftButtonImage() -> UIImage? {
         return #imageLiteral(resourceName: "backbutton")
@@ -50,7 +51,13 @@ class SettingsController : NavbarViewController{
     }
     
     func setupAlert(amount:Int){
-        
+        if ((amount_present < 10000) && (amount == 1)) || ((amount_present < 50000) && (amount == 5)) {
+            let alert_error = UIAlertController(title: "Your current balance is less than 10000", message: "PLAY more games to earn coins...", preferredStyle: .alert)
+             alert_error.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert_error, animated: true)
+        }
+        else {
+            
         let alert = UIAlertController(title: "Enter Your Details", message: "Enter Paypal Email & QuickPicks Email", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
@@ -71,8 +78,11 @@ class SettingsController : NavbarViewController{
             print("Your name: \(alert.textFields![0].text!)")
             SettingFirebase.setupRewards(paypalemail: alert.textFields![0].text!, qpemail: alert.textFields![1].text!, amount: amount)
         }))
+        amount_present = amount_present - (amount*10000)
+        User.shared.coins = amount_present
+        SettingFirebase.updateCoins(amount: amount_present)
         self.present(alert, animated: true)
-        
+        }
     }
     
     func seguetoHelp(indexPath:IndexPath){

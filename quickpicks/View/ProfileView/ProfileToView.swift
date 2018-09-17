@@ -47,7 +47,7 @@ class ProfileToView : NavViewContainer,UITableViewDelegate,UITableViewDataSource
         label_name.attributedText = attributedString
         //let image = UIImage(imageLiteralResourceName: "Ladder")
         //let image = UIImageView(image: #imageLiteral(resourceName: "Ladder"))
-       placeBelow(source: label_name, target: navbar, padding: 10)
+        placeBelow(source: label_name, target: navbar, padding: 10)
         
     }
     
@@ -60,8 +60,8 @@ class ProfileToView : NavViewContainer,UITableViewDelegate,UITableViewDataSource
     }
     func setupLabelCoin(){
         centerHorizontally(label_coins)
-        label_coins.text="438,000"
-        label_coins.textColor=UIColor(red: 154/255, green: 205/255, blue: 50/255, alpha: 1.0)
+        label_coins.text  = String(User.shared.coins)
+        label_coins.textColor = UIColor(red: 154/255, green: 205/255, blue: 50/255, alpha: 1.0)
         label_coins.font = UIFont(name:"Oswald-Bold", size: 18.0)
         placeBelow(source: label_coins, target: linehorizontal, padding: 30)
     }
@@ -184,6 +184,5 @@ class ProfileToView : NavViewContainer,UITableViewDelegate,UITableViewDataSource
         print("VAL of switch is \(mySwitch.isOn)")
         SettingFirebase.updateNotifications(nval: val)
     }
-    
     
 }

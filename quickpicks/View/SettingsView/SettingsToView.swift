@@ -229,10 +229,13 @@ class SettingsToView : NavViewContainer,UITableViewDataSource,UITableViewDelegat
             include(tableviewhelp)
             placeBelow(source: tableviewhelp, target: textlabel, padding: 10.0)
             bindWidth(tableviewhelp, target: self, 1.0)
-            bindHeight(tableviewhelp, target: self, 0.1)
+            //bindHeight(tableviewhelp, target: self, 0.15)
+            bindTop(tableviewhelp, target: textlabel, 30.0)
+            bindBottom(tableviewhelp, target: self, 30.0)
             tableviewhelp.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell_help")
             tableviewhelp.dataSource=self
             tableviewhelp.delegate=self
+            tableviewhelp.tableFooterView = UIView()
             
             
         case .settings:
@@ -285,6 +288,11 @@ class SettingsToView : NavViewContainer,UITableViewDataSource,UITableViewDelegat
         textlabel.attributedText = attributedString
         
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        tableView.heightAnchor.constraint(equalToConstant: tableView.contentSize.height).isActive = true
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          print("You clicked \(indexPath.row) in section \(indexPath.section) ")
         if settingPassedIn.hashValue == 2 {
