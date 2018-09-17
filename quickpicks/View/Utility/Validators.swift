@@ -1,0 +1,27 @@
+//
+//  Validators.swift
+//  quickpicks
+//
+//  Created by Zhan Peng  Pan on 9/16/18.
+//  Copyright © 2018 quickpicks. All rights reserved.
+//
+
+import Foundation
+
+struct Validators {
+    /* https://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift */
+    static func isValidEmail(testStr : String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
+    
+    static func isValidUserName(testStr : String) -> Bool{
+        return testStr.count > 5
+    }
+    
+    static func isValidPassword(testStr : String) -> Bool{
+        return testStr.count > 7
+    }
+}

@@ -11,7 +11,7 @@ import UIKit
 
 class LoginEmailBase : ViewContainer {
     //used in child classes
-    let TEXTFIELD_HEIGHT : CGFloat = 42
+    static let TEXTFIELD_HEIGHT : CGFloat = 42
     let TEXTFIELD_PADDING : CGFloat = 15
     let TEXTFIELD_WIDTH_PERCENTAGE : CGFloat = 0.75
     let SIGNUP_BUTTON_WIDTH_PERCENTAGE : CGFloat = 0.5

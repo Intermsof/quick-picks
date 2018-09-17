@@ -25,19 +25,9 @@ class LoginEmailSignup: UIViewController, Promise{
         print(error)
     }
     
-    
     var viewContainer : LoginEmailSignupView!
     var containerRaised : Bool = false
-    
-    
-    var blurEffect : UIVisualEffectView!
-    var wrapper : UIView!
-    
-    var signupButton : UIButton!
-    
-    var fbLoginButton : UIButton!
-    
-    static let signupButtonWidthPercentage : CGFloat = 0.4 //Percentage of full screen width of sign up button
+
     override func viewDidLoad() {
         print("view did load called")
         super.viewDidLoad()
@@ -48,28 +38,6 @@ class LoginEmailSignup: UIViewController, Promise{
         
         NotificationCenter.default.addObserver(self, selector: #selector(LoginEmailSignup.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(LoginEmailSignup.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    static func createBlurEffect(container: UIView) -> UIVisualEffectView {
-        let blurEffect = UIVisualEffectView(effect: UIBlurEffect(style: .light))
-        
-        blurEffect.frame = container.frame
-        blurEffect.alpha = 0.0
-        container.addSubview(blurEffect)
-        
-        return blurEffect
-    }
-    
-    static func createLoadingCoin(container : UIView) -> UIImageView{
-        let loadingCoin = UIImageView(image: #imageLiteral(resourceName: "QPCoin"))
-        container.addSubview(loadingCoin)
-        loadingCoin.translatesAutoresizingMaskIntoConstraints = false
-        loadingCoin.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
-        loadingCoin.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
-        loadingCoin.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: 0.2).isActive = true
-        loadingCoin.heightAnchor.constraint(equalTo: container.widthAnchor, multiplier: 0.2).isActive = true
-        loadingCoin.isHidden = true
-        return loadingCoin
     }
     
     static func createButtons(signupString : String, fbString : String)->(UIButton, UIButton){
@@ -91,7 +59,6 @@ class LoginEmailSignup: UIViewController, Promise{
         return (signupButton, fbLoginButton)
     }
     
-    var loadingCoin : UIImageView!
     @objc func keyboardWillShow(_ sender : NSNotification){
         if(!self.containerRaised){
             containerRaised = true
@@ -120,6 +87,11 @@ class LoginEmailSignup: UIViewController, Promise{
         }.startAnimation()
     }
     
+    @IBAction func signUpWithFacebook(){
+        self.dismiss(animated: false, completion: nil)
+        self.navigationController!.popViewController(animated: true)
+    }
+    
     @IBAction func signupUser(){
         print("sign up user fired")
         let email = viewContainer.emailField.textField.text!
@@ -127,55 +99,10 @@ class LoginEmailSignup: UIViewController, Promise{
         let password = viewContainer.passwordField.textField.text!
         
         LoginFirebase.signupUser(email: email, username: username, password: password , delegate: self)
-        
-        
-        
-//        LoginFirebase.signinUser(email: "testing123@gmail.com", password: "someshit", delegate: self)
-//
-//        guard !email.hasError() && !username.hasError() && !password.hasError() && !passwordRetype.hasError() else {
-//            if(email.hasError()){
-//                email.shakeAnimation()
-//            }
-//            if(password.hasError()){
-//                password.shakeAnimation()
-//            }
-//            if(passwordRetype.hasError()){
-//                passwordRetype.shakeAnimation()
-//            }
-//            if(username.hasError()){
-//                username.shakeAnimation()
-//            }
-//            return
-//        }
-//
-//        self.email.textField.resignFirstResponder()
-//        self.password.textField.resignFirstResponder()
-//        self.passwordRetype.textField.resignFirstResponder()
-//        self.username.textField.resignFirstResponder()
-/*
-        continueRotate = true
-        let animationDuration = 0.3
-        self.loadingCoin.isHidden = false
-        UIView.animate(withDuration: animationDuration) {
-            self.blurEffect.alpha = 0.8
-            self.descriptionImage.alpha = 0
-            self.headerImage.alpha = 0
-            self.username.alpha = 0
-            self.email.alpha = 0
-            self.password.alpha = 0
-            self.passwordRetype.alpha = 0
-            self.signupButton.alpha = 0
-            self.fbLoginButton.alpha = 0
-        }
-        
-        self.rotateCoin()
-     */
-        /*
-        FirebaseManager.shared.createUser(withEmail: email.textField.text!, password: password.textField.text!, username: username.textField.text!, controller: self)
- */
     }
     
     /*
+     var loadingCoin : UIImageView!
     var continueRotate : Bool = true
     func rotateCoin(){
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.4, delay: 0, options: [.curveLinear, .repeat, .autoreverse], animations: {
@@ -186,17 +113,29 @@ class LoginEmailSignup: UIViewController, Promise{
             }
         })
     }
-    
-    func notifyFailure(){
-        print("we just got fucked in notify failure")
-    }
-
-    let toPicksSegueName = "ToPicksFromLoginEmailSignup"
-    func notifySuccess(){
-        self.continueRotate = false
-        self.performSegue(withIdentifier: toPicksSegueName, sender: self)
-    }
- */
+     
+     static func createBlurEffect(container: UIView) -> UIVisualEffectView {
+     let blurEffect = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+     
+     blurEffect.frame = container.frame
+     blurEffect.alpha = 0.0
+     container.addSubview(blurEffect)
+     
+     return blurEffect
+     }
+     
+     static func createLoadingCoin(container : UIView) -> UIImageView{
+     let loadingCoin = UIImageView(image: #imageLiteral(resourceName: "QPCoin"))
+     container.addSubview(loadingCoin)
+     loadingCoin.translatesAutoresizingMaskIntoConstraints = false
+     loadingCoin.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
+     loadingCoin.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
+     loadingCoin.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: 0.2).isActive = true
+     loadingCoin.heightAnchor.constraint(equalTo: container.widthAnchor, multiplier: 0.2).isActive = true
+     loadingCoin.isHidden = true
+     return loadingCoin
+     }
+    */
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -208,16 +147,4 @@ class LoginEmailSignup: UIViewController, Promise{
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

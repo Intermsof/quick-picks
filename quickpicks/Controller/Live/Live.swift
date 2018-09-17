@@ -20,9 +20,8 @@ class Live : NavbarViewController, LiveViewDelegate {
     override func viewDidLoad() {
         liveViewContainer = LiveView(navBarDelegate: self, liveViewDelegate: self)
         liveViewContainer.addTo(self)
-        
-        
     }
+    
     func getSportNames(sport : Sport){
         Firestore.firestore().document("sports/\(sport.id)/Teams/tbjsx8IrAhHeyjkKhEEJ")
             .getDocument { (snapshot, error) in
@@ -101,22 +100,28 @@ class Live : NavbarViewController, LiveViewDelegate {
                             
                             sport.dailyLB = rankings
                             self.liveViewContainer.rankingsTable.reloadData()
-                    }                }
+                    }
+                }
         }
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         //Hardcode to NFL
         listenToSport(sport: Sport.sports[0])
         getSportNames(sport : Sport.sports[0])
+        
+        liveViewContainer.rankingsTable.reloadData()
+        liveViewContainer.myPicksTable.setContestEntry(contestEntry: User.shared.NFLcontestEntry)
+        liveViewContainer.liveGamesTable.reloadData()
+        
+        print("viewwillappear called")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         for listener in gameListeners {
             listener.remove()
         }
+        print("viewwilldisappear called")
         contestListener.remove()
     }
 }

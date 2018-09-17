@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 class LoginEmailSigninView : LoginEmailBase {
-    let emailTextField = LoginTextField()
-    let passwordTextField = LoginTextField()
+    let emailTextField = LoginTextField(placeHolder: "Email")
+    let passwordTextField = LoginTextField(placeHolder: "Password")
     let facebookSigninButton = UIButton()
     let signinButton = UIButton()
     
@@ -52,7 +52,7 @@ class LoginEmailSigninView : LoginEmailBase {
     
     func setupEmailField(){
         bindWidth(emailTextField, target: self, TEXTFIELD_WIDTH_PERCENTAGE)
-        emailTextField.heightAnchor.constraint(equalToConstant: TEXTFIELD_HEIGHT)
+        emailTextField.heightAnchor.constraint(equalToConstant: LoginEmailBase.TEXTFIELD_HEIGHT)
         centerHorizontally(emailTextField)
         placeBelow(source: emailTextField, target: descriptionImage, padding: TEXTFIELD_PADDING)
         emailTextField.setPlaceholder("email")
@@ -60,7 +60,7 @@ class LoginEmailSigninView : LoginEmailBase {
     
     func setupPasswordField(){
         bindWidth(passwordTextField, target: self, TEXTFIELD_WIDTH_PERCENTAGE)
-        emailTextField.heightAnchor.constraint(equalToConstant: TEXTFIELD_HEIGHT)
+        emailTextField.heightAnchor.constraint(equalToConstant: LoginEmailBase.TEXTFIELD_HEIGHT)
         centerHorizontally(passwordTextField)
         placeBelow(source: passwordTextField, target: emailTextField, padding: TEXTFIELD_PADDING)
         passwordTextField.setPlaceholder("password")
@@ -70,6 +70,7 @@ class LoginEmailSigninView : LoginEmailBase {
         super.addTo(controller)
         
         self.signinButton.addTarget(controller, action: #selector(LoginEmailSignin.signin), for: .touchUpInside)
+        self.facebookSigninButton.addTarget(controller, action: #selector(LoginEmailSignin.signinWithFacebook), for: .touchUpInside)
     }
     
     required init?(coder aDecoder: NSCoder) {

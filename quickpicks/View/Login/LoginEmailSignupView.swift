@@ -11,10 +11,10 @@ import UIKit
 
 class LoginEmailSignupView : LoginEmailBase {
     
-    let emailField = LoginTextField()
-    let usernameField = LoginTextField()
-    let passwordField = LoginTextField()
-    let passwordRetypeField = LoginTextField()
+    let emailField = LoginTextField(placeHolder: "Email", validator: Validators.isValidEmail, errorMessage: "please enter a valid email address", height: LoginEmailBase.TEXTFIELD_HEIGHT)
+    let usernameField = LoginTextField(placeHolder: "Username", validator: Validators.isValidUserName,errorMessage: "username must be 6 or more letters long", height: LoginEmailBase.TEXTFIELD_HEIGHT)
+    let passwordField = LoginTextField(placeHolder: "Password", validator: Validators.isValidPassword, errorMessage: "passwords must be 7 or more letters long", height: LoginEmailBase.TEXTFIELD_HEIGHT)
+    let passwordRetypeField = LoginTextField(placeHolder: "Retype password")
     let facebookSignupButton = UIButton()
     let signupButton = UIButton()
     
@@ -27,8 +27,8 @@ class LoginEmailSignupView : LoginEmailBase {
         include(signupButton)
         include(facebookSignupButton)
         
-        setupEmailField()
         setupUsernameField()
+        setupEmailField()
         setupPasswordField()
         setupPasswordRetypeField()
         setupSignupButton()
@@ -39,6 +39,8 @@ class LoginEmailSignupView : LoginEmailBase {
         super.addTo(controller)
         
         signupButton.addGestureRecognizer(UITapGestureRecognizer(target: controller, action: #selector(LoginEmailSignup.signupUser)))
+        
+        facebookSignupButton.addTarget(controller, action: #selector(LoginEmailSignup.signUpWithFacebook), for: .touchUpInside)
     }
     
     func setupSignupButton(){
@@ -62,36 +64,31 @@ class LoginEmailSignupView : LoginEmailBase {
         facebookSignupButton.layer.shadowRadius = 2
     }
     
-    func setupEmailField(){
-        bindWidth(emailField, target: self, TEXTFIELD_WIDTH_PERCENTAGE)
-        emailField.heightAnchor.constraint(equalToConstant: TEXTFIELD_HEIGHT).isActive = true
-        centerHorizontally(emailField)
-        placeBelow(source: emailField, target: descriptionImage, padding: TEXTFIELD_PADDING)
-        emailField.setPlaceholder("Email")
-    }
-    
     func setupUsernameField(){
         bindWidth(usernameField, target: self, TEXTFIELD_WIDTH_PERCENTAGE)
-        usernameField.heightAnchor.constraint(equalToConstant: TEXTFIELD_HEIGHT).isActive = true
+        
         centerHorizontally(usernameField)
-        placeBelow(source: usernameField, target: emailField, padding: TEXTFIELD_PADDING)
-        usernameField.setPlaceholder("Username")
+        placeBelow(source: usernameField, target: descriptionImage, padding: TEXTFIELD_PADDING)
+    }
+    
+    func setupEmailField(){
+        bindWidth(emailField, target: self, TEXTFIELD_WIDTH_PERCENTAGE)
+        
+        centerHorizontally(emailField)
+        placeBelow(source: emailField, target: usernameField, padding: TEXTFIELD_PADDING)
     }
     
     func setupPasswordField(){
         bindWidth(passwordField, target: self, TEXTFIELD_WIDTH_PERCENTAGE)
-        passwordField.heightAnchor.constraint(equalToConstant: TEXTFIELD_HEIGHT).isActive = true
         centerHorizontally(passwordField)
-        placeBelow(source: passwordField, target: usernameField, padding: TEXTFIELD_PADDING)
-        passwordField.setPlaceholder("Password")
+        placeBelow(source: passwordField, target: emailField, padding: TEXTFIELD_PADDING)
     }
     
     func setupPasswordRetypeField(){
         bindWidth(passwordRetypeField, target: self, TEXTFIELD_WIDTH_PERCENTAGE)
-        passwordRetypeField.heightAnchor.constraint(equalToConstant: TEXTFIELD_HEIGHT).isActive = true
+        passwordRetypeField.heightAnchor.constraint(equalToConstant: LoginEmailBase.TEXTFIELD_HEIGHT).isActive = true
         centerHorizontally(passwordRetypeField)
         placeBelow(source: passwordRetypeField, target: passwordField, padding: TEXTFIELD_PADDING)
-        passwordRetypeField.setPlaceholder("Retype Password")
     }
     
     required init?(coder aDecoder: NSCoder) {

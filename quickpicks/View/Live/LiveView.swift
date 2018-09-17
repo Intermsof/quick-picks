@@ -18,11 +18,12 @@ class LiveView : NavViewContainer {
     let slider = UIView()
     let barFont = Fonts.CollegeBoyWithSize(size: 20)
     let liveGamesTable = LiveGamesTable(sport: Sport.sports[0]) //Default to the first sport for now
-    let myPicksTable = MyPicksTable(sport: Sport.sports[0], contestEntry: User.shared.NFLcontestEntry)
+    let myPicksTable = MakeEntryTable(sport: Sport.sports[0], existingContestEntry: User.shared.NFLcontestEntry)
     let rankingsTable = RankingsTable(sport: Sport.sports[0]) //Default to the first sport for now
     
+    
     var sliderConstraint : NSLayoutConstraint!
-
+    let myPicksTableLabel = UILabel()
     
     init(navBarDelegate: NavBarDelegate, liveViewDelegate: LiveViewDelegate){
         super.init(navBarDelegate : navBarDelegate)
@@ -45,13 +46,30 @@ class LiveView : NavViewContainer {
     }
     
     func setupMyPicksTable(){
-        placeBelow(source: myPicksTable, target: leftBar, padding: 0)
+        include(myPicksTableLabel)
+        if let entryDate = User.shared.NFLcontestEntry?.date {
+            myPicksTableLabel.text = "NFL    \(entryDate)"
+        }
+        else{
+            myPicksTableLabel.text = "You didn't make picks!"
+            myPicksTable.isHidden = true
+        }
+        
+        myPicksTableLabel.font = Fonts.OswaldWithSize(size: 30)
+        myPicksTableLabel.translatesAutoresizingMaskIntoConstraints = false
+        placeBelow(source: myPicksTableLabel, target: leftBar, padding: 10)
+        myPicksTableLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        
+        
+        placeBelow(source: myPicksTable, target: myPicksTableLabel, padding: 10)
         bindLeft(myPicksTable, target: self, 0)
         bindRight(myPicksTable, target: self, 0)
         bindBottom(myPicksTable, target: self, 0)
+        myPicksTable.setPickable(false)
     }
     
     func setupRankingsTable(){
+        
         placeBelow(source: rankingsTable, target: leftBar, padding: 0)
         bindLeft(rankingsTable, target: self, 0)
         bindRight(rankingsTable, target: self, 0)
@@ -104,6 +122,7 @@ class LiveView : NavViewContainer {
     }
     
     @IBAction func leftBarTapped(){
+        myPicksTableLabel.isHidden = true
         moveSlider(to: 0)
         leftBar.setTitleColor(Colors.QPYellow, for: .normal)
         middleBar.setTitleColor(UIColor.lightGray, for: .normal)
@@ -119,6 +138,7 @@ class LiveView : NavViewContainer {
     }
     
     @IBAction func middleBarTapped(){
+        myPicksTableLabel.isHidden = false
         moveSlider(to: self.frame.width * 0.3333)
         leftBar.setTitleColor(UIColor.lightGray, for: .normal)
         middleBar.setTitleColor(Colors.QPYellow, for: .normal)
@@ -127,13 +147,16 @@ class LiveView : NavViewContainer {
         if(myPicksTable.isHidden){
             UIView.animate(withDuration: 0.15) {
                 self.rankingsTable.isHidden = true
-                self.myPicksTable.isHidden = false
+                if(User.shared.NFLcontestEntry != nil){
+                    self.myPicksTable.isHidden = false
+                }
                 self.liveGamesTable.isHidden = true
             }
         }
     }
     
     @IBAction func rightBarTapped(){
+        myPicksTableLabel.isHidden = true
         moveSlider(to: self.frame.width * 0.6666)
         leftBar.setTitleColor(UIColor.lightGray, for: .normal)
         middleBar.setTitleColor(UIColor.lightGray, for: .normal)

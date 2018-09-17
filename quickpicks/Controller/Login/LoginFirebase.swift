@@ -44,8 +44,6 @@ struct LoginFirebase {
                     delegate.resolve(result: true)
                 }
             }
-        
-        
     }
     
     static func signupUser(email: String, username: String, password: String, delegate : Promise){

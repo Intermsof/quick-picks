@@ -32,14 +32,14 @@ class LoginOptions : UIViewController, Promise {
     var blurEffect : UIVisualEffectView!
     
     override func viewDidLoad() {
-        if let user = Auth.auth().currentUser {
-            LoginFirebase.fetchUser(email: user.email!, delegate: self)
-        }
-        else{
+//        if let user = Auth.auth().currentUser {
+//            LoginFirebase.fetchUser(email: user.email!, delegate: self)
+//        }
+//        else{
             super.viewDidLoad()
             viewContainer = LoginOptionsView()
             viewContainer.addTo(self)
-        }
+//        }
 
         ViewContainer.setupRadialGradient(self.view)
     }

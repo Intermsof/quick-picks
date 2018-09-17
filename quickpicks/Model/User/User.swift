@@ -47,6 +47,7 @@ class User {
         self.coins = 0
         self.prevCoins = 0
         self.notifications = true
+        self.NFLEntered = false
     }
     
     func toFirebaseModel() -> [String : Any]{
@@ -58,6 +59,7 @@ class User {
         result["coins"] = coins
         result["prevCoins"] = coins
         result["notifications"] = notifications
+        result["NFLEntered"] = NFLEntered
         
         return result
     }

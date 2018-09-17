@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-class PicksMakeEntryView : NavViewContainer, UITableViewDataSource, UITableViewDelegate {
-    let makeEntryTable = UITableView()
+class PicksMakeEntryView : NavViewContainer {
+    let makeEntryTable : MakeEntryTable
     let enterScoreField = InsetTextfield()
     let infoButton = UIImageView(image: #imageLiteral(resourceName: "Info"))
     let submitButton = UIButton()
@@ -23,6 +23,27 @@ class PicksMakeEntryView : NavViewContainer, UITableViewDataSource, UITableViewD
     
     init(navBarDelegate : NavBarDelegate, picksMakeEntryViewDelegate : PicksMakeEntryViewDelegate){
         self.picksMakeEntryViewDelegate = picksMakeEntryViewDelegate
+        var enterScoreFieldText : String? = nil
+        if(Sport.isNFLPicked()){
+            existingContestEntry = User.shared.NFLcontestEntry
+            if let exist = existingContestEntry {
+                enterScoreFieldText = String(exist.lastGameScore)
+            }
+        }
+        else if(Sport.isNBAPicked()){
+            existingContestEntry = User.shared.NBAcontestEntry
+            if let exist = existingContestEntry {
+                enterScoreFieldText = String(exist.lastGameScore)
+            }
+        }
+        else if(Sport.isMLBPicked()){
+            existingContestEntry = User.shared.MLBcontestEntry
+            if let exist = existingContestEntry {
+                enterScoreFieldText = String(exist.lastGameScore)
+            }
+        }
+        
+        makeEntryTable = MakeEntryTable(sport: Sport.selectedSport!, existingContestEntry: existingContestEntry)
         super.init(navBarDelegate : navBarDelegate)
         include(makeEntryTable)
         include(enterScoreField)
@@ -34,23 +55,8 @@ class PicksMakeEntryView : NavViewContainer, UITableViewDataSource, UITableViewD
         setupMakeEntrytable()
         setupSubmitButton()
         
-        if(Sport.isNFLPicked()){
-            existingContestEntry = User.shared.NFLcontestEntry
-            if let exist = existingContestEntry {
-                enterScoreField.text = String(exist.lastGameScore)
-            }
-        }
-        else if(Sport.isNBAPicked()){
-            existingContestEntry = User.shared.NBAcontestEntry
-            if let exist = existingContestEntry {
-                enterScoreField.text = String(exist.lastGameScore)
-            }
-        }
-        else if(Sport.isMLBPicked()){
-            existingContestEntry = User.shared.MLBcontestEntry
-            if let exist = existingContestEntry {
-                enterScoreField.text = String(exist.lastGameScore)
-            }
+        if let text = enterScoreFieldText {
+            enterScoreField.text = text
         }
     }
     
@@ -102,19 +108,10 @@ class PicksMakeEntryView : NavViewContainer, UITableViewDataSource, UITableViewD
         }
         
         print("submit clicked")
-        let rows = makeEntryTable.numberOfRows(inSection: 0)
-        var picks = [Int]()
-        for index in 0..<rows{
-            let cell = makeEntryTable.cellForRow(at: IndexPath(row: index, section: 0)) as! MakeEntryTableviewCell
-            
-            if(cell.teamPicked == .home){
-                picks.append(0)
-            }
-            else{
-                picks.append(1)
-            }
-        }
+        
         let lastGameScore = Int(enterScoreField.text!)!
+        
+        let picks = makeEntryTable.getPicks()
         
         let contestEntry = ContestEntry(id: nil, picks: picks, contest: Sport.selectedSport!.currentContest.id, date: Sport.selectedSport!.currentContest.date, position: -1, lastGameScore: lastGameScore)
         
@@ -152,47 +149,13 @@ class PicksMakeEntryView : NavViewContainer, UITableViewDataSource, UITableViewD
         fatalError("init(coder:) has not been implemented")
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(Sport.selectedSport!.currentContest.gameIDs.count)
-        print(Sport.selectedSport!.id)
-        print(Sport.selectedSport!.currentContest.id)
-        print(Sport.selectedSport!.currentContest.games)
-        return Sport.selectedSport!.currentContest.gameIDs.count
-    }
     
-    func tableView(_ tableView: UITableView,
-                   heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.allowsSelection = false
-        let gameID = Sport.selectedSport!.currentContest.gameIDs[indexPath.row]
-        let game = Sport.selectedSport!.currentContest.games[gameID]
-        let retVal = MakeEntryTableviewCell(game: game!)
-        retVal.awayTeamTapReceiver.setBackgroundColor(state: .off)
-        retVal.homeTeamTapReceiver.setBackgroundColor(state: .off)
-        
-        if let entry = existingContestEntry{
-            let pick = entry.picks[indexPath.row]
-            if(pick == 0){
-                retVal.updateSelection(team: .home)
-            }
-            else{
-                retVal.updateSelection(team: .away)
-            }
-        }
-        return retVal
-    }
     
     func setupMakeEntrytable(){
         bindLeft(makeEntryTable, target: self, 0)
         bindRight(makeEntryTable, target: self, 0)
         placeBelow(source: makeEntryTable, target: enterScoreField, padding: ENTER_SCORE_MARGIN)
         bindBottom(makeEntryTable, target: self, 0)
-        
-        makeEntryTable.dataSource = self
-        makeEntryTable.delegate = self
     }
     
     

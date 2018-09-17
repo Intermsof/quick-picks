@@ -10,19 +10,17 @@ import Foundation
 import UIKit
 
 class MyPicksTable : UITableView, UITableViewDataSource, UITableViewDelegate {
-    var contestEntry : ContestEntry?
     var sport : Sport
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let contestEntry = contestEntry {
+        if let contestEntry = User.shared.NFLcontestEntry {
             return contestEntry.picks.count + 1
         }
         return 0
     }
     
-    init(sport: Sport, contestEntry: ContestEntry?){
+    init(sport: Sport){
         self.sport = sport
-        self.contestEntry = contestEntry
         super.init(frame : CGRect(x: 0, y: 0, width: 0, height: 0), style: .plain)
         self.dataSource = self
         self.delegate = self
@@ -39,7 +37,7 @@ class MyPicksTable : UITableView, UITableViewDataSource, UITableViewDelegate {
         }
         else{
             let index = indexPath.row - 1
-            let pick = contestEntry!.picks[index]
+            let pick = User.shared.NFLcontestEntry!.picks[index] //For now, default to NFL
             let gameID = sport.currentContest.gameIDs[index]
             let game = sport.currentContest.games[gameID]
             
@@ -64,7 +62,7 @@ class MyPicksTable : UITableView, UITableViewDataSource, UITableViewDelegate {
         let cell = UITableViewCell()
         
         let label = UILabel()
-        label.text = "NFL    \(contestEntry!.date)"
+        label.text = "NFL    \(User.shared.NFLcontestEntry!.date)"
         label.font = Fonts.OswaldWithSize(size: 30)
         
         cell.addSubview(label)
