@@ -31,6 +31,8 @@ struct FirebaseConstants{
         static let FIELD_PREVCOINS = "prevCoins"
         static let FIELD_NFL_POSITION = "NFLPosition"
         static let FIELD_NFL_PICKS = "NFLPicks"
+        static let FIELD_NBA_PICKS = "NBAPicks"
+        static let FIELD_MLB_PICKS = "MLBPicks"
         static let Field_NOTIFICATIONS = "notifications"
     }
     
@@ -45,7 +47,7 @@ struct FirebaseConstants{
         static let FIELD_ISFINISHED = "isFinished"
         static let FIELD_SPREAD = "spread"
     }
-     static let COLLECTION_REWARDS = "rewards"
+    static let COLLECTION_REWARDS = "rewards"
     struct REWARDS{
         static let FIELD_PAYPALEMAIL = "paypalEmail"
         static let FIELD_QPLEMAIL = "qpEmail"

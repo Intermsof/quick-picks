@@ -10,17 +10,19 @@ import Foundation
 
 class ContestEntry {
     var picks : [Int]
+    var lastGameScore : Int
     var contest : String
     var date : String
-    var id : String
+    var id : String?
     var position : Int
     
-    init(id : String, picks : [Int], contest : String, date : String, position : Int){
+    init(id : String?, picks : [Int], contest : String, date : String, position : Int, lastGameScore : Int){
         self.id = id
         self.picks = picks
         self.contest = contest
         self.date = date
         self.position = position
+        self.lastGameScore = lastGameScore
     }
     
     func toFirebaseModel() -> [String : Any] {
@@ -29,6 +31,7 @@ class ContestEntry {
         result["contest"] = contest
         result["date"] = date
         result["position"] = position
+        result["lastGameScore"] = lastGameScore
         return result
     }
 }

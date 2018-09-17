@@ -12,11 +12,24 @@ class User {
     private static var _user : User? = nil
     var email : String!
     var username : String!
+    
     var NFLPosition : Int!
     var NFLPicks : String!
+    var NFLEntered : Bool!
+    var NFLcontestEntry : ContestEntry?
+    
+    var NBAPosition : Int!
+    var NBAPicks : String!
+    var NBAcontestEntry : ContestEntry?
+    
+    var MLBPosition : Int!
+    var MLBPicks : String!
+    var MLBcontestEntry : ContestEntry?
+    
     var coins : Int!
     var prevCoins : Int!
     var notifications : Bool!
+    
     
     static var shared : User {
         if(_user == nil){
@@ -34,6 +47,7 @@ class User {
         self.coins = 50000
         self.prevCoins = 0
         self.notifications = true
+        self.NFLEntered = false
     }
     
     func toFirebaseModel() -> [String : Any]{
@@ -45,6 +59,7 @@ class User {
         result["coins"] = coins
         result["prevCoins"] = coins
         result["notifications"] = notifications
+        result["NFLEntered"] = NFLEntered
         
         return result
     }

@@ -110,7 +110,10 @@ class LoginEmailSignin: UIViewController, Promise {
             }.startAnimation()
     }
     
-    
+    @IBAction func signinWithFacebook(){
+        self.dismiss(animated: false, completion: nil)
+        self.navigationController!.popViewController(animated: true)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

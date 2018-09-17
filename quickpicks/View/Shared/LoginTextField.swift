@@ -19,39 +19,28 @@
 import UIKit
 
 class LoginTextField : UIView, UITextFieldDelegate {
-    enum FieldType {
-        case email
-        case password
-        case passwordRetype
-        case username
-    }
+    let textField = InsetTextfield()
     
-    let textField : _LoginTextField
-    var whileEdittingErrorLabel : UILabel? = nil
-    var completionErrorLabel : UILabel? = nil
-
-    //ratio of height to width for a textfield in login pages
-    static let textFieldHeightToWidthRatio : CGFloat = 0.15
-    //ratio of height to width for a textfield and error message
-    static let textFieldAndErrorMessageHeightToWidthRatio : CGFloat = 0.2
-    static let errorMessageOffset : CGFloat = 10 //Vertical separation of errorMessage from textfield
-    static let staticAnimationDuration = 0.3 //Duration for animating appearance of error message
     static let errorMessageAttributes : [NSAttributedStringKey : Any] = [NSAttributedStringKey.font : Fonts.CollegeBoyWithSize(size: 14),
                                                                          NSAttributedStringKey.kern : 1.5,
                                                                          NSAttributedStringKey.foregroundColor : Colors.QPRed]
-    
-    
+
     //Variables for setting up placeholder and user typed text
     let textFont : UIFont
     let textColor : UIColor
     let textKerning : NSNumber
+    let validator : ((String) -> Bool)?
+    let height : CGFloat?
+    let errorMessage : String?
+    let errorLabel = UILabel()
+    var textFieldHeightConstraint : NSLayoutConstraint!
+    var selfHeightConstraint : NSLayoutConstraint!
+    var errorBottomConstraint : NSLayoutConstraint!
+    
     func setupTextfield(){
         textField.delegate = self
         textField.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.4)
         textField.textColor = UIColor.white
-        
-        //Set a default placeholder for. Call "setPlaceHolder" to change
-        setPlaceholder("default placeholder")
         
         //Styling for user typed text
         textField.defaultTextAttributes = [NSAttributedStringKey.font.rawValue : textFont,
@@ -74,20 +63,49 @@ class LoginTextField : UIView, UITextFieldDelegate {
         self.addSubview(textField)
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        textField.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        textFieldHeightConstraint = textField.heightAnchor.constraint(equalTo: self.heightAnchor)
+        textFieldHeightConstraint.isActive = true
         textField.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         textField.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-    
+        
+        
+        textField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
     }
     
-    init(){
-        textField = _LoginTextField()
+    init(placeHolder: String, validator: ((String) -> Bool)? = nil, errorMessage: String? = nil, height: CGFloat? = nil){
+        if(validator != nil && height == nil){
+            print("if validator is not nil, height cannot be nil. This WILL crash!")
+        }
+        self.validator = validator
+        self.height = height
+        self.errorMessage = errorMessage
         //Variables for setting up placeholder and user typed text
         textFont = Fonts.CollegeBoyWithSize(size: 18)
         textColor = UIColor.white
         textKerning = NSNumber(value: 1.0)
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         setupTextfield()
+        setPlaceholder(placeHolder)
+    
+        if (errorMessage != nil){
+            setupErrorLabel()
+        }
+        
+        if let height = height {
+            selfHeightConstraint = self.heightAnchor.constraint(equalToConstant: height)
+            selfHeightConstraint?.isActive = true
+        }
+    }
+    
+    func setupErrorLabel(){
+        self.addSubview(errorLabel)
+        errorLabel.attributedText = NSAttributedString(string: errorMessage!, attributes: LoginTextField.errorMessageAttributes)
+        errorLabel.isHidden = true
+        errorLabel.translatesAutoresizingMaskIntoConstraints = false
+        errorLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        errorBottomConstraint = errorLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        errorBottomConstraint.isActive = true
+        errorBottomConstraint.constant = 5
     }
     
     func setPlaceholder(_ placeholder : String){
@@ -97,27 +115,58 @@ class LoginTextField : UIView, UITextFieldDelegate {
             NSAttributedStringKey.foregroundColor : textColor,
             NSAttributedStringKey.kern : textKerning])
     }
-
+    
+    @objc func textFieldDidChange() {
+        guard let text = textField.text else {
+            return
+        }
+        if (text.isEmpty) {
+            hideErrorMessage()
+            return
+        }
+        
+        if let validator = validator {
+            let valid = validator(text)
+            if(!valid){
+                displayErrorMessage()
+            }
+            else{
+                hideErrorMessage()
+            }
+        }
+        print(text)
+    }
+    
+    func hideErrorMessage(){
+        if(isErrorMessageVisible){
+            isErrorMessageVisible = false
+            UIView.animate(withDuration: 0.1) {
+                self.selfHeightConstraint.constant -= 40
+                self.textFieldHeightConstraint.constant += 40
+                
+                self.errorLabel.isHidden = true
+                self.superview!.layoutIfNeeded()
+            }
+        }
+    }
+    var isErrorMessageVisible = false
+    func displayErrorMessage(){
+        if(!isErrorMessageVisible){
+            isErrorMessageVisible = true
+            UIView.animate(withDuration: 0.1) {
+                self.selfHeightConstraint.constant += 40
+                self.textFieldHeightConstraint.constant -= 40
+                self.errorLabel.isHidden = false
+                self.superview!.layoutIfNeeded()
+            }
+        }
+        
+        print("has error")
+        
+    }
     
 
     /*
-    static let usernameErrorMessage = "username must be 6 to 15 letters long"
-    static let emailErrorMessage = "this is not a valid email format"
-    static let passwordErrorMessage = "password must be 7 or more characters long"
-    static let passwordRetypeErrorMessage = "passwords do not match"
-    func getErrorMessage() -> String{
-        switch fieldType {
-        case .email:
-            return LoginTextField.emailErrorMessage
-        case .password:
-            return LoginTextField.passwordErrorMessage
-        case .username:
-            return LoginTextField.usernameErrorMessage
-        case .passwordRetype:
-            return LoginTextField.passwordRetypeErrorMessage
-        }
-    }
-    
     func completionValidate(){
         if(fieldType == .username){
             //FirebaseManager.shared.checkAvailable(username: self)
@@ -164,32 +213,6 @@ class LoginTextField : UIView, UITextFieldDelegate {
 
     //A method that determines whether the current text is valid, and whether it needs to animate in a error message
     //or make the error message disappear
-//    @objc func textFieldDidChange(_ textField: _LoginTextField) throws {
-//        //If user of this class asked for no validation, exit immediately
-//        if(!validate){
-//            return
-//        }
-//
-//        guard let text = textField.text else {
-//            return
-//        }
-//
-//        let textValid : Bool
-//        //If there's no text, we set it to true because we don't want to show an error message if no text available
-//        if(text.count == 0){
-//            textValid = true
-//        }else{
-//            textValid = whileEditingValidate(text: text)
-//        }
-//        let needsDisplayErrorMessage = !textValid && !self.wasInErrorState
-//        let needsHideErrorMessage = textValid && (self.wasInErrorState || self.hadCompletionError)
-//
-//        if(needsDisplayErrorMessage){
-//            addWhileEdittingErrorMessage()
-//        }else if(needsHideErrorMessage){
-//            hideWhileEdittingErrorMessage()
-//        }
-//    }
     
 //    func hideWhileEdittingErrorMessage(){
 //        print("hding while edditng")
@@ -258,18 +281,5 @@ class LoginTextField : UIView, UITextFieldDelegate {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    class _LoginTextField : UITextField{
-        static let textInsetAmount : CGFloat = 10.0
-        
-        override func textRect(forBounds bounds: CGRect) -> CGRect {
-            return bounds.insetBy(dx: _LoginTextField.textInsetAmount, dy: _LoginTextField.textInsetAmount)
-        }
-        
-        override func editingRect(forBounds bounds: CGRect) -> CGRect {
-            return bounds.insetBy(dx: _LoginTextField.textInsetAmount, dy: _LoginTextField.textInsetAmount)
-        }
-    }
-    
 
 }

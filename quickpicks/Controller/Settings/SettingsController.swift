@@ -16,7 +16,7 @@ class SettingsController : NavbarViewController{
     var amount_present = User.shared.coins!
     
     override func getLeftButtonImage() -> UIImage? {
-        return #imageLiteral(resourceName: "backbutton")
+        return #imageLiteral(resourceName: "back")
     }
     
     override func leftButtonTapped() {

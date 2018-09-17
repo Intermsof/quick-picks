@@ -9,7 +9,7 @@
 import Foundation
 
 struct NavbarTitleConstants {
-    static let PICKS_MAKE_ENTRY = "make entry"
     static let PICKS_CHOOSE_SPORTS = "daily contests"
+    static let LIVE = "live scoreboard"
     static let DEFAULT = "quickpicks"
 }

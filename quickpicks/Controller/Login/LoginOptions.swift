@@ -19,21 +19,28 @@ import UIKit
 import FacebookLogin
 import FirebaseAuth
 
-class LoginOptions : UIViewController {
-    
-    func notifySuccess() {
+class LoginOptions : UIViewController, Promise {
+    func resolve(result: Any) {
         self.performSegue(withIdentifier: "ToPicksFromLoginOptions", sender: self)
     }
     
+    func reject(error: String) {
+        print(error)
+    }
     
     var viewContainer: LoginOptionsView!
     var blurEffect : UIVisualEffectView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        print("\(Auth.auth().currentUser)")
-        viewContainer = LoginOptionsView()
-        viewContainer.addTo(self)
+//        if let user = Auth.auth().currentUser {
+//            LoginFirebase.fetchUser(email: user.email!, delegate: self)
+//        }
+//        else{
+            super.viewDidLoad()
+            viewContainer = LoginOptionsView()
+            viewContainer.addTo(self)
+//        }
+
         ViewContainer.setupRadialGradient(self.view)
     }
     
