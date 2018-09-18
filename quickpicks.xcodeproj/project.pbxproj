@@ -16,6 +16,17 @@
 		CF1132DD21267459006EF3C9 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1132DC21267459006EF3C9 /* FirebaseConstants.swift */; };
 		CF1132E021291BFF006EF3C9 /* LoginOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1132DF21291BFF006EF3C9 /* LoginOptionsView.swift */; };
 		CF1132E221291C16006EF3C9 /* ViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1132E121291C16006EF3C9 /* ViewContainer.swift */; };
+		CF2A6D8B215094CF0095CD43 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A6D8A215094CF0095CD43 /* Validators.swift */; };
+		CF2A6D8D215094F30095CD43 /* InsetTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A6D8C215094F30095CD43 /* InsetTextfield.swift */; };
+		CF2A6D8F215095A60095CD43 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A6D8E215095A60095CD43 /* Ranking.swift */; };
+		CF2A6D92215096740095CD43 /* LiveViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A6D90215096740095CD43 /* LiveViewDelegate.swift */; };
+		CF2A6D93215096740095CD43 /* PicksMakeEntryViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A6D91215096740095CD43 /* PicksMakeEntryViewDelegate.swift */; };
+		CF2A6D95215096C50095CD43 /* MakeEntryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A6D94215096C50095CD43 /* MakeEntryTable.swift */; };
+		CF2A6D9E215097720095CD43 /* LiveGamesTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A6D9A215097720095CD43 /* LiveGamesTable.swift */; };
+		CF2A6D9F215097720095CD43 /* RankingsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A6D9B215097720095CD43 /* RankingsTable.swift */; };
+		CF2A6DA0215097720095CD43 /* MyPicksTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A6D9C215097720095CD43 /* MyPicksTable.swift */; };
+		CF2A6DA1215097720095CD43 /* LiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A6D9D215097720095CD43 /* LiveView.swift */; };
+		CF2A6DA42150978B0095CD43 /* Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A6DA32150978B0095CD43 /* Live.swift */; };
 		CF3917C12129F1740073F572 /* LoginEmailBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917C02129F1740073F572 /* LoginEmailBase.swift */; };
 		CF3917C3212A13B30073F572 /* LoginEmailSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917C2212A13B30073F572 /* LoginEmailSignupView.swift */; };
 		CF3917C5212A54790073F572 /* LoginEmailSigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3917C4212A54790073F572 /* LoginEmailSigninView.swift */; };
@@ -95,6 +106,17 @@
 		CF1132DC21267459006EF3C9 /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		CF1132DF21291BFF006EF3C9 /* LoginOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionsView.swift; sourceTree = "<group>"; };
 		CF1132E121291C16006EF3C9 /* ViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewContainer.swift; sourceTree = "<group>"; };
+		CF2A6D8A215094CF0095CD43 /* Validators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
+		CF2A6D8C215094F30095CD43 /* InsetTextfield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsetTextfield.swift; sourceTree = "<group>"; };
+		CF2A6D8E215095A60095CD43 /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
+		CF2A6D90215096740095CD43 /* LiveViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewDelegate.swift; sourceTree = "<group>"; };
+		CF2A6D91215096740095CD43 /* PicksMakeEntryViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicksMakeEntryViewDelegate.swift; sourceTree = "<group>"; };
+		CF2A6D94215096C50095CD43 /* MakeEntryTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeEntryTable.swift; sourceTree = "<group>"; };
+		CF2A6D9A215097720095CD43 /* LiveGamesTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LiveGamesTable.swift; path = quickpicks/View/Live/LiveGamesTable.swift; sourceTree = SOURCE_ROOT; };
+		CF2A6D9B215097720095CD43 /* RankingsTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RankingsTable.swift; path = quickpicks/View/Live/RankingsTable.swift; sourceTree = SOURCE_ROOT; };
+		CF2A6D9C215097720095CD43 /* MyPicksTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyPicksTable.swift; path = quickpicks/View/Live/MyPicksTable.swift; sourceTree = SOURCE_ROOT; };
+		CF2A6D9D215097720095CD43 /* LiveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LiveView.swift; path = quickpicks/View/Live/LiveView.swift; sourceTree = SOURCE_ROOT; };
+		CF2A6DA32150978B0095CD43 /* Live.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Live.swift; path = quickpicks/Controller/Live/Live.swift; sourceTree = SOURCE_ROOT; };
 		CF3917C02129F1740073F572 /* LoginEmailBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailBase.swift; sourceTree = "<group>"; };
 		CF3917C2212A13B30073F572 /* LoginEmailSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailSignupView.swift; sourceTree = "<group>"; };
 		CF3917C4212A54790073F572 /* LoginEmailSigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailSigninView.swift; sourceTree = "<group>"; };
@@ -193,6 +215,7 @@
 		CF09F44C20D1BAA40044D390 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				CF2A6D8A215094CF0095CD43 /* Validators.swift */,
 				CF09F44D20D1BB3A0044D390 /* Gradients.swift */,
 				CF09F44F20D1BC470044D390 /* Colors.swift */,
 				CF09F45520D2298F0044D390 /* Fonts.swift */,
@@ -215,6 +238,8 @@
 		CF1132D621266DF9006EF3C9 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				CF2A6D90215096740095CD43 /* LiveViewDelegate.swift */,
+				CF2A6D91215096740095CD43 /* PicksMakeEntryViewDelegate.swift */,
 				CF1132D721266FDF006EF3C9 /* Promise.swift */,
 				CF3917D5212EE7680073F572 /* NavBarDelegate.swift */,
 				CF3917E12131155B0073F572 /* PicksChooseSportViewDelegate.swift */,
@@ -233,10 +258,32 @@
 		CF1132DE21291B7F006EF3C9 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				CF2A6D8C215094F30095CD43 /* InsetTextfield.swift */,
 				CF5AE43A20D3267600463C70 /* LoginTextField.swift */,
 				CF5BAA7220E1FF1800FCD949 /* Navbar.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		CF2A6D992150975F0095CD43 /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				CF2A6D9A215097720095CD43 /* LiveGamesTable.swift */,
+				CF2A6D9D215097720095CD43 /* LiveView.swift */,
+				CF2A6D9C215097720095CD43 /* MyPicksTable.swift */,
+				CF2A6D9B215097720095CD43 /* RankingsTable.swift */,
+			);
+			name = Live;
+			path = "New Group1";
+			sourceTree = "<group>";
+		};
+		CF2A6DA2215097790095CD43 /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				CF2A6DA32150978B0095CD43 /* Live.swift */,
+			);
+			name = Live;
+			path = "New Group1";
 			sourceTree = "<group>";
 		};
 		CF34E4A720D3159100AE2CB9 /* Login */ = {
@@ -256,6 +303,7 @@
 				CF3917CC212BA4CC0073F572 /* PicksChooseSportsView.swift */,
 				CF3917E82134F7640073F572 /* PicksMakeEntryView.swift */,
 				CF3917EE21350AE60073F572 /* MakeEntryTableviewCell.swift */,
+				CF2A6D94215096C50095CD43 /* MakeEntryTable.swift */,
 			);
 			path = Picks;
 			sourceTree = "<group>";
@@ -272,6 +320,7 @@
 		CF3917D72130A9660073F572 /* Contest */ = {
 			isa = PBXGroup;
 			children = (
+				CF2A6D8E215095A60095CD43 /* Ranking.swift */,
 				CF3917D82130A99D0073F572 /* Sport.swift */,
 				CF3917DA2130AB030073F572 /* Contest.swift */,
 				CF3917DC2130ACC70073F572 /* Game.swift */,
@@ -348,6 +397,7 @@
 		CF8C9FE820D0E977005F6175 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CF2A6D992150975F0095CD43 /* Live */,
 				DE62763B213AA0FA00106D88 /* SettingsView */,
 				DE627632213890FA00106D88 /* ProfileView */,
 				CF3917E521311F800073F572 /* CustomTapRecognizers */,
@@ -362,6 +412,7 @@
 		CF8C9FE920D0E9B2005F6175 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CF2A6DA2215097790095CD43 /* Live */,
 				DE627638213A9FAA00106D88 /* Settings */,
 				DE6276332138916000106D88 /* Profile */,
 				CF3917DE2130AED40073F572 /* Shared */,
@@ -430,8 +481,7 @@
 				DE7A40A421362C0300874734 /* Oswald-Light.otf */,
 				DE7A40A521362C0300874734 /* Oswald-Regular.otf */,
 			);
-			name = Fonts;
-			path = "../../quick-picks2/quickpicks/Fonts";
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -650,12 +700,18 @@
 				CF3917CD212BA4CC0073F572 /* PicksChooseSportsView.swift in Sources */,
 				CF1132DA212672F2006EF3C9 /* LoginFirebase.swift in Sources */,
 				CF5AE43B20D3267600463C70 /* LoginTextField.swift in Sources */,
+				CF2A6DA42150978B0095CD43 /* Live.swift in Sources */,
 				CF3917C3212A13B30073F572 /* LoginEmailSignupView.swift in Sources */,
 				CF1132E021291BFF006EF3C9 /* LoginOptionsView.swift in Sources */,
+				CF2A6D9E215097720095CD43 /* LiveGamesTable.swift in Sources */,
 				DE6276372138936B00106D88 /* ProfileToView.swift in Sources */,
 				CF09F45620D2298F0044D390 /* Fonts.swift in Sources */,
+				CF2A6D92215096740095CD43 /* LiveViewDelegate.swift in Sources */,
 				CF8C9FEE20D0EB0B005F6175 /* LoginEmailSignup.swift in Sources */,
+				CF2A6D8B215094CF0095CD43 /* Validators.swift in Sources */,
 				DE39F685213E15310042455C /* HelpController.swift in Sources */,
+				CF2A6DA1215097720095CD43 /* LiveView.swift in Sources */,
+				CF2A6DA0215097720095CD43 /* MyPicksTable.swift in Sources */,
 				CF1132D821266FDF006EF3C9 /* Promise.swift in Sources */,
 				CF7D967920D796BC001C1E74 /* User.swift in Sources */,
 				CF1132D32123AD29006EF3C9 /* ContestEntry.swift in Sources */,
@@ -667,12 +723,17 @@
 				CF09F45020D1BC470044D390 /* Colors.swift in Sources */,
 				CF3917D2212BD3710073F572 /* PicksChooseSport.swift in Sources */,
 				CF3917DD2130ACC70073F572 /* Game.swift in Sources */,
+				CF2A6D8D215094F30095CD43 /* InsetTextfield.swift in Sources */,
 				CF3917ED213500230073F572 /* NavbarViewController.swift in Sources */,
 				CF3917E02130AEE10073F572 /* SportFirebase.swift in Sources */,
 				CF3917EB2134FC2E0073F572 /* NavbarTitleConstants.swift in Sources */,
+				CF2A6D9F215097720095CD43 /* RankingsTable.swift in Sources */,
 				CF7D967720D79501001C1E74 /* RealtimeModel.swift in Sources */,
 				CF8C9FBC20D0C57D005F6175 /* LoginOptions.swift in Sources */,
 				DE39F68A213F1B840042455C /* SettingFirebase.swift in Sources */,
+				CF2A6D95215096C50095CD43 /* MakeEntryTable.swift in Sources */,
+				CF2A6D93215096740095CD43 /* PicksMakeEntryViewDelegate.swift in Sources */,
+				CF2A6D8F215095A60095CD43 /* Ranking.swift in Sources */,
 				DE39F67F213BDD9D0042455C /* Reward.swift in Sources */,
 				DE39F687213E15410042455C /* HelpToView.swift in Sources */,
 				CF3917C5212A54790073F572 /* LoginEmailSigninView.swift in Sources */,
@@ -865,7 +926,7 @@
 				CODE_SIGN_ENTITLEMENTS = quickpicks/quickpicks.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4255A8AWDS;
+				DEVELOPMENT_TEAM = QPFLT4RDJ4;
 				INFOPLIST_FILE = quickpicks/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -888,7 +949,7 @@
 				CODE_SIGN_ENTITLEMENTS = quickpicks/quickpicks.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4255A8AWDS;
+				DEVELOPMENT_TEAM = QPFLT4RDJ4;
 				INFOPLIST_FILE = quickpicks/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
