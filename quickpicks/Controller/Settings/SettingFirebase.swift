@@ -38,6 +38,19 @@ struct  SettingFirebase{
         }
     }
     
+    static func updateCoins(amount:Int){
+        Firestore.firestore().collection(FirebaseConstants.COLLECTION_USERS).document(User.shared.email).updateData([
+            "coins": amount
+            ])
+        { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+    }
+    
    static func updateNotifications(nval:Bool){
         
         Firestore.firestore().collection(FirebaseConstants.COLLECTION_USERS).document(User.shared.email).updateData([

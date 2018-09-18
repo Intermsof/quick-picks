@@ -62,4 +62,7 @@ class ProfileController : NavbarViewController {
             self.present(vc, animated: false, completion: nil)
         }
     }
+    override func viewDidAppear(_ animated: Bool) {
+        viewContainer.setupLabelCoin()
+    }
 }

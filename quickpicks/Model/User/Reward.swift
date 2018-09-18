@@ -31,7 +31,6 @@ static var shared : Reward {
         result["paypalEmail"] = paypalemail
         result["qpEmail"] = qpemail
         result["amount"] = amount
-
         return result
     }
 

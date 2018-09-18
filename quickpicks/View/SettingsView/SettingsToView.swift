@@ -142,7 +142,11 @@ class SettingsToView : NavViewContainer,UITableViewDataSource,UITableViewDelegat
            // text_pay.frame = CGRect(x:150 ,y:40,width:200,height:25)
             text_pay.font = UIFont(name : "College" , size:24)
             text_pay.textColor = UIColor.white
+            
+            
+            
             let text_cost:UILabel = UILabel()
+            
             uiv.addSubview(text_cost)
             text_cost.text = "COST:"
             let attributedString_five2 = NSMutableAttributedString(string: (text_cost.text!))
@@ -154,6 +158,8 @@ class SettingsToView : NavViewContainer,UITableViewDataSource,UITableViewDelegat
             let uicoin:UIImageView = UIImageView(image: #imageLiteral(resourceName: "Coin"))
             uiv.addSubview(uicoin)
             uicoin.frame = CGRect(x:210,y:110,width:15,height:15)
+            
+            
             let text_no:UILabel = UILabel()
             uiv.addSubview(text_no)
             text_no.text = "50,000"
@@ -234,10 +240,13 @@ class SettingsToView : NavViewContainer,UITableViewDataSource,UITableViewDelegat
             include(tableviewhelp)
             placeBelow(source: tableviewhelp, target: textlabel, padding: 10.0)
             bindWidth(tableviewhelp, target: self, 1.0)
-            bindHeight(tableviewhelp, target: self, 0.1)
+            //bindHeight(tableviewhelp, target: self, 0.15)
+            bindTop(tableviewhelp, target: textlabel, 30.0)
+            bindBottom(tableviewhelp, target: self, 30.0)
             tableviewhelp.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell_help")
             tableviewhelp.dataSource=self
             tableviewhelp.delegate=self
+            tableviewhelp.tableFooterView = UIView()
             
             
         case .settings:

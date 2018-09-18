@@ -44,7 +44,7 @@ class User {
         self.username = username
         self.NFLPosition = -1
         self.NFLPicks = ""
-        self.coins = 0
+        self.coins = 50000
         self.prevCoins = 0
         self.notifications = true
         self.NFLEntered = false
