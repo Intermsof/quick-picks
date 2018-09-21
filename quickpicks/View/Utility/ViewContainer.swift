@@ -18,8 +18,10 @@ class ViewContainer : UIView {
     
     func addTo(_ controller : UIViewController){
         controller.view.addSubview(self)
-        self.widthAnchor.constraint(equalTo: controller.view.widthAnchor).isActive = true
-        self.heightAnchor.constraint(equalTo: controller.view.heightAnchor).isActive = true
+        self.leftAnchor.constraint(equalTo: controller.view.leftAnchor).isActive = true
+        self.rightAnchor.constraint(equalTo: controller.view.rightAnchor).isActive = true
+        self.topAnchor.constraint(equalTo: controller.view.topAnchor).isActive = true
+        self.bottomAnchor.constraint(equalTo: controller.view.bottomAnchor).isActive = true
     }
     
     func bindLeft(_ source: UIView, target: UIView, _ padding: CGFloat){

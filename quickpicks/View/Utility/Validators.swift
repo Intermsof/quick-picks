@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct Validators {
     /* https://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift */
@@ -17,11 +18,24 @@ struct Validators {
         return emailTest.evaluate(with: testStr)
     }
     
-    static func isValidUserName(testStr : String) -> Bool{
-        return testStr.count > 5
+    static func isValidFirstname(testStr : String) -> Bool{
+        return testStr.count > 2
+    }
+    
+    static func isValidLastName(testStr : String) -> Bool{
+        return testStr.count > 1
     }
     
     static func isValidPassword(testStr : String) -> Bool{
         return testStr.count > 7
+    }
+    
+    static func signUpEmailCompletion(textField: LoginTextField){
+        let testStr = textField.textField.text!
+        Firestore.firestore().document("users/\(testStr)").getDocument { (snapshot, error) in
+            if let snapshot = snapshot, snapshot.exists {
+                textField.displayErrorMessage(completion: true)
+            }
+        }
     }
 }

@@ -114,6 +114,7 @@ struct LoginFirebase {
                     User.shared.NFLEntered = data["NFLEntered"] as! Bool
                     //User.shared.NBAPicks = data[FirebaseConstants.USERS.FIELD_NBA_PICKS] as! String
                     //User.shared.MLBPicks = data[FirebaseConstants.USERS.FIELD_MLB_PICKS] as! String
+                    
                     if(!User.shared.NFLPicks.isEmpty){
                         Firestore.firestore()
                             .document("users/\(email)/NFLEntries/\(User.shared.NFLPicks!)")

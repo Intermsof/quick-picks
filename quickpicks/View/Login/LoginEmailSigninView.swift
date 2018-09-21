@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 
-class LoginEmailSigninView : LoginEmailBase {
+class LoginEmailSigninView : ViewContainer {
+    let TEXTFIELD_PADDING : CGFloat = 30
+    let TEXTFIELD_WIDTH_PERCENTAGE : CGFloat = 0.75
+    let TEXTFIELD_HEIGHT : CGFloat = 45
     let emailTextField = LoginTextField(placeHolder: "Email")
     let passwordTextField = LoginTextField(placeHolder: "Password")
     let facebookSigninButton = UIButton()
@@ -41,7 +44,7 @@ class LoginEmailSigninView : LoginEmailBase {
     }
     
     func setupSigninButton(){
-        bindWidth(signinButton, target: self, SIGNUP_BUTTON_WIDTH_PERCENTAGE)
+        bindWidth(signinButton, target: self, TEXTFIELD_WIDTH_PERCENTAGE)
         placeBelow(source: signinButton, target: passwordTextField, padding: TEXTFIELD_PADDING)
         centerHorizontally(signinButton)
         signinButton.backgroundColor = UIColor.black
@@ -52,15 +55,19 @@ class LoginEmailSigninView : LoginEmailBase {
     
     func setupEmailField(){
         bindWidth(emailTextField, target: self, TEXTFIELD_WIDTH_PERCENTAGE)
-        emailTextField.heightAnchor.constraint(equalToConstant: LoginEmailBase.TEXTFIELD_HEIGHT)
+        emailTextField.heightAnchor.constraint(equalToConstant: TEXTFIELD_HEIGHT)
+        emailTextField.textField.keyboardType = .emailAddress
+        
+        
         centerHorizontally(emailTextField)
-        placeBelow(source: emailTextField, target: descriptionImage, padding: TEXTFIELD_PADDING)
+        bindTop(emailTextField, target: self, TEXTFIELD_PADDING)
         emailTextField.setPlaceholder("email")
     }
     
     func setupPasswordField(){
         bindWidth(passwordTextField, target: self, TEXTFIELD_WIDTH_PERCENTAGE)
-        emailTextField.heightAnchor.constraint(equalToConstant: LoginEmailBase.TEXTFIELD_HEIGHT)
+        passwordTextField.heightAnchor.constraint(equalToConstant: TEXTFIELD_HEIGHT)
+        passwordTextField.textField.isSecureTextEntry = true
         centerHorizontally(passwordTextField)
         placeBelow(source: passwordTextField, target: emailTextField, padding: TEXTFIELD_PADDING)
         passwordTextField.setPlaceholder("password")

@@ -28,13 +28,18 @@ class LoginEmailSignin: UIViewController, Promise {
         viewContainer = LoginEmailSigninView()
         viewContainer.addTo(self)
         ViewContainer.setupRadialGradient(self.view)
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginEmailSignin.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginEmailSignin.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(LoginEmailSignin.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(LoginEmailSignin.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     func resolve(result: Any) {
         print("resolved")
         self.performSegue(withIdentifier: SegueConstants.LOGINEMAILSIGNIN_PICKSCHOOSESPORTS, sender: self)
+        print("fuck after")
     }
     
     func reject(error: String) {
@@ -85,30 +90,30 @@ class LoginEmailSignin: UIViewController, Promise {
     }
     
 
-    @objc func keyboardWillShow(_ sender : NSNotification){
-        if(!self.containerRaised){
-            containerRaised = true
-            let animationCurve : NSNumber = sender.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
-            let animationDuration : NSNumber = sender.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
-            let endFrame : CGRect = (sender.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-            
-            UIViewPropertyAnimator(duration: animationDuration.doubleValue, curve: UIViewAnimationCurve(rawValue: animationCurve.intValue)!) {
-                self.view.center.y -= endFrame.size.height / 2.0
-                self.viewContainer.headerImage.alpha = 0.0
-                }.startAnimation()
-        }
-        
-    }
-    
-    @objc func keyboardWillHide(_ sender: NSNotification){
-        self.containerRaised = false
-        let animationCurve : NSNumber = sender.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
-        let animationDuration : NSNumber = sender.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
-        UIViewPropertyAnimator(duration: animationDuration.doubleValue, curve: UIViewAnimationCurve(rawValue: animationCurve.intValue)!) {
-            self.view.center.y = 0
-            self.viewContainer.headerImage.alpha = 1.0
-            }.startAnimation()
-    }
+//    @objc func keyboardWillShow(_ sender : NSNotification){
+//        if(!self.containerRaised){
+//            containerRaised = true
+//            let animationCurve : NSNumber = sender.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
+//            let animationDuration : NSNumber = sender.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
+//            let endFrame : CGRect = (sender.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+//            
+//            UIViewPropertyAnimator(duration: animationDuration.doubleValue, curve: UIViewAnimationCurve(rawValue: animationCurve.intValue)!) {
+//                self.view.center.y -= endFrame.size.height / 2.0
+//                self.viewContainer.headerImage.alpha = 0.0
+//                }.startAnimation()
+//        }
+//        
+//    }
+//    
+//    @objc func keyboardWillHide(_ sender: NSNotification){
+//        self.containerRaised = false
+//        let animationCurve : NSNumber = sender.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
+//        let animationDuration : NSNumber = sender.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
+//        UIViewPropertyAnimator(duration: animationDuration.doubleValue, curve: UIViewAnimationCurve(rawValue: animationCurve.intValue)!) {
+//            self.view.center.y = 0
+//            self.viewContainer.headerImage.alpha = 1.0
+//            }.startAnimation()
+//    }
     
     @IBAction func signinWithFacebook(){
         self.dismiss(animated: false, completion: nil)

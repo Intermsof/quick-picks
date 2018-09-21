@@ -15,7 +15,7 @@
 
 import UIKit
 
-class LoginEmailSignup: UIViewController, Promise{
+class LoginEmailSignup: UIViewController, Promise, LoginEmailSignupDelegate{
     func resolve(result: Any) {
         print("resolved")
     }
@@ -25,19 +25,22 @@ class LoginEmailSignup: UIViewController, Promise{
         print(error)
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     var viewContainer : LoginEmailSignupView!
     var containerRaised : Bool = false
 
     override func viewDidLoad() {
         print("view did load called")
         super.viewDidLoad()
+        self.navigationController!.setNeedsStatusBarAppearanceUpdate()
 
-        viewContainer = LoginEmailSignupView()
+        viewContainer = LoginEmailSignupView(delegate: self)
         viewContainer.addTo(self)
         ViewContainer.setupRadialGradient(self.view)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginEmailSignup.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginEmailSignup.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     static func createButtons(signupString : String, fbString : String)->(UIButton, UIButton){
@@ -59,35 +62,8 @@ class LoginEmailSignup: UIViewController, Promise{
         return (signupButton, fbLoginButton)
     }
     
-    @objc func keyboardWillShow(_ sender : NSNotification){
-        if(!self.containerRaised){
-            containerRaised = true
-            let animationCurve : NSNumber = sender.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
-            let animationDuration : NSNumber = sender.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
-            let endFrame : CGRect = (sender.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-            
-            UIViewPropertyAnimator(duration: animationDuration.doubleValue, curve: UIViewAnimationCurve(rawValue: animationCurve.intValue)!) {
 
-                self.view.center.y -= endFrame.size.height
-                self.viewContainer.headerImage.alpha = 0.0
-                self.viewContainer.descriptionImage.alpha = 0.0
-            }.startAnimation()
-        }
-        
-    }
-    
-    @objc func keyboardWillHide(_ sender: NSNotification){
-        self.containerRaised = false
-        let animationCurve : NSNumber = sender.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
-        let animationDuration : NSNumber = sender.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
-        UIViewPropertyAnimator(duration: animationDuration.doubleValue, curve: UIViewAnimationCurve(rawValue: animationCurve.intValue)!) {
-            self.view.center.y = 0
-            self.viewContainer.headerImage.alpha = 1.0
-            self.viewContainer.descriptionImage.alpha = 1.0
-        }.startAnimation()
-    }
-    
-    @IBAction func signUpWithFacebook(){
+    @IBAction func goBack(){
         self.dismiss(animated: false, completion: nil)
         self.navigationController!.popViewController(animated: true)
     }
@@ -95,7 +71,7 @@ class LoginEmailSignup: UIViewController, Promise{
     @IBAction func signupUser(){
         print("sign up user fired")
         let email = viewContainer.emailField.textField.text!
-        let username = viewContainer.usernameField.textField.text!
+        let username = "\(viewContainer.firstNameField.textField.text!) \(viewContainer.lastNameField.textField.text!.first!)"
         let password = viewContainer.passwordField.textField.text!
         
         LoginFirebase.signupUser(email: email, username: username, password: password , delegate: self)

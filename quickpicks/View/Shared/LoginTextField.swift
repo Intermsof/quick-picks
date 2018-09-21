@@ -21,7 +21,7 @@ import UIKit
 class LoginTextField : UIView, UITextFieldDelegate {
     let textField = InsetTextfield()
     
-    static let errorMessageAttributes : [NSAttributedStringKey : Any] = [NSAttributedStringKey.font : Fonts.CollegeBoyWithSize(size: 14),
+    static let errorMessageAttributes : [NSAttributedStringKey : Any] = [NSAttributedStringKey.font : Fonts.OswaldWithSize(size: 18),
                                                                          NSAttributedStringKey.kern : 1.5,
                                                                          NSAttributedStringKey.foregroundColor : Colors.QPRed]
 
@@ -32,10 +32,12 @@ class LoginTextField : UIView, UITextFieldDelegate {
     let validator : ((String) -> Bool)?
     let height : CGFloat?
     let errorMessage : String?
+    let attributedErrorMessage : NSAttributedString?
+    let completionErrorMessage : String?
+    let attributedCompletionErrorMessage : NSAttributedString?
     let errorLabel = UILabel()
-    var textFieldHeightConstraint : NSLayoutConstraint!
     var selfHeightConstraint : NSLayoutConstraint!
-    var errorBottomConstraint : NSLayoutConstraint!
+    var completionValidator : ((LoginTextField) -> Void)?
     
     func setupTextfield(){
         textField.delegate = self
@@ -63,49 +65,94 @@ class LoginTextField : UIView, UITextFieldDelegate {
         self.addSubview(textField)
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        textFieldHeightConstraint = textField.heightAnchor.constraint(equalTo: self.heightAnchor)
-        textFieldHeightConstraint.isActive = true
+        if let height = self.height {
+            textField.heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
+        else{
+            textField.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        }
+        
         textField.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        textField.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        
-        
+        textField.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         textField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
     }
     
-    init(placeHolder: String, validator: ((String) -> Bool)? = nil, errorMessage: String? = nil, height: CGFloat? = nil){
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        if let completionValidator = completionValidator {
+            if(!isErrorMessageVisible){
+                completionValidator(self)
+            }
+        }
+    }
+
+
+    init(placeHolder: String,
+         validator: ((String) -> Bool)? = nil,
+         errorMessage: String? = nil,
+         height: CGFloat? = nil,
+         completionValidator: ((LoginTextField) -> Void)? = nil,
+         completionErrorMessage: String? = nil){
         if(validator != nil && height == nil){
             print("if validator is not nil, height cannot be nil. This WILL crash!")
         }
         self.validator = validator
         self.height = height
         self.errorMessage = errorMessage
+        self.completionValidator = completionValidator
+        self.completionErrorMessage = completionErrorMessage
+        
+        if let errorMessage = errorMessage{
+            attributedErrorMessage = NSAttributedString(string: errorMessage, attributes: LoginTextField.errorMessageAttributes)
+        }
+        else{
+            attributedErrorMessage = nil
+        }
+        
+        
+        if let completionErrorMessage = completionErrorMessage{
+            attributedCompletionErrorMessage = NSAttributedString(string: completionErrorMessage, attributes: LoginTextField.errorMessageAttributes)
+        }
+        else{
+            attributedCompletionErrorMessage = nil
+        }
+        
         //Variables for setting up placeholder and user typed text
-        textFont = Fonts.CollegeBoyWithSize(size: 18)
+        textFont = Fonts.CollegeBoyWithSize(size: 22)
         textColor = UIColor.white
         textKerning = NSNumber(value: 1.0)
+        
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        
         setupTextfield()
         setPlaceholder(placeHolder)
-    
+        
         if (errorMessage != nil){
             setupErrorLabel()
         }
         
         if let height = height {
+            self.translatesAutoresizingMaskIntoConstraints = false
             selfHeightConstraint = self.heightAnchor.constraint(equalToConstant: height)
             selfHeightConstraint?.isActive = true
         }
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let errorMessage = errorMessage {
+            print(errorMessage)
+        }
+        else {
+            print("textfielddidendediting")
+        }
+    }
+    
     func setupErrorLabel(){
         self.addSubview(errorLabel)
-        errorLabel.attributedText = NSAttributedString(string: errorMessage!, attributes: LoginTextField.errorMessageAttributes)
+        errorLabel.attributedText = attributedErrorMessage!
         errorLabel.isHidden = true
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
         errorLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        errorBottomConstraint = errorLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-        errorBottomConstraint.isActive = true
-        errorBottomConstraint.constant = 5
+        errorLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
     
     func setPlaceholder(_ placeholder : String){
@@ -141,22 +188,25 @@ class LoginTextField : UIView, UITextFieldDelegate {
         if(isErrorMessageVisible){
             isErrorMessageVisible = false
             UIView.animate(withDuration: 0.1) {
-                self.selfHeightConstraint.constant -= 40
-                self.textFieldHeightConstraint.constant += 40
-                
                 self.errorLabel.isHidden = true
+                self.selfHeightConstraint.constant -= 25
                 self.superview!.layoutIfNeeded()
             }
         }
     }
     var isErrorMessageVisible = false
-    func displayErrorMessage(){
+    func displayErrorMessage(completion: Bool = false){
         if(!isErrorMessageVisible){
+            if(completion){
+                errorLabel.attributedText = attributedCompletionErrorMessage!
+            }
+            else{
+                errorLabel.attributedText = attributedErrorMessage!
+            }
             isErrorMessageVisible = true
             UIView.animate(withDuration: 0.1) {
-                self.selfHeightConstraint.constant += 40
-                self.textFieldHeightConstraint.constant -= 40
                 self.errorLabel.isHidden = false
+                self.selfHeightConstraint.constant += 25
                 self.superview!.layoutIfNeeded()
             }
         }

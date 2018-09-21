@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--My Nav Controller-->
         <scene sceneID="Fi9-a6-xdw">
             <objects>
-                <navigationController storyboardIdentifier="NavigationController" id="MsX-7r-NRO" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" id="MsX-7r-NRO" customClass="MyNavController" customModule="quickpicks" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qzw-IX-iFD">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -212,6 +212,6 @@
         <image name="QPProfileTB" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vhp-aR-htm"/>
+        <segue reference="N1E-yv-5fh"/>
     </inferredMetricsTieBreakers>
 </document>

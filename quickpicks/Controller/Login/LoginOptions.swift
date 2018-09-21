@@ -28,6 +28,13 @@ class LoginOptions : UIViewController, Promise {
         print(error)
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+//    override var childViewControllerForStatusBarHidden: UIViewController? {
+//        return childViewControllers // or viewControllers.first
+//    }
+    
     var viewContainer: LoginOptionsView!
     var blurEffect : UIVisualEffectView!
     

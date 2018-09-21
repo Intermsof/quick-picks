@@ -77,7 +77,7 @@ class LoginOptionsView : ViewContainer {
         emailSignupButton.backgroundColor = UIColor.black
         emailSignupButton.setTitle("sign up with email", for: .normal)
         emailSignupButton.setTitleColor(UIColor.white, for: .normal)
-        emailSignupButton.titleLabel!.font = Fonts.CollegeBoyWithSize(size: 22)
+        emailSignupButton.titleLabel!.font = Fonts.CollegeBoyWithSize(size: 24)
         emailSignupButton.layer.shadowColor = UIColor.black.cgColor
         emailSignupButton.layer.shadowOpacity = 0.3
         emailSignupButton.layer.shadowOffset = CGSize.zero
